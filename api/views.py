@@ -1,3 +1,4 @@
+import os
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -22,7 +23,6 @@ class DocumentAnalysisView(APIView):
             uploaded_file: UploadedFile = request.FILES['image']
             
             # Validate image format
-            import os
             file_extension = os.path.splitext(uploaded_file.name)[1].lower()
             supported_formats = ['.jpg', '.jpeg', '.png']
             
@@ -50,19 +50,3 @@ class DocumentAnalysisView(APIView):
                 {"error": f"Document analysis request failed: {str(e)}"}, 
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
-    
-    # def get(self, request):
-    #     """Get information about document analysis capabilities."""
-    #     return Response({
-    #         "message": "Upload an image using POST request with 'image' field for comprehensive document analysis.",
-    #         "response_format": {
-    #             "document_type": "string - The classified document type",
-    #             "entities": "array - List of entities with name and value properties"
-    #         },
-    #         "services_used": [
-    #             "OCR for text extraction",
-    #             "Dual confidence search for document classification", 
-    #             "LLM service for entity extraction"
-    #         ],
-    #         "supported_formats": [".jpg", ".jpeg", ".png", ".tiff", ".bmp"]
-    #     })
