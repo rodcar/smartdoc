@@ -277,6 +277,15 @@ curl -X POST http://localhost:8000/analyze/ \
 python manage.py process_documents /path/to/documents/
 ```
 
+#### Running Tests
+```bash
+# Set dataset path for tests
+export SMARTDOC_DATASET_PATH=/path/to/docs-sm
+
+# Run all tests
+python manage.py test tests
+```
+
 ---
 
 ## 📊 Sample Outputs
