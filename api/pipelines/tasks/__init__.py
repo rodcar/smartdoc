@@ -6,9 +6,6 @@ from .ocr_tasks import (
 
 # Import embedding tasks
 from .embedding_tasks import (
-    initialize_embedding_service,
-    generate_batch_embeddings,
-    generate_dual_embeddings,
     generate_image_embedding,
     generate_text_embedding,
     init_text_embedding_provider,
