@@ -22,7 +22,7 @@
 - [🎯 Problem Definition](#-problem-definition)
 - [🔬 Methodology](#-methodology)
 - [📝 Requirements](#-requirements)
-- [🏗️ Architecture](#️-architecture)
+- [🏗️ Architecture](#️-architecture-design)
 - [⚙️ Implementation](#️-implementation)
 - [🧪 Testing](#-testing)
 - [🚀 Setup & Usage](#-setup--usage)
