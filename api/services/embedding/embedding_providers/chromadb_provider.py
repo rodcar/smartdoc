@@ -296,7 +296,7 @@ class ChromaDBProvider(EmbeddingProvider):
         Returns:
             Dictionary containing embedding result and metadata
         """
-        #self._initialize_functions()
+        self._initialize_functions()
         start_time = time.time()
         
         try:
