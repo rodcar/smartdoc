@@ -5,7 +5,7 @@ from django.conf import settings
 
 from api.services.ocr.ocr_providers import AVAILABLE_PROVIDERS as OCR_PROVIDERS
 from api.services.llm.llm_providers import AVAILABLE_PROVIDERS as LLM_PROVIDERS
-from api.services.vectordb.vectordb_providers import AVAILABLE_PROVIDERS as VECTORDB_PROVIDERS
+from api.data.vectordb_providers import AVAILABLE_PROVIDERS as VECTORDB_PROVIDERS
 from api.services.embedding.embedding_providers import AVAILABLE_PROVIDERS as EMBEDDING_PROVIDERS
 
 class ValidationError(Exception):

@@ -10,7 +10,7 @@ from PIL import Image
 from datetime import datetime
 import json
 
-from .vectordb_providers import AVAILABLE_PROVIDERS
+from api.data.vectordb_providers import AVAILABLE_PROVIDERS
 
 
 class VectorDBService:

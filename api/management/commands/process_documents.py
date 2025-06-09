@@ -9,7 +9,7 @@ from api.management.commands.process_documents_config import ProcessingConfig, V
 from api.pipelines.flows.document_processing_flow import document_processing_flow
 from api.services.ocr.ocr_providers import AVAILABLE_PROVIDERS as OCR_PROVIDERS
 from api.services.llm.llm_providers import AVAILABLE_PROVIDERS as LLM_PROVIDERS
-from api.services.vectordb.vectordb_providers import AVAILABLE_PROVIDERS as VECTORDB_PROVIDERS
+from api.data.vectordb_providers import AVAILABLE_PROVIDERS as VECTORDB_PROVIDERS
 from api.services.embedding.embedding_providers import AVAILABLE_PROVIDERS as EMBEDDING_PROVIDERS
 
 
