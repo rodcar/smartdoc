@@ -40,21 +40,6 @@ class SmartDocTestCase(TestCase):
         self.llm_service = get_llm_service()
         self.analysis_service = analysis_service
         
-        # Initialize embedding providers for singleton functionality
-        try:
-            # Initialize both text and image embedding providers
-            text_init_result = EmbeddingService.init_text_embedding_provider()
-            image_init_result = EmbeddingService.init_image_embedding_provider()
-            
-            if not text_init_result.get('success'):
-                print(f"⚠️ Text embedding provider initialization failed: {text_init_result.get('error')}")
-            
-            if not image_init_result.get('success'):
-                print(f"⚠️ Image embedding provider initialization failed: {image_init_result.get('error')}")
-                
-        except Exception as e:
-            print(f"⚠️ Warning: Could not initialize embedding providers: {e}")
-        
         # Document types for testing
         self.document_types = ["invoice", "form", "contract", "letter", "memo", "resume", "budget", "email", "presentation", "scientific_report"]
         

@@ -175,10 +175,13 @@ class EmbeddingService:
         """
         # Use app-level singleton provider first (fastest)
         if provider_name is None:
-            from .startup import get_app_image_embedding_provider
-            app_provider = get_app_image_embedding_provider()
-            if app_provider is not None:
-                return app_provider.generate_image_embedding(image)
+            try:
+                from .startup import get_app_image_embedding_provider
+                app_provider = get_app_image_embedding_provider()
+                if app_provider is not None:
+                    return app_provider.generate_image_embedding(image)
+            except ImportError:
+                pass  # startup module not available, continue with other providers
         
         # Use class-level singleton provider if available and no specific provider requested
         if provider_name is None and self._image_embedding_provider is not None:
@@ -205,10 +208,13 @@ class EmbeddingService:
         """
         # Use app-level singleton provider first (fastest)
         if provider_name is None:
-            from .startup import get_app_text_embedding_provider
-            app_provider = get_app_text_embedding_provider()
-            if app_provider is not None:
-                return app_provider.generate_text_embedding(text, source_path)
+            try:
+                from .startup import get_app_text_embedding_provider
+                app_provider = get_app_text_embedding_provider()
+                if app_provider is not None:
+                    return app_provider.generate_text_embedding(text, source_path)
+            except ImportError:
+                pass  # startup module not available, continue with other providers
         
         # Use class-level singleton provider if available and no specific provider requested
         if provider_name is None and self._text_embedding_provider is not None:
@@ -218,33 +224,7 @@ class EmbeddingService:
         provider = self._get_provider(provider_name)
         return provider.generate_text_embedding(text, source_path)
     
-    def generate_dual_embeddings(self,
-                                image: Union[str, np.ndarray, Image.Image],
-                                text: str,
-                                classification_result: Optional[Dict[str, Any]] = None,
-                                provider_name: Optional[str] = None) -> Dict[str, Any]:
-        """
-        Generate both image and text embeddings for a document.
-        
-        Args:
-            image: Image to embed
-            text: Text to embed
-            classification_result: Optional classification result for metadata
-            provider_name: Specific provider to use (optional)
-            
-        Returns:
-            Dictionary containing both embedding results
-        """
-        provider = self._get_provider(provider_name)
-        
-        # Check if provider supports dual embeddings
-        if hasattr(provider, 'generate_dual_embeddings'):
-            return provider.generate_dual_embeddings(image, text, classification_result)
-        else:
-            # Fallback: generate separately
-            return self._generate_dual_embeddings_fallback(
-                provider, image, text, classification_result
-            )
+
     
 
     
@@ -404,74 +384,7 @@ class EmbeddingService:
         
         raise ValueError(f"Provider {provider_name} not found")
     
-    def _generate_dual_embeddings_fallback(self,
-                                          provider: EmbeddingProvider,
-                                          image: Union[str, np.ndarray, Image.Image],
-                                          text: str,
-                                          classification_result: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        """
-        Fallback method to generate dual embeddings when provider doesn't support it natively.
-        """
-        start_time = time.time()
-        
-        try:
-            # Get source path for metadata
-            source_path = image if isinstance(image, str) else "in_memory_image"
-            
-            # Generate embeddings separately
-            image_result = provider.generate_image_embedding(image)
-            text_result = provider.generate_text_embedding(text, source_path) if text and text.strip() else None
-            
-            total_time = time.time() - start_time
-            
-            # Create document ID
-            if hasattr(provider, '_create_document_id'):
-                doc_id = provider._create_document_id(source_path)
-            else:
-                import hashlib
-                doc_id = hashlib.md5(source_path.encode()).hexdigest()
-            
-            # Combine results
-            combined_result = {
-                'document_id': doc_id,
-                'image_path': source_path,
-                'image_embedding': image_result,
-                'text_embedding': text_result,
-                'classification': classification_result,
-                'has_image_embedding': image_result.get('success', False) if image_result else False,
-                'has_text_embedding': text_result.get('success', False) if text_result else False,
-                'total_processing_time_seconds': round(total_time, 3),
-                'success': True,
-                'created_at': time.time()
-            }
-            
-            return combined_result
-            
-        except Exception as e:
-            total_time = time.time() - start_time
-            source_path = image if isinstance(image, str) else "in_memory_image"
-            error_msg = f"Dual embedding generation failed for {source_path}: {str(e)}"
-            
-            # Create document ID
-            if hasattr(provider, '_create_document_id'):
-                doc_id = provider._create_document_id(source_path)
-            else:
-                import hashlib
-                doc_id = hashlib.md5(source_path.encode()).hexdigest()
-            
-            return {
-                'document_id': doc_id,
-                'image_path': source_path,
-                'image_embedding': None,
-                'text_embedding': None,
-                'classification': classification_result,
-                'has_image_embedding': False,
-                'has_text_embedding': False,
-                'total_processing_time_seconds': round(total_time, 3),
-                'success': False,
-                'error': error_msg,
-                'created_at': time.time()
-            }
+
 
 
     def _initialize_functions(self):
