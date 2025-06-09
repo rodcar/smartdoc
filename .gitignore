@@ -1,0 +1,69 @@
+# Database
+db.sqlite3
+*.sqlite3
+
+# Django stuff
+*.log
+staticfiles/
+media/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# macOS
+.DS_Store
+.DS_Store?
+._*
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Local env
+.env
+.venv/
+
+# Dataset
+docs-sm/
+
+# Output test
+output/
+
+# Ignore pyc files
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+*.pywz
+*.pyzw
+*.pyzwz
+__pycache__/
+
+# Chroma db
+chroma_db_dual/
+chromadb/
+chromadb_canary/
+
+*.bin
+*.pickle
+
+notebooks/
+
+query_chromadb.py
+
+# Celery runtime files
+control/

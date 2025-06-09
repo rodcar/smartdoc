@@ -1,0 +1,17 @@
+django
+djangorestframework
+Pillow
+pytesseract
+prefect>=2.14.0
+ipykernel
+matplotlib
+seaborn
+openai
+open-clip-torch
+celery
+django-celery-results
+python-dotenv
+chromadb
+celery
+django-celery-results
+kombu[django]
