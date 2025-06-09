@@ -245,6 +245,9 @@ pip install -r requirements.txt
 
 # 4. Setup database
 python manage.py migrate
+
+# 5. (Optional) Disable embedding preloading for development
+# export SMARTDOC_PRELOAD_EMBEDDINGS=false
 ```
 
 ### 🎯 Usage

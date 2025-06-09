@@ -173,6 +173,13 @@ class EmbeddingService:
         Returns:
             Dictionary containing embedding result and metadata
         """
+        # Use app-level singleton provider first (fastest)
+        if provider_name is None:
+            from .startup import get_app_image_embedding_provider
+            app_provider = get_app_image_embedding_provider()
+            if app_provider is not None:
+                return app_provider.generate_image_embedding(image)
+        
         # Use class-level singleton provider if available and no specific provider requested
         if provider_name is None and self._image_embedding_provider is not None:
             return self._image_embedding_provider.generate_image_embedding(image)
@@ -196,6 +203,13 @@ class EmbeddingService:
         Returns:
             Dictionary containing embedding result and metadata
         """
+        # Use app-level singleton provider first (fastest)
+        if provider_name is None:
+            from .startup import get_app_text_embedding_provider
+            app_provider = get_app_text_embedding_provider()
+            if app_provider is not None:
+                return app_provider.generate_text_embedding(text, source_path)
+        
         # Use class-level singleton provider if available and no specific provider requested
         if provider_name is None and self._text_embedding_provider is not None:
             return self._text_embedding_provider.generate_text_embedding(text, source_path)

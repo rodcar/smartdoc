@@ -24,8 +24,8 @@ class AnalysisService:
         self.vectordb_service = VectorDBService(auto_load_providers=True)
         self.vectordb_service.initialize_database(db_path="./chromadb")
         
-        # Initialize embedding service
-        self.embedding_service = EmbeddingService(auto_load_providers=True)
+        # Initialize embedding service (auto_load disabled for faster startup)
+        self.embedding_service = EmbeddingService(auto_load_providers=False)
     
     def analyze_document(self, image_file: UploadedFile) -> Dict[str, Any]:
         """
