@@ -65,7 +65,7 @@ The following table outlines all project requirements organized by category, wit
 | 🔧 **Functional** | FR-002 | Perform OCR text extraction from document images | High |
 | 🔧 **Functional** | FR-003 | Automatically identify document types (invoice, form, contract, etc.) | High |
 | 🔧 **Functional** | FR-004 | Extract key entities from documents | High |
-| 🔧 **Functional** | FR-005 | Provide API endpoint for document type identification and entity extraction | Medium |
+| 🔧 **Functional** | FR-005 | Provide API endpoint for document type identification and entity extraction | High |
 | 🔧 **Functional** | FR-006 | Pipeline processing of multiple document images | Medium |
 | 🔧 **Functional** | FR-007 | Save document, document type and extracted entities in database | Medium |
 | ⚡ **Performance** | NFR-001 | Average processing time per document in pipeline less than 1 second | Medium |
@@ -203,6 +203,7 @@ smartdoc/
 | **UT-001** | OCR Text Extraction | OCR service extracts readable text from uploaded document images | FR-002 |
 | **UT-002** | Document Classification | LLM service correctly identifies document types (invoice, form, contract) with >70% accuracy | FR-003 |
 | **UT-003** | Entity Extraction | Analysis service extracts key entities (dates, amounts, names) with structured output | FR-004 |
+| **UT-004** | API Endpoint Functionality | API endpoint accepts document uploads and returns document type and extracted entities in JSON format | FR-005 |
 
 #### ⚡ Performance Testing for High Priority Performance Requirements
 
@@ -254,7 +255,7 @@ python manage.py migrate
 python manage.py runserver
 
 # Test API
-curl -X POST http://localhost:8000/analyze/ \
+curl -X POST http://localhost:8000/api/analyze/ \
   -F "file=@document.jpg"
 ```
 

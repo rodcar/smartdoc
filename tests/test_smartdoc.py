@@ -184,6 +184,27 @@ class SmartDocTestCase(TestCase):
         else:
             self.skipTest("Entity extraction service unavailable")
 
+    def test_ut_004_api_endpoint_functionality(self):
+        """UT-004: API Endpoint Functionality - Requirement ID: FR-005"""
+        print("\n🧪 UT-004: API Endpoint Functionality")
+        
+        if 'invoice' not in self.sample_docs:
+            self.skipTest("No invoice sample found")
+        
+        doc_path = self.sample_docs['invoice']
+        print(f"Testing: {os.path.basename(doc_path)}")
+        
+        uploaded_file = self._create_uploaded_file(doc_path)
+        response = self.client.post('/api/analyze/', {'image': uploaded_file})
+        
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertIsInstance(data, dict)
+        self.assertIn('document_type', data)
+        self.assertIn('entities', data)
+        
+        print(f"✅ API returned: {data.get('document_type')} with {len(data.get('entities', []))} entities")
+
     def test_pt_001_classification_accuracy(self):
         """PT-001: Classification Accuracy - Requirement ID: NFR-002 (≥70%)"""
         print("\n🧪 PT-001: Classification Accuracy")
