@@ -8,7 +8,7 @@ import numpy as np
 from typing import List, Dict, Any, Optional, Union
 from PIL import Image
 
-from . import EmbeddingProvider
+from .base import EmbeddingProvider
 
 # Try to import embedding dependencies
 try:
@@ -25,7 +25,6 @@ class ChromaDBProvider(EmbeddingProvider):
     def __init__(self, 
                  text_model: str = "all-MiniLM-L6-v2",
                  image_model: str = "openclip"):
-        super().__init__("chromadb")
         self.text_model = text_model
         self.image_model = image_model
         self._image_embedding_function = None
@@ -427,70 +426,12 @@ class ChromaDBProvider(EmbeddingProvider):
                 'created_at': time.time()
             }
     
-    def generate_dual_embeddings(self,
-                                image: Union[str, np.ndarray, Image.Image],
-                                text: str,
-                                classification_result: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
-        """
-        Generate both image and text embeddings for a single document.
-        
-        Args:
-            image: Image to embed
-            text: Text to embed
-            classification_result: Optional classification result for metadata
-            
-        Returns:
-            Dictionary containing both embedding results
-        """
-        start_time = time.time()
-        
-        try:
-            # Get source path for metadata
-            source_path = image if isinstance(image, str) else "in_memory_image"
-            
-            # Generate embeddings
-            image_result = self.generate_image_embedding(image)
-            text_result = self.generate_text_embedding(text, source_path) if text and text.strip() else None
-            
-            total_time = time.time() - start_time
-            doc_id = self._create_document_id(source_path)
-            
-            # Combine results
-            combined_result = {
-                'document_id': doc_id,
-                'image_path': source_path,
-                'image_embedding': image_result,
-                'text_embedding': text_result,
-                'classification': classification_result,
-                'device': self._device,
-                'has_image_embedding': image_result['success'] if image_result else False,
-                'has_text_embedding': text_result['success'] if text_result else False,
-                'total_processing_time_seconds': round(total_time, 3),
-                'success': True,
-                'created_at': time.time()
-            }
-            
-            return combined_result
-            
-        except Exception as e:
-            total_time = time.time() - start_time
-            source_path = image if isinstance(image, str) else "in_memory_image"
-            error_msg = f"Dual embedding generation failed for {source_path}: {str(e)}"
-            
-            return {
-                'document_id': self._create_document_id(source_path),
-                'image_path': source_path,
-                'image_embedding': None,
-                'text_embedding': None,
-                'classification': classification_result,
-                'device': self._device,
-                'has_image_embedding': False,
-                'has_text_embedding': False,
-                'total_processing_time_seconds': round(total_time, 3),
-                'success': False,
-                'error': error_msg,
-                'created_at': time.time()
-            }
+
+    
+    @property
+    def name(self) -> str:
+        """Return a human-readable name for this embedding provider."""
+        return "chromadb"
     
     @property
     def supported_modalities(self) -> List[str]:
