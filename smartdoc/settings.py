@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # third party apps
     'rest_framework',
+    'drf_spectacular',
     # local apps
     'api',
 ]
@@ -163,3 +164,18 @@ IMAGE_EMBEDDING_PROVIDER = os.getenv('IMAGE_EMBEDDING_PROVIDER', 'default')
 
 # Processing Configuration
 MAX_CONCURRENT_TASKS = int(os.getenv('MAX_CONCURRENT_TASKS', '4'))
+
+# Django Rest Framework Configuration
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+# drf-spectacular Configuration
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'SmartDoc API',
+    'DESCRIPTION': 'API for document analysis and data extraction',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    'COMPONENT_SPLIT_REQUEST': True,
+    'SCHEMA_PATH_PREFIX': '/api/',
+}
