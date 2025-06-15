@@ -15,35 +15,19 @@ class VectorDBProvider(ABC):
     """
     
     def __init__(self):
+        """Initialize the vector database provider with default name and empty collections."""
         self.name = self.__class__.__name__.replace("Provider", "").lower()
         self.client = None
         self.collections = {}
     
     @abstractmethod
     def exists(self, **kwargs) -> bool:
-        """
-        Check if the database exists.
-        
-        Args:
-            **kwargs: Provider-specific parameters (e.g., db_path for ChromaDB)
-            
-        Returns:
-            bool: True if database exists, False otherwise
-        """
+        """Check if the vector database or collection exists."""
         pass
     
     @abstractmethod
     def initialize(self, **kwargs) -> bool:
-        """
-        Initialize the vector database connection.
-        
-        Args:
-            db_path: Path to the database
-            **kwargs: Additional configuration parameters
-            
-        Returns:
-            bool: True if initialization successful
-        """
+        """Initialize the vector database connection and setup."""
         pass
     
     @abstractmethod
@@ -52,54 +36,15 @@ class VectorDBProvider(ABC):
                          modality: str,
                          embedding_function: Any = None,
                          metadata: Optional[Dict[str, Any]] = None) -> bool:
-        """
-        Create a new collection for storing embeddings.
-        
-        Args:
-            name: Collection name
-            modality: "image" or "text" to specify the embedding type
-            embedding_function: Embedding function for the collection
-            metadata: Optional metadata for the collection
-            
-        Returns:
-            bool: True if creation successful
-        """
+        """Create a new collection in the vector database with specified parameters."""
         pass
         
     @abstractmethod
     def index(self, **kwargs) -> bool:
-        """
-        Add embeddings to a collection.
-        
-        Args:
-            **kwargs: Provider-specific parameters such as:
-                - collection_name: Name of the collection
-                - texts: List of text documents (for text indexing)
-                - images: List of image arrays (for image indexing)
-                - metadatas: List of metadata dictionaries
-                - ids: List of unique identifiers
-                - modality: "text", "image", or "multimodal"
-                
-        Returns:
-            bool: True if indexing successful
-        """
+        """Index documents or vectors into the collection."""
         pass
     
     @abstractmethod
     def query(self, **kwargs) -> Dict[str, Any]:
-        """
-        Query a collection.
-        
-        Args:
-            **kwargs: Provider-specific parameters such as:
-                - collection_name: Name of the collection
-                - query_text: Query text (for text queries)
-                - query_image: Query image array (for image queries)
-                - n_results: Number of results to return
-                - include: What to include in results
-                - modality: "text", "image", or "multimodal"
-                
-        Returns:
-            Dictionary containing query results
-        """
+        """Query the vector database and return matching results."""
         pass
