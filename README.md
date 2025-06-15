@@ -42,7 +42,9 @@ The project is built step-by-step through four main stages, as shown in the diag
 
 ```mermaid
 graph LR
-    A[📋 Requirements] --> B[🏗️ Architecture Design]
+    A[📋 Requirements
+    +
+    📋Test Plan] --> B[🏗️ Architecture Design]
     B --> C[⚙️ Implementation]
     C --> D[🧪 Testing]
     
@@ -70,16 +72,52 @@ The following table outlines all project requirements organized by category, wit
 | 🔧 **Functional** | FR-007 | Save document, document type and extracted entities in database | Medium |
 | ⚡ **Performance** | NFR-001 | Average processing time per document in pipeline less than 1 second | Medium |
 | ⚡ **Performance** | NFR-002 | Achieve minimum 70% accuracy for document classification | High |
-| ⚡ **Performance** | NFR-003 | Embedding processing optimized for MPS hardware acceleration | Low |
-| 🔧 **Maintainability** | NFR-004 | Easy configuration to change OCR, LLM, embedding, or database providers | Medium |
+| ⚡ **Performance** | NFR-003 | Achieve minimum 70% precision and recall for entity extraction | High |
+| ⚡ **Performance** | NFR-004 | Embedding processing optimized for MPS hardware acceleration | Low |
+| 🔧 **Maintainability** | NFR-005 | Easy configuration to change OCR, LLM, embedding, or database providers | Medium |
 | 📈 **Scalability** | NFR-005 | Pipeline architecture designed for future scalability and horizontal scaling | Low |
 | 🛠️ **Technical** | TR-001 | Django framework implementation | Low |
 | 🛠️ **Technical** | TR-002 | Django APIView for single document type classification and entity extraction endpoint | Low |
 | 🛠️ **Technical** | TR-003 | Django management commands for pipeline processing | Low |
 | 🛠️ **Technical** | TR-004 | ChromaDB integration for storing documents and extracted entities | Low |
 
+## 📋 Test Plan
 
----
+### 🎯 Test Strategy
+
+The testing strategy includes three types of tests:
+
+- **Smoke Tests**: Validate core high-priority testing requirements functionality and provide rapid failure detection.
+- **Performance Tests**: Validates that the workflow and endpoint meet performance requirements.
+- **Evaluations**: Evaluate the two main features (document processing pipeline and classification/entity extraction endpoint) through real-world scenarios to assess practical effectiveness.
+
+### 📝 Test Design
+
+#### 📋 Smoke Tests
+
+| Test ID | Test Case | Expected Outcome | Requirement ID |
+|---------|-----------|------------------|----------------|
+| **ST-001** | OCR Text Extraction | OCR service extracts readable text from uploaded document images | FR-002 |
+| **ST-002** | Document Classification | LLM service correctly identifies document types (invoice, form, contract) with >70% accuracy | FR-003 |
+| **ST-003** | Entity Extraction | Analysis service extracts key entities (dates, amounts, names) with structured output | FR-004 |
+| **ST-004** | API Endpoint Functionality | API endpoint accepts document image uploads and returns document type and extracted entities in JSON format | FR-005 |
+| **ST-005** | Document Type Classification | System correctly identifies 4 document types | NFR-002 |
+
+#### ⚡️ Performance Tests
+
+| Test ID | Test Case | Expected Outcome | Requirement ID |
+|---------|-----------|------------------|----------------|
+| **PT-002** | Pipeline Processing Performance | System processes 5000 documents through the pipeline in maximum 30 minutes (average <0.36 seconds per document) | NFR-001|
+| **PT-003** | API Endpoint Response Time | Single document analysis via `/analyze/` endpoint has average response time less than 5 seconds for standard document sizes | NFR-001|
+
+**Note**: Performance benchmarks are based on testing with MacBook Pro M4 with 14 cores. Results may vary on different hardware configurations.
+
+#### 📊 Evaluations
+
+| Test ID | Test Case | Expected Outcome | Requirement ID |
+|---------|-----------|------------------|----------------|
+| **AE-001** | Endpoint Classification Accuracy | Using dataset split (70% indexed, 15% for testing ~700 documents, 15% for validation), endpoint achieves ≥70% accuracy in document classification | NFR-002, FR-003, FR-006 |
+| **AE-002** | Entity Extraction Precision & Recall | Using a test set of 100 documents with ground truth annotations, achieves Precision ≥ 0.70 (correctly extracted entities / total extracted entities) and Recall ≥ 0.70 (correctly extracted entities / total ground truth entities) | FR-004, NFR-003 |
 
 ## 🏗️ Architecture Design
 
@@ -93,9 +131,10 @@ The architecture is organized into a layered architecture with five main compone
 | 🌐 **API Layer** | Exposes an `/analyze/` endpoint for document classification and entity extraction | View class with request handler design separates HTTP processing from business logic | FR-001, FR-005, TR-002 |
 | 📋 **Pipeline Orchestration** | Orchestrates a configurable document processing workflow through parallel tasks | Modular design enabling flexible workflow configuration and parallel processing with Prefect for future scalability | NFR-001, NFR-005 |
 | ⚙️ **Service Layer** | Provides modular services for OCR text extraction, LLM inference, embeddings generation, and document analysis | Modular architecture for testability with reuse across API layer and Django commands to avoid duplication of responsibilities and allows to easily add more providers for any service (OCR, LLM, embedding, vector DB) | FR-002, FR-003, FR-004, NFR-004, NFR-003, NFR-002 |
+| 🔌 **Providers** | Implements specific service providers (OCR, LLM, Embedding, Vector DB) and allows for easy addition of new providers | Interface-based design enables plug-and-play replacement of providers without changing service layer implementation | NFR-005 |
 | 💾 **Data Layer** | Stores documents, document types and extracted entities using ChromaDB vector database | ChromaDB interface enables simple indexing and similarity search of data with support for implementing other vector databases in this layer | FR-007, TR-004 |
 
-### 📊 Architecture Diagram
+### 🏛️ Architecture Diagram
 
 ```mermaid
 graph TB
@@ -124,6 +163,14 @@ graph TB
         end
     end
     
+    subgraph PROVIDERS ["🔌 Providers"]
+        OCR_PROV[OCR Provider]
+        LLM_PROV[LLM Provider]
+        EMB_PROV[Embedding Provider]
+        VDB_PROV[Vector DB Provider]
+        OTHER[Other Providers]
+    end
+    
     subgraph "💾 Data Layer"
         CHROMA[ChromaDB]
     end
@@ -135,7 +182,11 @@ graph TB
     API --> ANALYSIS
     ANALYSIS --> CORE_SERVICES
     TASKS --> CORE_SERVICES
-    VDB --> CHROMA
+    OCR --> OCR_PROV
+    LLM --> LLM_PROV
+    EMB --> EMB_PROV
+    VDB --> VDB_PROV
+    VDB_PROV --> CHROMA
     
     style CMD fill:#e3f2fd
     style API fill:#fce4ec
@@ -148,6 +199,11 @@ graph TB
     style EMB fill:#e8f5e8
     style ANALYSIS fill:#e8f5e8
     style VDB fill:#e8f5e8
+    style OCR_PROV fill:#fff3e0
+    style LLM_PROV fill:#fff3e0
+    style EMB_PROV fill:#fff3e0
+    style VDB_PROV fill:#fff3e0
+    style OTHER fill:#fff3e0
     style CHROMA fill:#fff3e0
 ```
 
@@ -188,36 +244,11 @@ smartdoc/
 ├── chromadb/                # ChromaDB vector database storage
 ```
 
-*Note: This shows the key directories and files, additional files are not displayed for clarity.
+**Note:** This shows the key directories and files, additional files are not displayed for clarity.
 
 ---
 
 ## 🧪 Testing
-
-### 📋 Test Design
-
-#### 📋 Tests for High Priority Requirements
-
-| Test ID | Test Case | Expected Outcome | Requirement ID |
-|---------|-----------|------------------|----------------|
-| **UT-001** | OCR Text Extraction | OCR service extracts readable text from uploaded document images | FR-002 |
-| **UT-002** | Document Classification | LLM service correctly identifies document types (invoice, form, contract) with >70% accuracy | FR-003 |
-| **UT-003** | Entity Extraction | Analysis service extracts key entities (dates, amounts, names) with structured output | FR-004 |
-| **UT-004** | API Endpoint Functionality | API endpoint accepts document uploads and returns document type and extracted entities in JSON format | FR-005 |
-
-#### ⚡ Performance Testing for High Priority Performance Requirements
-
-| Test ID | Performance Test | Success Criteria | Requirement ID |
-|---------|------------------|------------------|----------------|
-| **PT-001** | Classification Accuracy | System achieves minimum 70% accuracy when classifying document types | NFR-002 |
-
-### 📊 Quality Metrics
-- **Performance Benchmarks**: 
-  - Classification accuracy: ≥70% minimum threshold
-- **Test Success Criteria**: 
-  - OCR text extraction: Readable text output from document images
-  - Entity extraction: Structured data output (dates, amounts, names)
-  - Document classification: Correct identification of invoice, form, letter, memo, resume, budget, email, presentation, scientific report, and other document types
 
 ---
 
