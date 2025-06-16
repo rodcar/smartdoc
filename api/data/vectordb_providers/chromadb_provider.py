@@ -114,13 +114,8 @@ class ChromaDBProvider(VectorDBProvider):
                 elif collection_name not in ["smartdoc_documents", "smartdoc_classifier_images", "smartdoc_classifier_text"]:
                     enhanced_metadata.update({
                         "indexed_at": datetime.now().isoformat(),
-                        "modality": "text" if modality == "multimodal" else modality
+                        "modality": modality
                     })
-                    if modality == "multimodal":
-                        enhanced_metadata.update({
-                            "original_request": "multimodal",
-                            "fallback_reason": "multimodal_not_supported"
-                        })
                 
                 enhanced_metadatas.append(enhanced_metadata)
             
@@ -150,9 +145,6 @@ class ChromaDBProvider(VectorDBProvider):
                     print(f"Error computing image embeddings: {e}")
                     return False
             else:
-                if modality == "multimodal":
-                    print(f"⚠️  Multimodal embeddings not supported, using text-only for collection '{collection_name}'")
-                
                 # Ensure all texts are strings
                 validated_texts = []
                 for text in texts:
