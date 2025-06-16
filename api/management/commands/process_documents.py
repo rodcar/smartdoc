@@ -154,15 +154,6 @@ Max concurrent workers: {config.max_workers}""")
         
         processing_summary = result.get('processing_summary', {})
         
-        summary_lines = [
-            f"📊 Pipeline Summary: {processing_summary.get('total_images', 0)} docs, {processing_summary.get('successful_extractions', 0)} successful, {processing_summary.get('failed_extractions', 0)} failed, {processing_summary.get('success_rate', 0):.1f}% success rate, {processing_summary.get('total_characters_extracted', 0):,} chars",
-            f"⏱️ Performance: {result.get('total_processing_time', 0):.2f}s total, {processing_summary.get('average_processing_time', 0):.2f}s/doc",
-            f"💾 Database: {'Yes' if result.get('chromadb_stored') else 'Unknown'} stored, {result.get('documents_indexed', 0)} indexed"
-        ]
-        
-        for line in summary_lines:
-            self.stdout.write(line)
-        
         # Show warning for failed extractions
         failed_count = processing_summary.get('failed_extractions', 0)
         if failed_count > 0:
