@@ -15,7 +15,7 @@ DEFAULT_COLLECTION_NAME = "smartdoc_documents"
 MAX_EMBEDDING_WORKERS = 16  # Maximum workers for embedding generation
 
 # Supported image formats
-SUPPORTED_IMAGE_FORMATS = {'.jpg', '.jpeg', '.png', '.tiff', '.tif', '.bmp', '.gif'}
+SUPPORTED_IMAGE_FORMATS = {'.jpg', '.jpeg'}
 
 # Output settings
 OUTPUT_FORMAT = 'txt'  # Can be 'txt', 'json', etc.
@@ -42,6 +42,8 @@ def validate_image_file(file_path: Path) -> bool:
         return False
     
     file_size = file_path.stat().st_size
+
+    # Check file size
     if file_size < MIN_IMAGE_SIZE or file_size > MAX_IMAGE_SIZE:
         return False
     

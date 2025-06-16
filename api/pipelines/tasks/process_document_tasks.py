@@ -11,8 +11,8 @@ from . import (
     generate_image_embedding
 )
 
-
-def _process_single_document_pipeline(image_path: str, ocr_provider: Optional[str], text_embedding_provider: Optional[str], image_embedding_provider: Optional[str], logger) -> Dict[str, Any]:
+@task
+def process_document_pipeline(image_path: str, ocr_provider: Optional[str] = None, text_embedding_provider: Optional[str] = None, image_embedding_provider: Optional[str] = None) -> Dict[str, Any]:
     """
     Process a single document through parallel streams:
     - Stream 1: OCR → Classification → Entity Extraction  
@@ -24,11 +24,11 @@ def _process_single_document_pipeline(image_path: str, ocr_provider: Optional[st
         ocr_provider: OCR provider to use
         text_embedding_provider: Text embedding provider to use
         image_embedding_provider: Image embedding provider to use
-        logger: Prefect logger instance
         
     Returns:
         Combined results from all processing streams
     """
+    logger = get_run_logger()
     try:
         # Start Image Embedding immediately (parallel to everything)
         image_embedding_future = generate_image_embedding.submit(image_path, image_embedding_provider)
@@ -118,11 +118,3 @@ def _process_single_document_pipeline(image_path: str, ocr_provider: Optional[st
             'text_embedding_result': None,
             'image_embedding_result': image_embedding_result
         }
-
-@task
-def process_document_pipeline(image_path: str, ocr_provider: Optional[str] = None, text_embedding_provider: Optional[str] = None, image_embedding_provider: Optional[str] = None) -> Dict[str, Any]:
-    """
-    Prefect task wrapper for processing a single document through the parallel pipeline streams.
-    """
-    logger = get_run_logger()
-    return _process_single_document_pipeline(image_path, ocr_provider, text_embedding_provider, image_embedding_provider, logger)

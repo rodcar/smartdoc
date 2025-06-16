@@ -1,14 +1,7 @@
-"""
-Embedding-related Prefect tasks for multimodal document processing.
-Refactored to use the embedding service layer.
-"""
 import os
-import time
-import concurrent.futures
 from typing import List, Dict, Any, Optional
 from prefect import task
 from prefect.logging import get_run_logger
-import hashlib
 
 # Set environment variables to avoid PyTorch meta tensor issues
 os.environ.setdefault('TORCH_FORCE_DISABLE_META', 'true')
@@ -18,18 +11,12 @@ os.environ.setdefault('TOKENIZERS_PARALLELISM', 'false')
 _worker_models_initialized = False
 _worker_initialization_lock = None
 
-# Lazy import to avoid loading services during module import
-from ..config.flow_settings import MAX_CONCURRENT_TASKS
-
 # Import the embedding service
 from ...services.embedding.embedding_service import EmbeddingService
 
 
 def _initialize_worker_models():
-    """
-    Initialize embedding models globally per worker process.
-    This ensures models are loaded once per worker and cached for reuse.
-    """
+    """Initialize embedding models globally per worker process to ensure models are loaded once and cached for reuse."""
     global _worker_models_initialized, _worker_initialization_lock
     
     if _worker_models_initialized:
@@ -57,10 +44,7 @@ def _initialize_worker_models():
 
 
 def _ensure_worker_models_initialized():
-    """
-    Ensure worker models are initialized before processing.
-    Returns True if models are ready, False otherwise.
-    """
+    """Ensure worker models are initialized before processing, returning True if models are ready."""
     global _worker_models_initialized
     
     if not _worker_models_initialized:
@@ -73,26 +57,68 @@ def _get_embedding_service():
     from api.services.embedding import embedding_service
     return embedding_service
 
+@task(
+    name="init-text-embedding-provider",
+    description="Initialize text embedding provider",
+    tags=["embedding", "initialization", "text"]
+)
+def init_text_embedding_provider(provider_name: Optional[str] = None) -> Dict[str, Any]:
+    """Initialize text embedding provider and worker models, returning initialization result."""
+    logger = get_run_logger()
+    try:
+        # Initialize the text embedding provider
+        result = EmbeddingService.init_text_embedding_provider(provider_name)
+        
+        # Initialize models globally per worker
+        if result['success']:
+            models_initialized = _initialize_worker_models()
+            if models_initialized:
+                logger.info(f"✅ Text embedding provider and worker models initialized: {result.get('provider_name', 'unknown')}")
+            else:
+                logger.warning(f"⚠️ Text embedding provider initialized but worker models failed to load: {result.get('provider_name', 'unknown')}")
+                result['worker_models_initialized'] = False
+        else:
+            logger.error(f"❌ Text embedding provider initialization failed: {result.get('error')}")
+        
+        return result
+    except Exception as e:
+        logger.error(f"Exception initializing text embedding provider: {str(e)}")
+        return {
+            'success': False,
+            'error': str(e)
+        }
+
+
+@task(
+    name="init-image-embedding-provider", 
+    description="Initialize image embedding provider"
+)
+def init_image_embedding_provider(provider_name: Optional[str] = None) -> Dict[str, Any]:
+    """Initialize image embedding provider and return initialization result."""
+    logger = get_run_logger()
+    try:
+        result = EmbeddingService.init_image_embedding_provider(provider_name)
+        if result['success']:
+            logger.info(f"✅ Image embedding provider initialized: {result.get('provider_name', 'unknown')}")
+        else:
+            logger.error(f"❌ Image embedding provider initialization failed: {result.get('error')}")
+        return result
+    except Exception as e:
+        logger.error(f"Exception initializing image embedding provider: {str(e)}")
+        return {
+            'success': False,
+            'error': str(e)
+        }
 
 @task(
     name="generate-image-embedding",
-    description="Generate an embedding for a single image",
-    tags=["embedding", "image", "single"]
+    description="Generate an embedding for a single image"
 )
 def generate_image_embedding(
     image_path: str,
     provider_name: Optional[str] = None
 ) -> Dict[str, Any]:
-    """
-    Generate an embedding for a single image.
-    
-    Args:
-        image_path: Path to the image file
-        provider_name: Optional specific provider to use
-        
-    Returns:
-        Dictionary containing embedding result and metadata
-    """
+    """Generate an embedding for a single image, returning a dictionary with the result and metadata."""
     logger = get_run_logger()
     embedding_service = _get_embedding_service()
     
@@ -123,25 +149,14 @@ def generate_image_embedding(
 
 @task(
     name="generate-text-embedding",
-    description="Generate an embedding for extracted text",
-    tags=["embedding", "text", "single"]
+    description="Generate an embedding for extracted text"
 )
 def generate_text_embedding(
     text: str,
     source_path: str = "",
     provider_name: Optional[str] = None
 ) -> Dict[str, Any]:
-    """
-    Generate an embedding for extracted text.
-    
-    Args:
-        text: Text content to embed
-        source_path: Optional source path for metadata
-        provider_name: Optional specific provider to use
-        
-    Returns:
-        Dictionary containing embedding result and metadata
-    """
+    """Generate an embedding for extracted text, returning a dictionary with the result and metadata."""
     logger = get_run_logger()
     embedding_service = _get_embedding_service()
     
@@ -177,75 +192,4 @@ def generate_text_embedding(
             'success': False,
             'error': str(e),
             'embedding_type': 'text'
-        }
-
-
-@task(
-    name="init-text-embedding-provider",
-    description="Initialize text embedding provider",
-    tags=["embedding", "initialization", "text"]
-)
-def init_text_embedding_provider(provider_name: Optional[str] = None) -> Dict[str, Any]:
-    """
-    Task wrapper for initializing text embedding provider.
-    
-    Args:
-        provider_name: Optional specific provider to use
-        
-    Returns:
-        Dictionary containing initialization result
-    """
-    logger = get_run_logger()
-    try:
-        # Initialize the text embedding provider
-        result = EmbeddingService.init_text_embedding_provider(provider_name)
-        
-        # Initialize models globally per worker
-        if result['success']:
-            models_initialized = _initialize_worker_models()
-            if models_initialized:
-                logger.info(f"✅ Text embedding provider and worker models initialized: {result.get('provider_name', 'unknown')}")
-            else:
-                logger.warning(f"⚠️ Text embedding provider initialized but worker models failed to load: {result.get('provider_name', 'unknown')}")
-                result['worker_models_initialized'] = False
-        else:
-            logger.error(f"❌ Text embedding provider initialization failed: {result.get('error')}")
-        
-        return result
-    except Exception as e:
-        logger.error(f"Exception initializing text embedding provider: {str(e)}")
-        return {
-            'success': False,
-            'error': str(e)
-        }
-
-
-@task(
-    name="init-image-embedding-provider", 
-    description="Initialize image embedding provider",
-    tags=["embedding", "initialization", "image"]
-)
-def init_image_embedding_provider(provider_name: Optional[str] = None) -> Dict[str, Any]:
-    """
-    Task wrapper for initializing image embedding provider.
-    
-    Args:
-        provider_name: Optional specific provider to use
-        
-    Returns:
-        Dictionary containing initialization result
-    """
-    logger = get_run_logger()
-    try:
-        result = EmbeddingService.init_image_embedding_provider(provider_name)
-        if result['success']:
-            logger.info(f"✅ Image embedding provider initialized: {result.get('provider_name', 'unknown')}")
-        else:
-            logger.error(f"❌ Image embedding provider initialization failed: {result.get('error')}")
-        return result
-    except Exception as e:
-        logger.error(f"Exception initializing image embedding provider: {str(e)}")
-        return {
-            'success': False,
-            'error': str(e)
         }

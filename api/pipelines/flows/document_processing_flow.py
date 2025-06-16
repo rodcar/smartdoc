@@ -180,31 +180,7 @@ def document_processing_flow(
             raise Exception("No successful OCR results found")
         
         #########################################################
-        # Step 3: Generate embeddings
-        #########################################################
-        # _log_step(3, total_steps, "Generating dual embeddings (image + text)...", logger)
-        
-        # documents_for_embedding = []
-        # embedding_results = []
-
-        # # Prepare documents for embedding generation
-        # for ocr_result in extraction_results:
-        #     if ocr_result['success']:
-        #         doc_data = {
-        #             'image_path': ocr_result['image_path'],
-        #             'extracted_text': ocr_result['extracted_text']
-        #         }
-        #         documents_for_embedding.append(doc_data)
-        
-        # # Generate embeddings in batches
-        # embedding_results = generate_batch_embeddings(
-        #     documents_for_embedding,
-        #     max_workers=MAX_CONCURRENT_TASKS
-        # )
-        # logger.info(f"✅ Completed embedding generation for {len(embedding_results)} documents")
-        
-        #########################################################
-        # Step 4: Index to vector database
+        # Step 3: Index to vector database (Includes Embedding Generation)
         #########################################################
         
         _log_step(4, total_steps, "Indexing documents...", logger)
@@ -232,7 +208,7 @@ def document_processing_flow(
             raise Exception("No documents for indexing found")
 
         #########################################################
-        # 4.1 Index to main collection (smartdoc_documents)
+        # 3.1 Index to main collection (smartdoc_documents)
         #########################################################
         logger.info(f"📚 Indexing to main collection: {collection_name}")
         indexing_result = index_batch_documents(
@@ -242,7 +218,7 @@ def document_processing_flow(
         )       
         
         #########################################################
-        # 4.2 Index to classifier collections (smartdoc_classifier_images, smartdoc_classifier_text)
+        # 3.2 Index to classifier collections (smartdoc_classifier_images, smartdoc_classifier_text)
         #########################################################
         logger.info(f"🔍 Indexing to classifier collections...")
         classifier_indexing_result = index_batch_documents_classifier(

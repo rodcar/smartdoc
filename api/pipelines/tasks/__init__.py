@@ -19,7 +19,6 @@ from .indexing_tasks import (
     index_batch_documents,
     index_batch_documents_classifier,
     search_with_dual_confidence,
-    create_document_id,
     initialize_vectordb
 )
 

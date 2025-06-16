@@ -27,7 +27,6 @@ except ImportError:
 @task(
     name="scan-directory",
     description="Scan directory recursively for image files",
-    tags=["filesystem", "discovery"]
 )
 def scan_directory_for_images(folder_path: str) -> List[str]:
     """
@@ -70,7 +69,6 @@ def scan_directory_for_images(folder_path: str) -> List[str]:
     description="Extract text from a single image using OCR service",
     retries=MAX_RETRIES,
     retry_delay_seconds=RETRY_DELAY_SECONDS,
-    tags=["ocr", "extraction"]
 )
 def extract_text_from_image(image_path: str, provider_name: Optional[str] = None) -> Dict[str, Any]:
     """
