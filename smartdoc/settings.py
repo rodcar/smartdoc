@@ -179,3 +179,11 @@ SPECTACULAR_SETTINGS = {
     'COMPONENT_SPLIT_REQUEST': True,
     'SCHEMA_PATH_PREFIX': '/api/',
 }
+
+# Document Types Configuration
+DOCUMENT_TYPES = [
+    "advertisement", "budget", "email", "file_folder", "form", 
+    "handwritten", "invoice", "letter", "memo", "news_article", 
+    "presentation", "questionnaire", "resume", "scientific_publication", 
+    "scientific_report", "specification"
+]

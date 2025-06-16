@@ -4,6 +4,7 @@ from typing import Dict
 import django
 from django.test import TestCase
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.conf import settings
 
 # Setup Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'smartdoc.settings')
@@ -40,8 +41,8 @@ class SmartDocTestCase(TestCase):
         self.llm_service = get_llm_service()
         self.analysis_service = analysis_service
         
-        # Document types for testing
-        self.document_types = ["invoice", "form", "contract", "letter", "memo", "resume", "budget", "email", "presentation", "scientific_report"]
+        # Use document types from settings
+        self.document_types = settings.DOCUMENT_TYPES
         
         # Get sample documents
         self.sample_docs = self._get_sample_docs()

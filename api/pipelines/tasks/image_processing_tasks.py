@@ -3,16 +3,13 @@ import base64
 from typing import Dict, Any, Optional
 from prefect import task
 from prefect.logging import get_run_logger
+from django.conf import settings
 
 from ..config.flow_settings import MAX_RETRIES, RETRY_DELAY_SECONDS
 from api.services.llm import llm_service
 
-DOCUMENT_CATEGORIES = [
-    "advertisement", "budget", "email", "file_folder", "form", 
-    "handwritten", "invoice", "letter", "memo", "news_article", 
-    "presentation", "questionnaire", "resume", "scientific_publication", 
-    "scientific_report", "specification"
-]
+# Use document types from settings
+DOCUMENT_CATEGORIES = settings.DOCUMENT_TYPES
 
 @task(name="classify-document", retries=MAX_RETRIES, retry_delay_seconds=RETRY_DELAY_SECONDS)
 def classify_document(image_path: str, extracted_text: str, confidence_threshold: float = 0.7, provider_name: Optional[str] = None) -> Dict[str, Any]:
