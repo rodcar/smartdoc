@@ -107,8 +107,8 @@ The testing strategy includes three types of tests:
 
 | Test ID | Test Case | Expected Outcome | Requirement ID |
 |---------|-----------|------------------|----------------|
-| **PT-002** | Pipeline Processing Performance | System processes 5000 documents through the pipeline in maximum 30 minutes (average <0.36 seconds per document) | NFR-001|
-| **PT-003** | API Endpoint Response Time | Single document analysis via `/analyze/` endpoint has average response time less than 5 seconds for standard document sizes | NFR-001|
+| **PT-001** | Pipeline Processing Performance | System processes 5000 documents through the pipeline in maximum 30 minutes (average <0.36 seconds per document) | NFR-001|
+| **PT-002** | API Endpoint Response Time | Single document analysis via `/analyze/` endpoint has average response time less than 5 seconds for standard document sizes | NFR-001|
 
 **Note**: Performance benchmarks are based on testing with MacBook Pro M4 with 14 cores. Results may vary on different hardware configurations.
 
@@ -116,8 +116,8 @@ The testing strategy includes three types of tests:
 
 | Test ID | Test Case | Expected Outcome | Requirement ID |
 |---------|-----------|------------------|----------------|
-| **AE-001** | Endpoint Classification Accuracy | Using dataset split (70% indexed, 15% for testing ~700 documents, 15% for validation), endpoint achieves ≥70% accuracy in document classification | NFR-002, FR-003, FR-006 |
-| **AE-002** | Entity Extraction Precision & Recall | Using a test set of 100 documents with ground truth annotations, achieves Precision ≥ 0.70 (correctly extracted entities / total extracted entities) and Recall ≥ 0.70 (correctly extracted entities / total ground truth entities) | FR-004, NFR-003 |
+| **EV-001** | Endpoint Classification Accuracy | Using dataset split (70% indexed, 15% for testing ~700 documents, 15% for validation), endpoint achieves ≥70% accuracy in document classification | NFR-002, FR-003, FR-006 |
+| **EV-002** | Entity Extraction Precision & Recall | Using a test set of 100 documents with ground truth annotations, achieves Precision ≥ 0.70 (correctly extracted entities / total extracted entities) and Recall ≥ 0.70 (correctly extracted entities / total ground truth entities) | FR-004, NFR-003 |
 
 ## 🏗️ Architecture Design
 
