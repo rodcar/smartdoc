@@ -14,11 +14,7 @@ from .embedding_tasks import (
 
 # Import indexing tasks
 from .indexing_tasks import (
-    initialize_vectordb_service,
-    index_single_document,
     index_batch_documents,
-    index_batch_documents_classifier,
-    search_with_dual_confidence,
     initialize_vectordb
 )
 

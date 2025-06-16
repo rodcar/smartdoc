@@ -10,7 +10,6 @@ from ..tasks import (
     initialize_vectordb,
     process_document_pipeline,
     index_batch_documents,
-    index_batch_documents_classifier,
     init_text_embedding_provider,
     init_image_embedding_provider
 )
