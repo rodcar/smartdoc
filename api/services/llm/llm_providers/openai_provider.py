@@ -62,9 +62,16 @@ class OpenAIProvider(LLMProvider):
         try:
             # Create the classification prompt
             classification_prompt = f"""
-            You are a document classification expert. Analyze the provided image and extracted text to classify the document into one of these specific categories:
-            
-            Categories: {', '.join(categories)}
+            You are a document classification expert. Your task is to classify the provided document into EXACTLY ONE of the following predefined categories:
+
+            Available Categories:
+            {', '.join(categories)}
+
+            Important Rules:
+            1. You MUST choose EXACTLY ONE category from the list above
+            2. The category name MUST match EXACTLY (including case) with one of the provided categories
+            3. Do not create new categories or modify existing ones
+            4. If you cannot confidently classify the document, return 'unknown'
             
             Extracted Text:
             {extracted_text if extracted_text else 'No text extracted'}...
@@ -95,11 +102,9 @@ class OpenAIProvider(LLMProvider):
             # Get the parsed response
             classification_result = response.output_parsed
             
-            # Validate the prediction is in our categories
-            if classification_result.predicted_category.lower() in [cat.lower() for cat in categories]:
-                # Find the original case category
-                predicted_category = next(cat for cat in categories if cat.lower() == classification_result.predicted_category.lower())
-                
+            # Validate the prediction
+            predicted_category = classification_result.predicted_category
+            if predicted_category in categories:
                 return {
                     'predicted_category': predicted_category,
                     'success': True,
@@ -109,7 +114,7 @@ class OpenAIProvider(LLMProvider):
                 return {
                     'predicted_category': 'unknown',
                     'success': False,
-                    'error': 'Classification result not in valid categories'
+                    'error': f'Invalid category: {predicted_category}'
                 }
                 
         except Exception as e:
