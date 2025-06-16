@@ -14,8 +14,9 @@ from .embedding_tasks import (
 
 # Import indexing tasks
 from .indexing_tasks import (
-    index_batch_documents,
-    initialize_vectordb
+    index_documents,
+    initialize_vectordb,
+    index_documents_classifier
 )
 
 # Import image processing tasks

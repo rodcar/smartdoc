@@ -50,11 +50,10 @@ def initialize_vectordb(
 
 
 @task(
-    name="index-batch-documents",
-    description="Index multiple documents",
-    tags=["indexing", "batch"]
+    name="index-documents",
+    description="Index multiple documents"
 )
-def index_batch_documents(
+def index_documents(
     documents: List[Dict[str, Any]],
     collection_name: str = "smartdoc_documents",
     batch_size: int = 25
@@ -78,7 +77,7 @@ def index_batch_documents(
             
             logger.info(f"📦 Processing batch {batch_num}/{total_batches} ({len(batch_docs)} documents)")
             
-            batch_result = vectordb_service.index_batch_documents(
+            batch_result = vectordb_service.index_documents(
                 documents=batch_docs,
                 collection_name=collection_name
             )
@@ -124,4 +123,64 @@ def index_batch_documents(
             'failed_count': len(documents),
             'total_processed': len(documents),
             'collection_name': collection_name
-        } 
+        }
+
+
+@task(
+    name="index-documents-classifier",
+    description="Index multiple documents to classifier collections (image and text)"
+)
+def index_documents_classifier(
+    documents_data: List[Dict[str, Any]],
+    batch_size: int = 25
+) -> Dict[str, Any]:
+    """Index a batch of documents to classifier collections (image and text)."""
+    logger = get_run_logger()
+    vectordb_service = get_vectordb_service()
+    total_docs = len(documents_data)
+    logger.info(f"🚀 Starting classifier indexing of {total_docs} documents")
+
+    total_indexed = 0
+    total_failed = 0
+    batch_results = []
+
+    for i in range(0, total_docs, batch_size):
+        batch_docs = documents_data[i:i + batch_size]
+        batch_num = (i // batch_size) + 1
+        total_batches = (total_docs + batch_size - 1) // batch_size
+        logger.info(f"📦 Processing classifier batch {batch_num}/{total_batches} ({len(batch_docs)} documents)")
+        batch_result = []
+        for doc in batch_docs:
+            try:
+                result = vectordb_service.index_document_to_classifier_collections(
+                    image_path=doc.get('image_path'),
+                    extracted_text=doc.get('extracted_text', ''),
+                    document_type=doc.get('document_type', 'unknown'),
+                    extracted_entities=doc.get('extracted_entities', None)
+                )
+                batch_result.append(result)
+                if result.get('success'):
+                    total_indexed += 1
+                else:
+                    total_failed += 1
+            except Exception as e:
+                logger.error(f"❌ Error indexing document to classifier collections: {e}")
+                total_failed += 1
+                batch_result.append({'success': False, 'error': str(e), 'image_path': doc.get('image_path')})
+        batch_results.append(batch_result)
+        logger.info(f"✅ Classifier batch {batch_num}: {len([r for r in batch_result if r.get('success')])} indexed, {len([r for r in batch_result if not r.get('success')])} failed")
+
+    success_rate = (total_indexed / total_docs * 100) if total_docs > 0 else 0
+    logger.info(f"🎯 Classifier batch indexing completed:")
+    logger.info(f"   ✅ Indexed: {total_indexed}")
+    logger.info(f"   ❌ Failed: {total_failed}")
+    logger.info(f"   📊 Success rate: {success_rate:.1f}%")
+
+    return {
+        'success': total_indexed > 0,
+        'total_indexed': total_indexed,
+        'failed_count': total_failed,
+        'total_processed': total_docs,
+        'success_rate': round(success_rate, 2),
+        'batch_results': batch_results
+    } 

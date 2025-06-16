@@ -9,9 +9,10 @@ from ..tasks import (
     scan_directory_for_images,
     initialize_vectordb,
     process_document_pipeline,
-    index_batch_documents,
+    index_documents,
     init_text_embedding_provider,
-    init_image_embedding_provider
+    init_image_embedding_provider,
+    index_documents_classifier
 )
 
 # Import flow settings
@@ -210,7 +211,7 @@ def document_processing_flow(
         # 3.1 Index to main collection (smartdoc_documents)
         #########################################################
         logger.info(f"📚 Indexing to main collection: {collection_name}")
-        indexing_result = index_batch_documents(
+        indexing_result = index_documents(
             documents=documents_for_indexing,
             collection_name=collection_name,
             batch_size=min(embedding_batch_size, 25)
@@ -220,7 +221,7 @@ def document_processing_flow(
         # 3.2 Index to classifier collections (smartdoc_classifier_images, smartdoc_classifier_text)
         #########################################################
         logger.info(f"🔍 Indexing to classifier collections...")
-        classifier_indexing_result = index_batch_documents_classifier(
+        classifier_indexing_result = index_documents_classifier(
             documents_data=documents_for_indexing,
             batch_size=min(embedding_batch_size, 25)
         )

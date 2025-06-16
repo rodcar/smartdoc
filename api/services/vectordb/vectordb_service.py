@@ -143,7 +143,7 @@ class VectorDBService:
             print(f"⚠️  Error loading image {os.path.basename(image_path)}: {str(e)}")
             return None
     
-    def index_batch_documents(self,
+    def index_documents(self,
                             documents: List[Dict[str, Any]],
                             collection_name: str = "smartdoc_documents") -> Dict[str, Any]:
         """Index a batch of documents with text embeddings and save document types."""
