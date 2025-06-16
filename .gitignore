@@ -61,7 +61,8 @@ chromadb_canary/
 *.bin
 *.pickle
 
-notebooks/
+#notebooks/
+extra_notebooks/
 
 query_chromadb.py
 
