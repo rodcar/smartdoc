@@ -9,10 +9,6 @@ matplotlib
 seaborn
 openai
 open-clip-torch
-celery
-django-celery-results
 python-dotenv
 chromadb
-celery
-django-celery-results
 kombu[django]

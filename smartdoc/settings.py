@@ -42,10 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # third party apps
     'rest_framework',
     'drf_spectacular',
-    # local apps
     'api',
 ]
 
@@ -138,21 +136,6 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 if not OPENAI_API_KEY:
     import warnings
     warnings.warn("OPENAI_API_KEY environment variable is not set. Document classification will not work.")
-
-# Celery Configuration (eager mode for development)
-CELERY_TASK_ALWAYS_EAGER = True  # Execute tasks synchronously but with Celery structure
-CELERY_TASK_EAGER_PROPAGATES = True  # Propagate exceptions in eager mode
-CELERY_BROKER_URL = 'memory://localhost/'
-CELERY_RESULT_BACKEND = 'django-db'
-CELERY_ACCEPT_CONTENT = ['json']
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'UTC'
-
-# Add django_celery_results to store task results in database
-INSTALLED_APPS = INSTALLED_APPS + [
-    'django_celery_results',
-]
 
 # Document Processing Pipeline Configuration
 # Provider Settings
