@@ -9,4 +9,3 @@ openai
 open-clip-torch
 python-dotenv
 chromadb
-kombu[django]
