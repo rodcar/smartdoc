@@ -5,8 +5,6 @@ Pillow
 pytesseract
 prefect>=2.14.0
 ipykernel
-matplotlib
-seaborn
 openai
 open-clip-torch
 python-dotenv
