@@ -9,3 +9,6 @@ openai
 open-clip-torch
 python-dotenv
 chromadb
+transformers
+sentence_transformers
+requests

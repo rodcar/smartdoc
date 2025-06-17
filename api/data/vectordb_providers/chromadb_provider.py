@@ -169,6 +169,7 @@ class ChromaDBProvider(VectorDBProvider):
             modality = kwargs.get('modality', 'text')
             query_text = kwargs.get('query_text')
             query_image = kwargs.get('query_image')
+            query_embeddings = kwargs.get('query_embeddings')
             n_results = kwargs.get('n_results', 10)
             include = kwargs.get('include', ["metadatas", "distances"])
             
@@ -186,9 +187,15 @@ class ChromaDBProvider(VectorDBProvider):
                     if collection is None:
                         return {"success": False, "error": "Collection not found"}
                 
-            if modality == "image" and query_image is not None:
+            # Query logic based on what's provided
+            if query_embeddings is not None:
+                # Use precomputed embeddings (for image collections without embedding functions)
+                results = collection.query(query_embeddings=query_embeddings, n_results=n_results, include=include)
+            elif modality == "image" and query_image is not None:
+                # Use raw images (for collections with embedding functions)
                 results = collection.query(query_images=[query_image], n_results=n_results, include=include)
             else:
+                # Use text queries
                 results = collection.query(query_texts=[query_text], n_results=n_results, include=include)
             
             return {"success": True, "results": results, "collection": collection_name, "modality": modality}

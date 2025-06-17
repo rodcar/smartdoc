@@ -1,6 +1,7 @@
 # api/services/llm/llm_providers/openai_provider.py
 import os
 import json
+import time
 from typing import Dict, Any, List, Optional
 from openai import OpenAI
 from pydantic import BaseModel, Field
@@ -9,20 +10,16 @@ from .base import LLMProvider
 
 
 class DocumentClassificationResponse(BaseModel):
-    predicted_category: str = Field(..., description="The predicted document category")
+    document_type: str = Field(..., description="The predicted document category")
+
+
+class Entity(BaseModel):
+    value: str = Field(..., description="The actual value extracted")
+    description: str = Field(..., description="The description of the entity extracted")
 
 
 class DocumentEntityExtractionResponse(BaseModel):
-    entity1_name: Optional[str] = Field(None, description="Name of first entity")
-    entity1_value: Optional[str] = Field(None, description="Value of first entity")
-    entity1_description: Optional[str] = Field(None, description="Description of first entity")
-    entity2_name: Optional[str] = Field(None, description="Name of second entity")
-    entity2_value: Optional[str] = Field(None, description="Value of second entity")
-    entity2_description: Optional[str] = Field(None, description="Description of second entity")
-    entity3_name: Optional[str] = Field(None, description="Name of third entity")
-    entity3_value: Optional[str] = Field(None, description="Value of third entity")
-    entity3_description: Optional[str] = Field(None, description="Description of third entity")
-    document_type: str = Field(..., description="The document type")
+    entities: List[Entity] = Field(default_factory=list, description="List of extracted entities")
 
 
 class OpenAIProvider(LLMProvider):
@@ -30,16 +27,17 @@ class OpenAIProvider(LLMProvider):
     OpenAI LLM provider implementation using GPT models.
     """
     
-    def __init__(self, model: str = "gpt-4.1", api_key: Optional[str] = None):
+    def __init__(self, model: str = "o3-2025-04-16", api_key: Optional[str] = None, timeout: float = None):
         self.model = model
         self.api_key = api_key or os.getenv("OPENAI_API_KEY")
+        self.timeout = timeout or float(os.getenv("OPENAI_TIMEOUT", 120.0))  # Default 2 minutes
         self._client = None
     
     @property
     def client(self) -> OpenAI:
         """Lazy initialization of OpenAI client."""
         if self._client is None:
-            self._client = OpenAI(api_key=self.api_key)
+            self._client = OpenAI(api_key=self.api_key, timeout=self.timeout)
         return self._client
     
     def classify_document(self, 
@@ -66,33 +64,23 @@ class OpenAIProvider(LLMProvider):
 
             Available Categories:
             {', '.join(categories)}
-
-            Important Rules:
-            1. You MUST choose EXACTLY ONE category from the list above
-            2. The category name MUST match EXACTLY (including case) with one of the provided categories
-            3. Do not create new categories or modify existing ones
-            4. If you cannot confidently classify the document, return 'unknown'
             
-            Extracted Text:
-            {extracted_text if extracted_text else 'No text extracted'}...
+            Extracted Text from Document:
+            {extracted_text if extracted_text else 'No text extracted'}
             
-            Based on the visual elements in the image and the extracted text content, classify this document into exactly ONE of the predefined categories.
+            Based on the extracted text content above, classify this document into exactly ONE of the predefined categories.
             
-            Return only the predicted_category field with the exact category name from the list.
+            Return only the document_type field with the exact category name from the list.
             """
             
-            # Use OpenAI Responses API for structured classification
+            # Use OpenAI Responses API (2025) with text only (no image to avoid hanging)
             response = self.client.responses.parse(
                 model=self.model,
                 input=[
                     {
                         "role": "user",
                         "content": [
-                            { "type": "input_text", "text": classification_prompt },
-                            {
-                                "type": "input_image",
-                                "image_url": f"data:image/jpeg;base64,{image_base64}",
-                            },
+                            { "type": "input_text", "text": classification_prompt }
                         ],
                     }
                 ],
@@ -103,23 +91,23 @@ class OpenAIProvider(LLMProvider):
             classification_result = response.output_parsed
             
             # Validate the prediction
-            predicted_category = classification_result.predicted_category
-            if predicted_category in categories:
+            document_type = classification_result.document_type
+            if document_type in categories:
                 return {
-                    'predicted_category': predicted_category,
+                    'document_type': document_type,
                     'success': True,
                     'error': None
                 }
             else:
                 return {
-                    'predicted_category': 'unknown',
-                    'success': False,
-                    'error': f'Invalid category: {predicted_category}'
+                    'document_type': 'unknown',
+                    'success': True,
+                    'error': f'Unknown category: {document_type}'
                 }
                 
         except Exception as e:
             return {
-                'predicted_category': 'error',
+                'document_type': 'error',
                 'success': False,
                 'error': f"OpenAI classification failed: {str(e)}"
             }
@@ -141,75 +129,77 @@ class OpenAIProvider(LLMProvider):
         Returns:
             dict: Entity extraction result
         """
-        try:
-            # Create the entity extraction prompt
-            entity_prompt = f"""
-            You are an expert document entity extraction system. Analyze the provided image and extracted text to identify and extract relevant entities based on the document type.
+        max_retries = 3
+        base_delay = 1.0
+        
+        for attempt in range(max_retries):
+            try:
+                # Create the entity extraction prompt
+                entity_prompt = f"""
+                You are an expert document entity extraction system. Analyze the extracted text to identify and extract relevant entities based on the document type.
 
-            Document Type: {document_type}
-            
-            Extracted Text:
-            {extracted_text if extracted_text else 'No text extracted'}...
-            
-            Instructions:
-            1. Examine both the image and the extracted text
-            2. Extract up to 3 most important entities that are relevant for a {document_type} document
-            3. Use descriptive names for entities. For example: 'invoice_number', 'vendor_name', 'total_amount', etc.
-            4. For each entity, provide the extracted value and a brief description
-            5. Include the document type in the response
-            
-            Extract all relevant entities and provide structured output.
-            """
-            
-            # Use OpenAI Responses API for structured entity extraction
-            response = self.client.responses.parse(
-                model=self.model,
-                input=[
-                    {
-                        "role": "user",
-                        "content": [
-                            { "type": "input_text", "text": entity_prompt },
-                            {
-                                "type": "input_image",
-                                "image_url": f"data:image/jpeg;base64,{image_base64}",
-                            },
-                        ],
-                    }
-                ],
-                text_format=DocumentEntityExtractionResponse
-            )
-            
-            # Get the parsed response
-            entity_result = response.output_parsed
-            
-            # Convert the structured response to the expected format
-            entities_list = []
-            
-            # Process the flat entity structure
-            for i in range(1, 4):  # Support up to 3 entities
-                entity_name = getattr(entity_result, f'entity{i}_name', None)
-                entity_value = getattr(entity_result, f'entity{i}_value', None)
+                Document Type: {document_type}
                 
-                if entity_name and entity_value:
+                Extracted Text from Document:
+                {extracted_text if extracted_text else 'No text extracted'}
+                
+                Instructions:
+                1. Examine the extracted text above
+                2. Extract all relevant entities for this document type
+                3. For each entity, provide the extracted value and a brief description
+                
+                Extract all entities and provide structured output.
+                """
+                
+                # Use OpenAI Responses API (2025) with text only (no image to avoid hanging)
+                response = self.client.responses.parse(
+                    model=self.model,
+                    input=[
+                        {
+                            "role": "user",
+                            "content": [
+                                { "type": "input_text", "text": entity_prompt }
+                            ],
+                        }
+                    ],
+                    text_format=DocumentEntityExtractionResponse
+                )
+                
+                # Get the parsed response
+                entity_result = response.output_parsed
+                
+                # Convert the structured response to the expected format
+                entities_list = []
+                
+                # Process the entity list from the response
+                for entity in entity_result.entities:
                     entities_list.append({
-                        "name": entity_name,
-                        "value": entity_value
+                        "value": entity.value,
+                        "description": entity.description
                     })
-            
-            return {
-                'entities': entities_list,
-                'document_type': document_type,
-                'success': True,
-                'error': None
-            }
                 
-        except Exception as e:
-            return {
-                'entities': [],
-                'document_type': document_type,
-                'success': False,
-                'error': f"OpenAI entity extraction failed: {str(e)}"
-            }
+                return {
+                    'entities': entities_list,
+                    'success': True,
+                    'error': None
+                }
+                    
+            except Exception as e:
+                error_msg = str(e)
+                is_timeout = "timeout" in error_msg.lower() or "timed out" in error_msg.lower()
+                
+                if attempt < max_retries - 1 and is_timeout:
+                    # Exponential backoff for timeout errors
+                    delay = base_delay * (2 ** attempt)
+                    print(f"OpenAI timeout on attempt {attempt + 1}, retrying in {delay}s...")
+                    time.sleep(delay)
+                    continue
+                
+                return {
+                    'entities': [],
+                    'success': False,
+                    'error': f"OpenAI entity extraction failed: {error_msg}"
+                }
     
     def generate_text(self, prompt: str, **kwargs) -> str:
         """

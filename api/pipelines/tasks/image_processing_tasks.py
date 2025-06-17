@@ -1,11 +1,12 @@
 import time
 import base64
+from pathlib import Path
 from typing import Dict, Any, Optional
 from prefect import task
 from prefect.logging import get_run_logger
 from django.conf import settings
 
-from ..config.flow_settings import MAX_RETRIES, RETRY_DELAY_SECONDS
+from ..config.flow_settings import MAX_RETRIES, RETRY_DELAY_SECONDS, ENTITY_EXTRACTION_MAX_RETRIES, ENTITY_EXTRACTION_RETRY_DELAY
 from api.services.llm import llm_service
 
 # Use document types from settings
@@ -15,6 +16,8 @@ DOCUMENT_CATEGORIES = settings.DOCUMENT_TYPES
 def classify_document(image_path: str, extracted_text: str, confidence_threshold: float = 0.7, provider_name: Optional[str] = None) -> Dict[str, Any]:
     """Classify document type using LLM service."""
     logger = get_run_logger()
+    # Ensure the image path is properly handled (no URL decoding issues)
+    image_path = str(Path(image_path).resolve())
     logger.info(f"Classifying document: {image_path}")
     start_time = time.time()
     
@@ -33,7 +36,7 @@ def classify_document(image_path: str, extracted_text: str, confidence_threshold
         processing_time = time.time() - start_time
         result = {
             'image_path': image_path,
-            'predicted_category': llm_result.get('predicted_category', 'unknown'),
+            'document_type': llm_result.get('document_type', 'unknown'),
             'processing_time_seconds': round(processing_time, 2),
             'all_categories': DOCUMENT_CATEGORIES,
             'success': llm_result.get('success', False),
@@ -42,7 +45,7 @@ def classify_document(image_path: str, extracted_text: str, confidence_threshold
         }
         
         if result['success']:
-            logger.info(f"Document classified as '{result['predicted_category']}' in {processing_time:.2f}s using {result['provider_used']} provider")
+            logger.info(f"Document classified as '{result['document_type']}' in {processing_time:.2f}s using {result['provider_used']} provider")
         else:
             logger.warning(f"Could not classify document: {image_path} - {result['error']}")
         
@@ -54,7 +57,7 @@ def classify_document(image_path: str, extracted_text: str, confidence_threshold
         logger.error(error_msg)
         return {
             'image_path': image_path,
-            'predicted_category': 'error',
+            'document_type': 'error',
             'processing_time_seconds': round(processing_time, 2),
             'all_categories': DOCUMENT_CATEGORIES,
             'success': False,
@@ -62,10 +65,12 @@ def classify_document(image_path: str, extracted_text: str, confidence_threshold
             'provider_used': provider_name or 'default'
         }
 
-@task(name="extract-entities", retries=MAX_RETRIES, retry_delay_seconds=RETRY_DELAY_SECONDS)
+@task(name="extract-entities", retries=ENTITY_EXTRACTION_MAX_RETRIES, retry_delay_seconds=ENTITY_EXTRACTION_RETRY_DELAY)
 def extract_entities(image_path: str, extracted_text: str, document_type: str, confidence_threshold: float = 0.7, provider_name: Optional[str] = None) -> Dict[str, Any]:
     """Extract entities from document using LLM service."""
     logger = get_run_logger()
+    # Ensure the image path is properly handled (no URL decoding issues)
+    image_path = str(Path(image_path).resolve())
     logger.info(f"Extracting entities from document: {image_path} (type: {document_type})")
     start_time = time.time()
     

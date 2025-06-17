@@ -29,12 +29,16 @@ def process_document_pipeline(image_path: str, ocr_provider: Optional[str] = Non
         Combined results from all processing streams
     """
     logger = get_run_logger()
+    logger.info(f"🔄 Starting pipeline for: {image_path}")
     try:
         # Start Image Embedding immediately (parallel to everything)
+        logger.info(f"📸 Starting image embedding for: {image_path}")
         image_embedding_future = generate_image_embedding.submit(image_path, image_embedding_provider)
         
         # Start OCR
+        logger.info(f"📄 Starting OCR for: {image_path}")
         ocr_result = extract_text_from_image(image_path, ocr_provider)
+        logger.info(f"📄 OCR completed for: {image_path}, success: {ocr_result.get('success')}")
         if not ocr_result['success']:
             # Wait for image embedding to complete before returning
             image_embedding_result = image_embedding_future.result()
@@ -55,6 +59,7 @@ def process_document_pipeline(image_path: str, ocr_provider: Optional[str] = Non
         futures = {}
         
         # Stream 1: Classification → Entity Extraction
+        logger.info(f"🔍 Starting classification for: {image_path}")
         classification_future = classify_document.submit(image_path, extracted_text)
         futures['classification'] = classification_future
         
@@ -64,10 +69,13 @@ def process_document_pipeline(image_path: str, ocr_provider: Optional[str] = Non
             futures['text_embedding'] = text_embedding_future
         
         # Wait for classification to complete, then start entity extraction
+        logger.info(f"⏳ Waiting for classification result for: {image_path}")
         classification_result = classification_future.result()
+        logger.info(f"🔍 Classification completed for: {image_path}, success: {classification_result.get('success')}, category: {classification_result.get('document_type')}")
         if classification_result['success'] and extracted_text.strip():
-            predicted_category = classification_result['predicted_category']
-            entity_future = extract_entities.submit(image_path, extracted_text, predicted_category)
+            document_type = classification_result['document_type']
+            logger.info(f"🏷️ Starting entity extraction for: {image_path}")
+            entity_future = extract_entities.submit(image_path, extracted_text, document_type)
             futures['entity'] = entity_future
         
         # Collect all results

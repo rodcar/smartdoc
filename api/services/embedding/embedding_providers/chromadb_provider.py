@@ -41,9 +41,12 @@ class ChromaDBProvider(EmbeddingProvider):
         import torch
         
         # Check for MPS (Apple Silicon) first - best performance on macOS
-        if hasattr(torch.backends, 'mps') and torch.backends.mps.is_available():
+        if (hasattr(torch.backends, 'mps') and 
+            torch.backends.mps.is_available() and 
+            torch.backends.mps.is_built()):
             try:
-                # Test MPS device works
+                # Test MPS device works with proper initialization
+                torch.device('mps')
                 test_tensor = torch.tensor([1.0], device='mps')
                 print("✅ Using MPS (Apple Silicon GPU) for optimal performance")
                 return 'mps'
@@ -86,169 +89,37 @@ class ChromaDBProvider(EmbeddingProvider):
         import os
         
         # Set environment variables to handle meta tensors properly
-        os.environ.setdefault('TOKENIZERS_PARALLELISM', 'false')
-        # Disable meta tensor usage to avoid the device movement issue
-        os.environ.setdefault('TORCH_FORCE_DISABLE_META', 'true')
+        os.environ['TOKENIZERS_PARALLELISM'] = 'false'
+        os.environ['TORCH_FORCE_DISABLE_META'] = 'true'
         
         # Determine the best available device (MPS > CUDA > CPU)
         self._device = self._get_optimal_device()
         print(f"🎯 Selected device: {self._device}")
         
         try:
-            # Initialize with proper meta tensor handling
-            self._initialize_with_meta_tensor_fix()
+            # Initialize with proper imports first, then let models use MPS
+            os.environ['PYTORCH_ENABLE_MPS_FALLBACK'] = '1'
+            self._image_embedding_function = OpenCLIPEmbeddingFunction()
+            self._text_embedding_function = SentenceTransformerEmbeddingFunction(model_name=self.text_model)
+            print("✅ OpenCLIP embedding function initialized successfully")
+            print("✅ SentenceTransformer embedding function initialized successfully")
+            self._initialized = True
             
         except Exception as e:
-            # If all fails, try one more time with torch settings
-            print(f"⚠️ Initialization failed, trying with modified torch settings...")
-            self._initialize_with_torch_settings()
-    
-    def _initialize_with_meta_tensor_fix(self):
-        """Initialize embedding functions with proper meta tensor handling."""
-        import torch
-        
-        # Disable meta tensor functionality temporarily
-        original_meta_enabled = getattr(torch, '_C', {}).get('_meta', None)
-        
-        try:
-            # Force disable meta tensor mode during initialization
-            with torch.device('cpu'):  # Initialize on CPU first
-                # Initialize OpenCLIP for image embeddings
-                try:
-                    self._image_embedding_function = OpenCLIPEmbeddingFunction()
-                    print("✅ OpenCLIP embedding function initialized successfully")
-                except Exception as e:
-                    if "meta tensor" in str(e).lower():
-                        print(f"⚠️ OpenCLIP meta tensor issue detected, trying CPU-only initialization...")
-                        # Force CPU-only initialization
-                        with torch.no_grad():
-                            self._image_embedding_function = OpenCLIPEmbeddingFunction()
-                    else:
-                        raise e
-                
-                # Initialize SentenceTransformer for text embeddings
-                try:
-                    self._text_embedding_function = SentenceTransformerEmbeddingFunction(
-                        model_name=self.text_model
-                    )
-                    print("✅ SentenceTransformer embedding function initialized successfully")
-                except Exception as e:
-                    if "meta tensor" in str(e).lower():
-                        print(f"⚠️ SentenceTransformer meta tensor issue detected, trying CPU-only initialization...")
-                        # Force CPU-only initialization
-                        with torch.no_grad():
-                            self._text_embedding_function = SentenceTransformerEmbeddingFunction(
-                                model_name=self.text_model
-                            )
-                    else:
-                        raise e
-                        
-        except Exception as e:
-            print(f"⚠️ Meta tensor fix failed: {e}, trying fallback methods...")
-            self._initialize_openclip_fallback()
-            self._initialize_sentence_transformer_fallback()
-    
-    def _initialize_openclip_fallback(self):
-        """Fallback initialization for OpenCLIP with meta tensor handling."""
-        import torch
-        import os
-        
-        # Clear any existing CUDA cache
-        if torch.cuda.is_available():
-            torch.cuda.empty_cache()
-        
-        try:
-            # Try with explicit CPU initialization and no meta tensors
-            old_env = os.environ.get('TORCH_FORCE_DISABLE_META', None)
-            os.environ['TORCH_FORCE_DISABLE_META'] = 'true'
-            
-            with torch.no_grad():
-                with torch.device('cpu'):
-                    self._image_embedding_function = OpenCLIPEmbeddingFunction()
-                    
-            # Restore environment
-            if old_env is None:
-                os.environ.pop('TORCH_FORCE_DISABLE_META', None)
-            else:
-                os.environ['TORCH_FORCE_DISABLE_META'] = old_env
-                
-        except Exception as e:
-            # If still failing, force CPU device for stability
+            print(f"⚠️ Initialization failed: {e}")
+            # If initialization fails, force CPU and retry
+            print("⚠️ Falling back to CPU initialization...")
             self._device = 'cpu'
-            with torch.no_grad():
-                self._image_embedding_function = OpenCLIPEmbeddingFunction()
-    
-    def _initialize_sentence_transformer_fallback(self):
-        """Fallback initialization for SentenceTransformer with meta tensor handling."""
-        import torch
-        import os
-        
-        # Clear any existing CUDA cache
-        if torch.cuda.is_available():
-            torch.cuda.empty_cache()
-        
-        try:
-            # Try with explicit CPU initialization and no meta tensors
-            old_env = os.environ.get('TORCH_FORCE_DISABLE_META', None)
-            os.environ['TORCH_FORCE_DISABLE_META'] = 'true'
-            
-            with torch.no_grad():
+            try:
                 with torch.device('cpu'):
-                    self._text_embedding_function = SentenceTransformerEmbeddingFunction(
-                        model_name=self.text_model
-                    )
-                    
-            # Restore environment
-            if old_env is None:
-                os.environ.pop('TORCH_FORCE_DISABLE_META', None)
-            else:
-                os.environ['TORCH_FORCE_DISABLE_META'] = old_env
-                
-        except Exception as e:
-            # If still failing, force CPU device for stability
-            self._device = 'cpu'
-            with torch.no_grad():
-                self._text_embedding_function = SentenceTransformerEmbeddingFunction(
-                    model_name=self.text_model
-                )
-    
-    def _initialize_with_torch_settings(self):
-        """Final fallback initialization with modified torch settings."""
-        import torch
-        import os
-        
-        # Save current settings
-        old_default_dtype = torch.get_default_dtype()
-        old_meta_env = os.environ.get('TORCH_FORCE_DISABLE_META', None)
-        
-        try:
-            # Set to float32 to avoid potential precision issues
-            torch.set_default_dtype(torch.float32)
-            
-            # Force disable meta tensors completely
-            os.environ['TORCH_FORCE_DISABLE_META'] = 'true'
-            
-            # Disable gradient computation during initialization
-            with torch.no_grad():
-                # Force CPU usage for meta tensor issues
-                with torch.device('cpu'):
-                    # Initialize functions
                     self._image_embedding_function = OpenCLIPEmbeddingFunction()
                     self._text_embedding_function = SentenceTransformerEmbeddingFunction(
                         model_name=self.text_model
                     )
-                
-                # Override device selection for stability
-                self._device = 'cpu'
-                print("✅ Embedding functions initialized with torch settings workaround (CPU-only)")
-                
-        finally:
-            # Restore original settings
-            torch.set_default_dtype(old_default_dtype)
-            if old_meta_env is None:
-                os.environ.pop('TORCH_FORCE_DISABLE_META', None)
-            else:
-                os.environ['TORCH_FORCE_DISABLE_META'] = old_meta_env
+                print("✅ Embedding functions initialized with CPU fallback")
+                self._initialized = True
+            except Exception as e2:
+                raise RuntimeError(f"Failed to initialize embedding functions even on CPU: {str(e2)}")
     
     def _create_document_id(self, source: str) -> str:
         """Create a unique document ID based on source."""
@@ -265,8 +136,10 @@ class ChromaDBProvider(EmbeddingProvider):
             Image as numpy array
         """
         if isinstance(image, str):
-            # Load from file path
-            with Image.open(image) as img:
+            # Load from file path - ensure proper path handling for special characters
+            from pathlib import Path
+            image_path = str(Path(image).resolve())
+            with Image.open(image_path) as img:
                 # Convert to RGB if necessary
                 if img.mode != 'RGB':
                     img = img.convert('RGB')

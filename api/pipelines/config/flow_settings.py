@@ -12,7 +12,7 @@ MAX_CONCURRENT_TASKS = int(os.getenv('MAX_CONCURRENT_TASKS', 16))  # Parallel pr
 DEFAULT_EMBEDDING_BATCH_SIZE = 25
 DEFAULT_VECTORDB_PATH = "./chromadb"
 DEFAULT_COLLECTION_NAME = "smartdoc_documents"
-MAX_EMBEDDING_WORKERS = 16  # Maximum workers for embedding generation
+MAX_EMBEDDING_WORKERS = 14  # Maximum workers for embedding generation
 
 # Supported image formats
 SUPPORTED_IMAGE_FORMATS = {'.jpg', '.jpeg'}
@@ -24,6 +24,10 @@ SAVE_EXTRACTED_TEXT = True
 # Error handling
 MAX_RETRIES = 3
 RETRY_DELAY_SECONDS = 60
+
+# Entity extraction specific retry settings (more retries for timeout-prone operations)
+ENTITY_EXTRACTION_MAX_RETRIES = int(os.getenv('ENTITY_EXTRACTION_MAX_RETRIES', 5))
+ENTITY_EXTRACTION_RETRY_DELAY = int(os.getenv('ENTITY_EXTRACTION_RETRY_DELAY', 30))
 
 # File size limits (in bytes)
 MAX_IMAGE_SIZE = 50 * 1024 * 1024  # 50MB per image

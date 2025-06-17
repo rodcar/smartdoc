@@ -62,20 +62,20 @@ class AnalysisService:
                 
                 # Step 2: Query similar documents from vector database
                 print("🔎 Searching for similar documents in vector database...")
-                similar_doc_types = []
                 
                 # Query text collection if we have extracted text
+                text_result = {"classification": None, "confidence": 0.0}
                 if extracted_text:
-                    text_similar_docs = self._query_similar_text_documents(extracted_text)
-                    similar_doc_types.extend(text_similar_docs)
+                    text_result = self._query_similar_text_documents(extracted_text)
                 
                 # Query image collection
-                image_similar_docs = self._query_similar_image_documents(temp_file_path)
-                similar_doc_types.extend(image_similar_docs)
+                print("🔍 Debug - About to call image search...")
+                image_result = self._query_similar_image_documents(temp_file_path)
+                print(f"🔍 Debug - Image search returned: {image_result}")
                 
-                # Step 3: Determine most common document type
-                print("📊 Analyzing document type patterns...")
-                predicted_document_type = self._get_most_common_document_type(similar_doc_types)
+                # Step 3: Determine document type using dual confidence approach
+                print("📊 Analyzing document type with dual confidence...")
+                predicted_document_type = self._determine_final_classification(image_result, text_result)
                 
                 # Step 4: Extract entities using LLM service
                 print("🤖 Extracting entities using LLM service...")
@@ -99,13 +99,13 @@ class AnalysisService:
                 "error": f"Analysis failed: {str(e)}"
             }
     
-    def _query_similar_text_documents(self, text: str, n_results: int = 10) -> List[str]:
+    def _query_similar_text_documents(self, text: str, n_results: int = 7) -> Dict[str, Any]:
         """Query similar documents from text embedding collection."""
         try:
             # Use the vectordb provider's query method
             if not self.vectordb_service.default_provider:
                 print("⚠️ No vector database provider available for text search")
-                return []
+                return {"classification": None, "confidence": 0.0}
             
             result = self.vectordb_service.default_provider.query(
                 collection_name="smartdoc_classifier_text",
@@ -116,78 +116,175 @@ class AnalysisService:
             )
             
             if result.get('success') and result.get('results'):
-                metadatas = result['results'].get('metadatas', [[]])[0]
-                document_types = [meta.get('type', 'unknown') for meta in metadatas if meta]
-                print(f"📝 Found {len(document_types)} similar text documents")
-                return document_types
+                print(f"🔍 Debug - Raw text query result: {result}")
+                metadatas = result['results'].get('metadatas', [[]])[0] if result['results'].get('metadatas') else []
+                distances = result['results'].get('distances', [[]])[0] if result['results'].get('distances') else []
+                
+                print(f"🔍 Debug - Text metadatas length: {len(metadatas)}, distances length: {len(distances)}")
+                
+                if metadatas and distances:
+                    classification, confidence = self._analyze_classification_confidence(metadatas, distances)
+                    print(f"📝 Text search: {classification} (confidence: {confidence:.3f})")
+                    return {"classification": classification, "confidence": confidence}
+                else:
+                    print("⚠️ Text search: No metadatas or distances found")
             
-            return []
+            return {"classification": None, "confidence": 0.0}
             
         except Exception as e:
             print(f"⚠️ Error querying similar text documents: {e}")
-            return []
+            return {"classification": None, "confidence": 0.0}
     
-    def _query_similar_image_documents(self, image_path: str, n_results: int = 10) -> List[str]:
+    def _query_similar_image_documents(self, image_path: str, n_results: int = 3) -> Dict[str, Any]:
         """Query similar documents from image embedding collection."""
         try:
+            print(f"🔍 Debug - Starting image search for: {image_path}")
             # Generate image embedding for the uploaded image
             embedding_result = self.embedding_service.generate_image_embedding(image_path)
+            print(f"🔍 Debug - Image embedding result: {embedding_result.get('success')}")
             
             if not embedding_result.get('success'):
                 print(f"⚠️ Failed to generate image embedding: {embedding_result.get('error')}")
-                return []
+                return {"classification": None, "confidence": 0.0}
             
-            # Load image as array for query
-            from PIL import Image
-            import numpy as np
+            # Extract the embedding vector from the result
+            image_embedding = embedding_result.get('embedding')
+            if image_embedding is None:
+                print("⚠️ No embedding vector in embedding result")
+                return {"classification": None, "confidence": 0.0}
             
-            with Image.open(image_path) as img:
-                if img.mode != 'RGB':
-                    img = img.convert('RGB')
-                image_array = np.array(img)
-            
-            # Query using the image array
+            # Query using the image embedding
             if not self.vectordb_service.default_provider:
                 print("⚠️ No vector database provider available for image search")
-                return []
+                return {"classification": None, "confidence": 0.0}
+            
+            print(f"🔍 Debug - About to query image collection with embedding length: {len(image_embedding)}")
+            
+            # Check if collection exists
+            provider = self.vectordb_service.default_provider
+            if hasattr(provider, 'collections'):
+                collection_exists = "smartdoc_classifier_images" in provider.collections
+                print(f"🔍 Debug - smartdoc_classifier_images exists: {collection_exists}")
+                if collection_exists:
+                    collection = provider.collections["smartdoc_classifier_images"]
+                    count = collection.count() if hasattr(collection, 'count') else "unknown"
+                    print(f"🔍 Debug - smartdoc_classifier_images count: {count}")
             
             result = self.vectordb_service.default_provider.query(
                 collection_name="smartdoc_classifier_images",
-                query_image=image_array,
+                query_embeddings=[image_embedding],  # Use embedding, not raw image
                 n_results=n_results,
                 modality="image",
                 include=["metadatas", "distances"]
             )
+            print(f"🔍 Debug - Image query completed, success: {result.get('success') if result else 'None'}")
+            if result and not result.get('success'):
+                print(f"🔍 Debug - Image query error: {result.get('error')}")
             
             if result.get('success') and result.get('results'):
-                metadatas = result['results'].get('metadatas', [[]])[0]
-                document_types = [meta.get('type', 'unknown') for meta in metadatas if meta]
-                print(f"🖼️ Found {len(document_types)} similar image documents")
-                return document_types
+                print(f"🔍 Debug - Raw image query result: {result}")
+                metadatas = result['results'].get('metadatas', [[]])[0] if result['results'].get('metadatas') else []
+                distances = result['results'].get('distances', [[]])[0] if result['results'].get('distances') else []
+                
+                print(f"🔍 Debug - Image metadatas length: {len(metadatas)}, distances length: {len(distances)}")
+                
+                if metadatas and distances:
+                    classification, confidence = self._analyze_classification_confidence(metadatas, distances)
+                    print(f"🖼️ Image search: {classification} (confidence: {confidence:.3f})")
+                    return {"classification": classification, "confidence": confidence}
+                else:
+                    print("⚠️ Image search: No metadatas or distances found")
             
-            return []
+            return {"classification": None, "confidence": 0.0}
             
         except Exception as e:
             print(f"⚠️ Error querying similar image documents: {e}")
-            return []
+            import traceback
+            print(f"🔍 Debug - Image search exception traceback: {traceback.format_exc()}")
+            return {"classification": None, "confidence": 0.0}
     
-    def _get_most_common_document_type(self, document_types: List[str]) -> str:
-        """Determine the most common document type from similar documents."""
-        if not document_types:
+    def _analyze_classification_confidence(self, metadatas: List[Dict], distances: List[float]) -> tuple:
+        """Analyze classification confidence based on search results using distance-based voting."""
+        if not metadatas or not distances:
+            print("⚠️ No metadatas or distances provided")
+            return None, 0.0
+        
+        print(f"🔍 Debug - metadata sample: {metadatas[0] if metadatas else 'empty'}")
+        print(f"🔍 Debug - distances: {distances[:3] if len(distances) >= 3 else distances}")
+        
+        # Count document types weighted by similarity
+        doc_type_scores = {}
+        total_weight = 0
+        
+        for metadata, distance in zip(metadatas, distances):
+            # Try both 'type' and 'document_type' keys
+            doc_type = metadata.get('type') or metadata.get('document_type', 'unknown')
+            print(f"🔍 Debug - doc_type: {doc_type}, distance: {distance:.4f}")
+            
+            if doc_type == 'unknown':
+                continue
+                
+            # Convert distance to similarity (closer = higher similarity)
+            similarity = 1 - distance
+            # Weight by similarity (higher similarity = more influence)
+            weight = max(0, similarity)  # Ensure non-negative
+            
+            if doc_type not in doc_type_scores:
+                doc_type_scores[doc_type] = 0
+            doc_type_scores[doc_type] += weight
+            total_weight += weight
+        
+        print(f"🔍 Debug - doc_type_scores: {doc_type_scores}, total_weight: {total_weight}")
+        
+        if total_weight == 0 or not doc_type_scores:
+            print("⚠️ Zero total weight or no valid document types found")
+            return None, 0.0
+        
+        # Normalize scores to get confidence percentages
+        for doc_type in doc_type_scores:
+            doc_type_scores[doc_type] /= total_weight
+        
+        # Get the top prediction and its confidence
+        predicted_class = max(doc_type_scores, key=doc_type_scores.get)
+        confidence = doc_type_scores[predicted_class]
+        
+        return predicted_class, confidence
+
+    def _determine_final_classification(self, image_result: Dict, text_result: Dict) -> str:
+        """Determine final classification based on confidence levels from both modalities."""
+        image_class = image_result.get("classification")
+        image_conf = image_result.get("confidence", 0.0)
+        text_class = text_result.get("classification") 
+        text_conf = text_result.get("confidence", 0.0)
+        
+        # If only one modality has results
+        if image_class and not text_class:
+            print(f"🎯 Final: {image_class} (image-only, confidence: {image_conf:.3f})")
+            return image_class
+        elif text_class and not image_class:
+            print(f"🎯 Final: {text_class} (text-only, confidence: {text_conf:.3f})")
+            return text_class
+        elif not image_class and not text_class:
+            print("🎯 Final: unknown (no results)")
             return "unknown"
         
-        # Filter out 'unknown' types and count occurrences
-        valid_types = [doc_type for doc_type in document_types if doc_type != 'unknown']
+        # Both modalities have results - compare confidence
+        if image_conf > text_conf:
+            winning_modality = "image"
+            final_class = image_class
+            final_confidence = image_conf
+        elif text_conf > image_conf:
+            winning_modality = "text"
+            final_class = text_class
+            final_confidence = text_conf
+        else:
+            # Tie - prefer image (or could use other tie-breaking logic)
+            winning_modality = "image"
+            final_class = image_class
+            final_confidence = image_conf
         
-        if not valid_types:
-            return "unknown"
-        
-        # Count occurrences and get the most common
-        type_counts = Counter(valid_types)
-        most_common_type = type_counts.most_common(1)[0][0]
-        
-        print(f"📈 Document type analysis: {dict(type_counts)} -> Predicted: {most_common_type}")
-        return most_common_type
+        print(f"🎯 Final: {final_class} ({winning_modality} wins, confidence: {final_confidence:.3f})")
+        return final_class
     
     def _extract_entities_with_llm(self, image_path: str, extracted_text: str, document_type: str) -> List[Dict[str, str]]:
         """Extract entities using the LLM service."""

@@ -82,6 +82,8 @@ def extract_text_from_image(image_path: str, provider_name: Optional[str] = None
         Dictionary containing extraction results
     """
     logger = get_run_logger()
+    # Ensure the image path is properly handled (no URL decoding issues)
+    image_path = str(Path(image_path).resolve())
     image_file = Path(image_path)
     
     logger.info(f"Processing image: {image_path}")

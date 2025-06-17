@@ -24,7 +24,7 @@ class LLMProvider(ABC):
             confidence_threshold: Minimum confidence threshold for classification
             
         Returns:
-            dict: Classification result with 'predicted_category', 'confidence', etc.
+            dict: Classification result with 'document_type', 'confidence', etc.
         """
         pass
     

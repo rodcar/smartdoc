@@ -25,10 +25,9 @@ from ..config.flow_settings import (
 
 
 @flow(
-    name="document-processing",
+    name="document-processing", 
     description="Extract text, classify documents, and store in vector database",
     version="1.0.0",
-    task_runner=ConcurrentTaskRunner(max_workers=MAX_CONCURRENT_TASKS),
     retries=1,
     retry_delay_seconds=300
 )
@@ -123,16 +122,39 @@ def document_processing_flow(
         #########################################################
         # Step 2: Process documents through chained pipeline (OCR → Classification → Entity Extraction)
         #########################################################
-        _log_step(2, total_steps, "Processing documents through parallel streams (OCR→Classification→Entity + Text Embedding + Image Embedding)...", logger)
+        _log_step(2, total_steps, "Processing documents through parallel streams (OCR→Classification→Entity + Text Embedding + Image Embedding) in batches of 10...", logger)
         
-        # Submit all documents to the chained pipeline in parallel
-        pipeline_futures = [
-            process_document_pipeline.submit(image_path, ocr_provider, text_embedding_provider, image_embedding_provider) 
-            for image_path in image_paths
-        ]
+        # Process documents in batches of 14
+        batch_size = 14
+        total_images = len(image_paths)
+        pipeline_results = []
         
-        # Wait for all pipeline results
-        pipeline_results = [future.result() for future in pipeline_futures]
+        for batch_start in range(0, total_images, batch_size):
+            batch_end = min(batch_start + batch_size, total_images)
+            batch_images = image_paths[batch_start:batch_end]
+            batch_num = (batch_start // batch_size) + 1
+            total_batches = (total_images + batch_size - 1) // batch_size
+            
+            logger.info(f"🔄 Processing batch {batch_num}/{total_batches} ({len(batch_images)} documents)...")
+            
+            # Submit current batch in parallel
+            batch_futures = [
+                process_document_pipeline.submit(image_path, ocr_provider, text_embedding_provider, image_embedding_provider) 
+                for image_path in batch_images
+            ]
+            
+            # Wait for current batch to complete
+            batch_results = []
+            for i, future in enumerate(batch_futures):
+                logger.info(f"⏳ Waiting for document {i+1}/{len(batch_futures)} in batch {batch_num}: {batch_images[i]}")
+                result = future.result()
+                batch_results.append(result)
+                logger.info(f"✅ Completed document {i+1}/{len(batch_futures)} in batch {batch_num}: {result.get('success', 'unknown status')}")
+            
+            pipeline_results.extend(batch_results)
+            logger.info(f"✅ Completed batch {batch_num}/{total_batches}")
+        
+        logger.info(f"🔄 Completed all {total_batches} batches with {len(pipeline_results)} total documents")
         
         # Extract individual results for compatibility with existing code
         extraction_results = []
@@ -192,15 +214,22 @@ def document_processing_flow(
             if result['success']
         }
         
+        # Create lookup dictionary for classification results
+        classification_lookup = {
+            result['image_path']: result.get('document_type', 'unknown')
+            for result in classification_results
+            if result.get('success')
+        }
+        
         # Build documents for indexing in a single pass
         documents_for_indexing = [
             {
                 'image_path': ocr_result['image_path'],
                 'extracted_text': ocr_result['extracted_text'],
-                'document_type': classification_results[i].get('predicted_category', 'unknown'),
+                'document_type': classification_lookup.get(ocr_result['image_path'], 'unknown'),
                 'extracted_entities': entity_lookup.get(ocr_result['image_path'], {})
             }
-            for i, ocr_result in enumerate(extraction_results)
+            for ocr_result in extraction_results
             if ocr_result['success']
         ]
 

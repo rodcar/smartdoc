@@ -110,11 +110,13 @@ class VectorDBService:
         try:
             import base64
             
-            with open(image_path, "rb") as image_file:
+            # Ensure proper path handling for special characters
+            resolved_path = str(Path(image_path).resolve())
+            with open(resolved_path, "rb") as image_file:
                 image_data = image_file.read()
                 base64_string = base64.b64encode(image_data).decode('utf-8')
                 
-                file_extension = Path(image_path).suffix.lower()
+                file_extension = Path(resolved_path).suffix.lower()
                 mime_types = {
                     '.jpg': 'image/jpeg',
                     '.jpeg': 'image/jpeg', 
@@ -134,7 +136,10 @@ class VectorDBService:
     def load_image_as_array(self, image_path: str) -> Optional[np.ndarray]:
         """Load an image and convert it to a numpy array."""
         try:
-            with Image.open(image_path) as img:
+            # Ensure proper path handling for special characters
+            from pathlib import Path
+            resolved_path = str(Path(image_path).resolve())
+            with Image.open(resolved_path) as img:
                 if img.mode != 'RGB':
                     img = img.convert('RGB')
                 image_array = np.array(img)
@@ -165,7 +170,7 @@ class VectorDBService:
                 extracted_text = doc.get('extracted_text', '')
                 document_type = doc.get('document_type')
                 
-                if not image_path or not document_type or not extracted_text.strip():
+                if not image_path or not document_type:
                     continue
                     
                 # Load image for base64 encoding
@@ -173,7 +178,7 @@ class VectorDBService:
                 if image_base64:
                     valid_documents.append({
                         'image_path': image_path,
-                        'extracted_text': extracted_text,
+                        'extracted_text': extracted_text,  # Can be empty string
                         'document_type': document_type,
                         'image_base64': image_base64,
                         'extracted_entities': doc.get('extracted_entities')
@@ -214,7 +219,7 @@ class VectorDBService:
                 metadata = {
                     "type": doc['document_type'],
                     "indexed_at": datetime.now().isoformat(),
-                    "ocr_text": doc['extracted_text'],
+                    "ocr_text": doc['extracted_text'],  # Can be empty string
                     "base64": doc['image_base64']
                 }
                 
@@ -222,7 +227,7 @@ class VectorDBService:
                 if doc.get('extracted_entities'):
                     metadata["entities"] = json.dumps(doc['extracted_entities'])
                 
-                texts_to_embed.append(doc['extracted_text'])
+                texts_to_embed.append(doc['extracted_text'] or " ")
                 metadatas.append(metadata)
                 document_ids.append(doc_id)
             

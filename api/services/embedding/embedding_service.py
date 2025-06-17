@@ -389,7 +389,9 @@ class EmbeddingService:
 
     def _initialize_functions(self):
         """Initialize embedding functions."""
-        self._text_embedding_provider._initialize_functions()
-        self._image_embedding_provider._initialize_functions()
+        if self._text_embedding_provider is not None:
+            self._text_embedding_provider._initialize_functions()
+        if self._image_embedding_provider is not None:
+            self._image_embedding_provider._initialize_functions()
 
 # Module-level instance creation moved to __init__.py for lazy loading 

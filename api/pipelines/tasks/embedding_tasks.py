@@ -123,6 +123,10 @@ def generate_image_embedding(
     embedding_service = _get_embedding_service()
     
     try:
+        # Ensure the image path is properly handled (no URL decoding issues)
+        from pathlib import Path
+        image_path = str(Path(image_path).resolve())
+        
         # Ensure worker models are initialized
         if not _ensure_worker_models_initialized():
             logger.warning("Worker models not initialized, proceeding anyway")
