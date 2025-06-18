@@ -1,0 +1,618 @@
+rs/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041724414.jpg
+15:51:41.358 | INFO    | Task run 'process_document_pipeline-384' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2058146344_2058146363.jpg, success: True, category: invoice
+15:51:41.358 | INFO    | Task run 'process_document_pipeline-384' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2058146344_2058146363.jpg
+15:51:41.398 | INFO    | Task run 'extract-entities-137' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041724414.jpg (type: budget)
+15:51:41.400 | INFO    | Task run 'extract-entities-817' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2058146344_2058146363.jpg (type: invoice)
+15:51:41.673 | INFO    | Task run 'classify-document-8f0' - Document classified as 'budget' in 7.13s using default provider
+15:51:41.677 | INFO    | Task run 'classify-document-8f0' - Finished in state Completed()
+15:51:41.679 | INFO    | Task run 'process_document_pipeline-e71' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041718908_2041718912.jpg, success: True, category: budget
+15:51:41.679 | INFO    | Task run 'process_document_pipeline-e71' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041718908_2041718912.jpg
+15:51:41.705 | INFO    | Task run 'extract-entities-99a' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041718908_2041718912.jpg (type: budget)
+15:51:42.166 | INFO    | Task run 'classify-document-ea3' - Document classified as 'budget' in 7.61s using default provider
+15:51:42.169 | INFO    | Task run 'classify-document-ea3' - Finished in state Completed()
+15:51:42.171 | INFO    | Task run 'process_document_pipeline-826' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040791802.jpg, success: True, category: budget
+15:51:42.171 | INFO    | Task run 'process_document_pipeline-826' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040791802.jpg
+15:51:42.196 | INFO    | Task run 'extract-entities-c46' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040791802.jpg (type: budget)
+15:51:45.244 | INFO    | Task run 'classify-document-754' - Document classified as 'handwritten' in 10.66s using default provider
+15:51:45.247 | INFO    | Task run 'classify-document-754' - Finished in state Completed()
+15:51:45.248 | INFO    | Task run 'process_document_pipeline-1ec' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/83615386.jpg, success: True, category: handwritten
+15:51:45.249 | INFO    | Task run 'process_document_pipeline-1ec' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/83615386.jpg
+15:51:45.267 | INFO    | Task run 'classify-document-a45' - Document classified as 'budget' in 10.53s using default provider
+15:51:45.272 | INFO    | Task run 'classify-document-a45' - Finished in state Completed()
+15:51:45.274 | INFO    | Task run 'process_document_pipeline-018' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957445.jpg, success: True, category: budget
+15:51:45.274 | INFO    | Task run 'process_document_pipeline-018' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957445.jpg
+15:51:45.293 | INFO    | Task run 'extract-entities-09c' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/83615386.jpg (type: handwritten)
+15:51:45.296 | INFO    | Task run 'extract-entities-33e' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957445.jpg (type: budget)
+15:51:48.868 | INFO    | Task run 'extract-entities-0c2' - Extracted 3 entities from form document in 7.90s using default provider
+15:51:48.872 | INFO    | Task run 'extract-entities-0c2' - Finished in state Completed()
+15:51:48.877 | INFO    | Task run 'process_document_pipeline-476' - Finished in state Completed()
+15:51:50.365 | INFO    | Task run 'classify-document-67f' - Document classified as 'budget' in 15.78s using default provider
+15:51:50.368 | INFO    | Task run 'classify-document-67f' - Finished in state Completed()
+15:51:50.369 | INFO    | Task run 'process_document_pipeline-530' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040996956_2040996957.jpg, success: True, category: budget
+15:51:50.370 | INFO    | Task run 'process_document_pipeline-530' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040996956_2040996957.jpg
+15:51:50.396 | INFO    | Task run 'extract-entities-c70' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040996956_2040996957.jpg (type: budget)
+15:51:51.682 | INFO    | Task run 'extract-entities-99a' - Extracted 8 entities from budget document in 9.98s using default provider
+15:51:51.685 | INFO    | Task run 'extract-entities-99a' - Finished in state Completed()
+15:51:51.688 | INFO    | Task run 'process_document_pipeline-e71' - Finished in state Completed()
+15:51:53.841 | INFO    | Task run 'extract-entities-8d4' - Extracted 9 entities from form document in 13.03s using default provider
+15:51:53.844 | INFO    | Task run 'extract-entities-8d4' - Finished in state Completed()
+15:51:53.849 | INFO    | Task run 'process_document_pipeline-b57' - Finished in state Completed()
+15:51:54.450 | INFO    | Task run 'extract-entities-f17' - Extracted 9 entities from budget document in 15.59s using default provider
+15:51:54.454 | INFO    | Task run 'extract-entities-f17' - Finished in state Completed()
+15:51:54.458 | INFO    | Task run 'process_document_pipeline-987' - Finished in state Completed()
+15:51:56.398 | INFO    | Task run 'extract-entities-3ec' - Extracted 5 entities from form document in 15.59s using default provider
+15:51:56.401 | INFO    | Task run 'extract-entities-3ec' - Finished in state Completed()
+15:51:56.404 | INFO    | Task run 'process_document_pipeline-be9' - Finished in state Completed()
+15:51:58.907 | INFO    | Task run 'extract-entities-817' - Extracted 4 entities from invoice document in 17.51s using default provider
+15:51:58.911 | INFO    | Task run 'extract-entities-817' - Finished in state Completed()
+15:51:58.914 | INFO    | Task run 'process_document_pipeline-384' - Finished in state Completed()
+15:52:04.488 | INFO    | Task run 'extract-entities-137' - Extracted 19 entities from budget document in 23.09s using default provider
+15:52:04.491 | INFO    | Task run 'extract-entities-137' - Finished in state Completed()
+15:52:04.494 | INFO    | Task run 'process_document_pipeline-5d3' - Finished in state Completed()
+15:52:05.713 | INFO    | Task run 'extract-entities-c60' - Extracted 16 entities from budget document in 26.86s using default provider
+15:52:05.716 | INFO    | Task run 'extract-entities-c60' - Finished in state Completed()
+15:52:05.720 | INFO    | Task run 'process_document_pipeline-6c9' - Finished in state Completed()
+15:52:06.557 | INFO    | Task run 'extract-entities-33e' - Extracted 10 entities from budget document in 21.26s using default provider
+15:52:06.560 | INFO    | Task run 'extract-entities-33e' - Finished in state Completed()
+15:52:06.563 | INFO    | Task run 'process_document_pipeline-018' - Finished in state Completed()
+15:52:18.675 | INFO    | Task run 'extract-entities-eef' - Extracted 8 entities from budget document in 39.82s using default provider
+15:52:18.679 | INFO    | Task run 'extract-entities-eef' - Finished in state Completed()
+15:52:18.682 | INFO    | Task run 'process_document_pipeline-040' - Finished in state Completed()
+15:52:19.034 | INFO    | Task run 'extract-entities-09c' - Extracted 12 entities from handwritten document in 33.74s using default provider
+15:52:19.038 | INFO    | Task run 'extract-entities-09c' - Finished in state Completed()
+15:52:19.043 | INFO    | Task run 'process_document_pipeline-1ec' - Finished in state Completed()
+15:52:27.118 | INFO    | Task run 'extract-entities-c46' - Extracted 15 entities from budget document in 44.92s using default provider
+15:52:27.122 | INFO    | Task run 'extract-entities-c46' - Finished in state Completed()
+15:52:27.125 | INFO    | Task run 'process_document_pipeline-826' - Finished in state Completed()
+15:52:27.127 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 1/14 in batch 52: True
+15:52:27.128 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 2/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040964646_2040964671.jpg
+15:52:27.129 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 2/14 in batch 52: True
+15:52:27.129 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 3/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/83615386.jpg
+15:52:27.130 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 3/14 in batch 52: True
+15:52:27.131 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 4/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2058146344_2058146363.jpg
+15:52:27.132 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 4/14 in batch 52: True
+15:52:27.132 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 5/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040996956_2040996957.jpg
+15:52:33.872 | INFO    | Task run 'extract-entities-c70' - Extracted 16 entities from budget document in 43.48s using default provider
+15:52:33.876 | INFO    | Task run 'extract-entities-c70' - Finished in state Completed()
+15:52:33.880 | INFO    | Task run 'process_document_pipeline-530' - Finished in state Completed()
+15:52:33.882 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 5/14 in batch 52: True
+15:52:33.882 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 6/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063118582.jpg
+15:52:33.884 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 6/14 in batch 52: True
+15:52:33.884 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 7/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0043786_3787.jpg
+15:52:33.885 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 7/14 in batch 52: True
+15:52:33.886 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 8/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000106414.jpg
+15:52:33.887 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 8/14 in batch 52: True
+15:52:33.887 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 9/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041724414.jpg
+15:52:33.888 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 9/14 in batch 52: True
+15:52:33.889 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 10/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041718908_2041718912.jpg
+15:52:33.889 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 10/14 in batch 52: True
+15:52:33.890 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 11/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/93502372.jpg
+15:52:33.891 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 11/14 in batch 52: True
+15:52:33.891 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 12/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957445.jpg
+15:52:33.892 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 12/14 in batch 52: True
+15:52:33.893 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 13/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tcal0467049.jpg
+15:52:33.894 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 13/14 in batch 52: True
+15:52:33.894 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 14/14 in batch 52: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/24012515.jpg
+15:52:33.895 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 14/14 in batch 52: True
+15:52:33.895 | INFO    | Flow run 'bold-anteater' - ✅ Completed batch 52/53
+15:52:33.896 | INFO    | Flow run 'bold-anteater' - 🔄 Processing batch 53/53 (14 documents)...
+15:52:33.897 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 1/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg
+15:52:34.075 | INFO    | Task run 'process_document_pipeline-8d0' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg
+15:52:34.076 | INFO    | Task run 'process_document_pipeline-8d0' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg
+15:52:34.076 | INFO    | Task run 'process_document_pipeline-107' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg
+15:52:34.076 | INFO    | Task run 'process_document_pipeline-8d0' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg
+15:52:34.077 | INFO    | Task run 'process_document_pipeline-107' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg
+15:52:34.078 | INFO    | Task run 'process_document_pipeline-107' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg
+15:52:34.079 | INFO    | Task run 'process_document_pipeline-949' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg
+15:52:34.079 | INFO    | Task run 'process_document_pipeline-456' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg
+15:52:34.079 | INFO    | Task run 'process_document_pipeline-163' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg
+15:52:34.079 | INFO    | Task run 'process_document_pipeline-ef3' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg
+15:52:34.079 | INFO    | Task run 'process_document_pipeline-30a' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg
+15:52:34.079 | INFO    | Task run 'process_document_pipeline-097' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg
+15:52:34.080 | INFO    | Task run 'process_document_pipeline-949' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg
+15:52:34.080 | INFO    | Task run 'process_document_pipeline-456' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg
+15:52:34.081 | INFO    | Task run 'process_document_pipeline-b0c' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg
+15:52:34.081 | INFO    | Task run 'process_document_pipeline-16f' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg
+15:52:34.081 | INFO    | Task run 'process_document_pipeline-083' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg
+15:52:34.081 | INFO    | Task run 'process_document_pipeline-ba7' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg
+15:52:34.081 | INFO    | Task run 'process_document_pipeline-163' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg
+15:52:34.082 | INFO    | Task run 'process_document_pipeline-ef3' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg
+15:52:34.082 | INFO    | Task run 'process_document_pipeline-30a' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg
+15:52:34.082 | INFO    | Task run 'process_document_pipeline-097' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg
+15:52:34.083 | INFO    | Task run 'process_document_pipeline-949' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg
+15:52:34.083 | INFO    | Task run 'process_document_pipeline-456' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg
+15:52:34.084 | INFO    | Task run 'process_document_pipeline-b0c' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg
+15:52:34.084 | INFO    | Task run 'process_document_pipeline-16f' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg
+15:52:34.084 | INFO    | Task run 'process_document_pipeline-083' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg
+15:52:34.085 | INFO    | Task run 'process_document_pipeline-ba7' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg
+15:52:34.085 | INFO    | Task run 'process_document_pipeline-163' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg
+15:52:34.085 | INFO    | Task run 'process_document_pipeline-ef3' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg
+15:52:34.086 | INFO    | Task run 'process_document_pipeline-30a' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg
+15:52:34.086 | INFO    | Task run 'process_document_pipeline-097' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg
+15:52:34.087 | INFO    | Task run 'process_document_pipeline-b0c' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg
+15:52:34.087 | INFO    | Task run 'process_document_pipeline-16f' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg
+15:52:34.088 | INFO    | Task run 'process_document_pipeline-083' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg
+15:52:34.088 | INFO    | Task run 'process_document_pipeline-ba7' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg
+15:52:34.131 | INFO    | Task run 'process_document_pipeline-80b' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg
+15:52:34.132 | INFO    | Task run 'process_document_pipeline-80b' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg
+15:52:34.132 | INFO    | Task run 'process_document_pipeline-80b' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg
+15:52:34.133 | INFO    | Task run 'process_document_pipeline-29f' - 🔄 Starting pipeline for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg
+15:52:34.134 | INFO    | Task run 'process_document_pipeline-29f' - 📸 Starting image embedding for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg
+15:52:34.134 | INFO    | Task run 'process_document_pipeline-29f' - 📄 Starting OCR for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg
+15:52:34.421 | INFO    | Task run 'generate-image-embedding-2e9' - Generating image embedding for 2040798851.jpg
+15:52:34.421 | INFO    | Task run 'extract-text-from-image-c5a' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg
+15:52:34.424 | INFO    | Task run 'generate-image-embedding-2f0' - Generating image embedding for tob08102.79_tob08102.82.jpg
+15:52:34.425 | INFO    | Task run 'extract-text-from-image-100' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg
+15:52:34.425 | INFO    | Task run 'extract-text-from-image-186' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg
+15:52:34.426 | INFO    | Task run 'generate-image-embedding-43a' - Generating image embedding for tob08217.60.jpg
+15:52:34.427 | INFO    | Task run 'generate-image-embedding-20e' - Generating image embedding for 04003142.jpg
+15:52:34.431 | INFO    | Task run 'generate-image-embedding-bd1' - Generating image embedding for 2015013759.jpg
+15:52:34.433 | INFO    | Task run 'generate-image-embedding-395' - Generating image embedding for 2043214503.jpg
+15:52:34.434 | INFO    | Task run 'extract-text-from-image-1b5' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg
+15:52:34.434 | INFO    | Task run 'generate-image-embedding-3a6' - Generating image embedding for tnwl0017788.jpg
+15:52:34.455 | INFO    | Task run 'extract-text-from-image-2ac' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg
+15:52:34.456 | INFO    | Task run 'generate-image-embedding-04c' - Generating image embedding for tob07122.95.jpg
+15:52:34.457 | INFO    | Task run 'extract-text-from-image-204' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg
+15:52:34.477 | INFO    | Task run 'generate-image-embedding-1c2' - Generating image embedding for 2040957385.jpg
+15:52:34.481 | INFO    | Task run 'extract-text-from-image-174' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg
+15:52:34.503 | INFO    | Task run 'extract-text-from-image-5a8' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg
+15:52:34.505 | INFO    | Task run 'extract-text-from-image-c83' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg
+15:52:34.511 | INFO    | Task run 'generate-image-embedding-812' - Generating image embedding for 03749673.jpg
+15:52:34.512 | INFO    | Task run 'extract-text-from-image-927' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg
+15:52:34.512 | INFO    | Task run 'generate-image-embedding-23e' - Generating image embedding for 2045467766.jpg
+15:52:34.514 | INFO    | Task run 'extract-text-from-image-876' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg
+15:52:34.515 | INFO    | Task run 'extract-text-from-image-48c' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg
+15:52:34.515 | INFO    | Task run 'extract-text-from-image-d79' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg
+15:52:34.519 | INFO    | Task run 'generate-image-embedding-ce9' - Generating image embedding for 0000452892.jpg
+15:52:34.571 | INFO    | Task run 'generate-image-embedding-b6c' - Generating image embedding for 2063180418.jpg
+15:52:34.593 | INFO    | Task run 'generate-image-embedding-bad' - Generating image embedding for 2041953025.jpg
+15:52:34.622 | INFO    | Task run 'extract-text-from-image-e5f' - Processing image: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg
+15:52:34.796 | INFO    | Task run 'extract-text-from-image-1b5' - Successfully extracted 24 characters in 0.32s from 0000452892.jpg using tesseract
+15:52:34.799 | INFO    | Task run 'extract-text-from-image-2ac' - Successfully extracted 11 characters in 0.29s from 2043214503.jpg using tesseract
+15:52:34.833 | INFO    | Task run 'extract-text-from-image-c5a' - Successfully extracted 337 characters in 0.41s from 2040798851.jpg using tesseract
+15:52:34.845 | INFO    | Task run 'extract-text-from-image-1b5' - Finished in state Completed()
+15:52:34.846 | INFO    | Task run 'process_document_pipeline-ef3' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg, success: True
+15:52:34.846 | INFO    | Task run 'extract-text-from-image-186' - Successfully extracted 822 characters in 0.42s from 04003142.jpg using tesseract
+15:52:34.847 | INFO    | Task run 'process_document_pipeline-ef3' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg
+15:52:34.852 | INFO    | Task run 'process_document_pipeline-ef3' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg
+15:52:34.854 | INFO    | Task run 'extract-text-from-image-2ac' - Finished in state Completed()
+15:52:34.854 | INFO    | Task run 'process_document_pipeline-ba7' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg, success: True
+15:52:34.862 | INFO    | Task run 'process_document_pipeline-ba7' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg
+15:52:34.865 | INFO    | Task run 'extract-text-from-image-c5a' - Finished in state Completed()
+15:52:34.865 | INFO    | Task run 'process_document_pipeline-ba7' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg
+15:52:34.868 | INFO    | Task run 'process_document_pipeline-8d0' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg, success: True
+15:52:34.873 | INFO    | Task run 'extract-text-from-image-186' - Finished in state Completed()
+15:52:34.879 | INFO    | Task run 'process_document_pipeline-949' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg, success: True
+15:52:34.879 | INFO    | Task run 'process_document_pipeline-949' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg
+15:52:34.877 | INFO    | Task run 'process_document_pipeline-8d0' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg
+15:52:34.880 | INFO    | Task run 'process_document_pipeline-949' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg
+15:52:34.875 | INFO    | Task run 'extract-text-from-image-174' - Successfully extracted 437 characters in 0.36s from 2015013759.jpg using tesseract
+15:52:34.882 | INFO    | Task run 'process_document_pipeline-8d0' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg
+15:52:34.887 | INFO    | Task run 'extract-text-from-image-c83' - Successfully extracted 218 characters in 0.35s from tnwl0017788.jpg using tesseract
+15:52:34.933 | INFO    | Task run 'extract-text-from-image-d79' - Successfully extracted 204 characters in 0.29s from 2041953025.jpg using tesseract
+15:52:34.944 | INFO    | Task run 'extract-text-from-image-204' - Successfully extracted 778 characters in 0.43s from tob08217.60.jpg using tesseract
+15:52:34.948 | INFO    | Task run 'extract-text-from-image-5a8' - Successfully extracted 677 characters in 0.43s from 2045467766.jpg using tesseract
+15:52:34.960 | INFO    | Task run 'extract-text-from-image-48c' - Successfully extracted 283 characters in 0.36s from 2040957385.jpg using tesseract
+15:52:34.965 | INFO    | Task run 'extract-text-from-image-100' - Successfully extracted 1116 characters in 0.54s from tob08102.79_tob08102.82.jpg using tesseract
+15:52:35.016 | INFO    | Task run 'extract-text-from-image-876' - Successfully extracted 796 characters in 0.42s from tob07122.95.jpg using tesseract
+15:52:35.027 | INFO    | Task run 'extract-text-from-image-174' - Finished in state Completed()
+15:52:35.028 | INFO    | Task run 'process_document_pipeline-b0c' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg, success: True
+15:52:35.030 | INFO    | Task run 'process_document_pipeline-b0c' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg
+15:52:35.030 | INFO    | Task run 'process_document_pipeline-b0c' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg
+15:52:35.032 | INFO    | Task run 'extract-text-from-image-c83' - Finished in state Completed()
+15:52:35.033 | INFO    | Task run 'process_document_pipeline-16f' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg, success: True
+15:52:35.034 | INFO    | Task run 'process_document_pipeline-16f' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg
+15:52:35.036 | INFO    | Task run 'process_document_pipeline-16f' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg
+15:52:35.047 | INFO    | Task run 'extract-text-from-image-204' - Finished in state Completed()
+15:52:35.048 | INFO    | Task run 'extract-text-from-image-d79' - Finished in state Completed()
+15:52:35.048 | INFO    | Task run 'process_document_pipeline-107' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg, success: True
+15:52:35.050 | INFO    | Task run 'extract-text-from-image-5a8' - Finished in state Completed()
+15:52:35.050 | INFO    | Task run 'process_document_pipeline-29f' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg, success: True
+15:52:35.051 | INFO    | Task run 'process_document_pipeline-107' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg
+15:52:35.054 | INFO    | Task run 'process_document_pipeline-163' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg, success: True
+15:52:35.055 | INFO    | Task run 'process_document_pipeline-29f' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg
+15:52:35.058 | INFO    | Task run 'process_document_pipeline-107' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg
+15:52:35.059 | INFO    | Task run 'process_document_pipeline-163' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg
+15:52:35.060 | INFO    | Task run 'extract-text-from-image-100' - Finished in state Completed()
+15:52:35.060 | INFO    | Task run 'extract-text-from-image-48c' - Finished in state Completed()
+15:52:35.061 | INFO    | Task run 'extract-text-from-image-876' - Finished in state Completed()
+15:52:35.062 | INFO    | Task run 'process_document_pipeline-29f' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg
+15:52:35.068 | INFO    | Task run 'process_document_pipeline-163' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg
+15:52:35.068 | INFO    | Task run 'process_document_pipeline-097' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg, success: True
+15:52:35.069 | INFO    | Task run 'process_document_pipeline-30a' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg, success: True
+15:52:35.072 | INFO    | Task run 'process_document_pipeline-456' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg, success: True
+15:52:35.074 | INFO    | Task run 'process_document_pipeline-097' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg
+15:52:35.077 | INFO    | Task run 'process_document_pipeline-30a' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg
+15:52:35.079 | INFO    | Task run 'process_document_pipeline-456' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg
+15:52:35.084 | INFO    | Task run 'process_document_pipeline-456' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg
+15:52:35.085 | INFO    | Task run 'process_document_pipeline-30a' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg
+15:52:35.085 | INFO    | Task run 'process_document_pipeline-097' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg
+15:52:35.138 | INFO    | Task run 'extract-text-from-image-927' - Successfully extracted 1118 characters in 0.55s from 03749673.jpg using tesseract
+15:52:35.152 | INFO    | Task run 'generate-image-embedding-395' - ✅ Generated image embedding for 2043214503.jpg
+15:52:35.157 | INFO    | Task run 'generate-image-embedding-1c2' - ✅ Generated image embedding for 2040957385.jpg
+15:52:35.164 | INFO    | Task run 'generate-image-embedding-3a6' - ✅ Generated image embedding for tnwl0017788.jpg
+15:52:35.166 | INFO    | Task run 'generate-image-embedding-2f0' - ✅ Generated image embedding for tob08102.79_tob08102.82.jpg
+15:52:35.168 | INFO    | Task run 'generate-image-embedding-20e' - ✅ Generated image embedding for 04003142.jpg
+15:52:35.168 | INFO    | Task run 'generate-image-embedding-812' - ✅ Generated image embedding for 03749673.jpg
+15:52:35.169 | INFO    | Task run 'generate-image-embedding-2e9' - ✅ Generated image embedding for 2040798851.jpg
+15:52:35.170 | INFO    | Task run 'extract-text-from-image-e5f' - Successfully extracted 240 characters in 0.51s from 2063180418.jpg using tesseract
+15:52:35.170 | INFO    | Task run 'generate-image-embedding-04c' - ✅ Generated image embedding for tob07122.95.jpg
+15:52:35.173 | INFO    | Task run 'generate-image-embedding-ce9' - ✅ Generated image embedding for 0000452892.jpg
+15:52:35.174 | INFO    | Task run 'generate-image-embedding-bd1' - ✅ Generated image embedding for 2015013759.jpg
+15:52:35.178 | INFO    | Task run 'generate-image-embedding-bad' - ✅ Generated image embedding for 2041953025.jpg
+15:52:35.179 | INFO    | Task run 'generate-image-embedding-43a' - ✅ Generated image embedding for tob08217.60.jpg
+15:52:35.183 | INFO    | Task run 'generate-image-embedding-23e' - ✅ Generated image embedding for 2045467766.jpg
+15:52:35.184 | INFO    | Task run 'generate-image-embedding-b6c' - ✅ Generated image embedding for 2063180418.jpg
+15:52:35.285 | INFO    | Task run 'extract-text-from-image-927' - Finished in state Completed()
+15:52:35.285 | INFO    | Task run 'process_document_pipeline-083' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg, success: True
+15:52:35.286 | INFO    | Task run 'generate-image-embedding-395' - Finished in state Completed()
+15:52:35.287 | INFO    | Task run 'generate-image-embedding-2f0' - Finished in state Completed()
+15:52:35.287 | INFO    | Task run 'generate-image-embedding-20e' - Finished in state Completed()
+15:52:35.287 | INFO    | Task run 'generate-image-embedding-812' - Finished in state Completed()
+15:52:35.288 | INFO    | Task run 'generate-image-embedding-2e9' - Finished in state Completed()
+15:52:35.288 | INFO    | Task run 'extract-text-from-image-e5f' - Finished in state Completed()
+15:52:35.288 | INFO    | Task run 'generate-image-embedding-04c' - Finished in state Completed()
+15:52:35.288 | INFO    | Task run 'generate-image-embedding-ce9' - Finished in state Completed()
+15:52:35.288 | INFO    | Task run 'generate-image-embedding-bd1' - Finished in state Completed()
+15:52:35.288 | INFO    | Task run 'generate-image-embedding-bad' - Finished in state Completed()
+15:52:35.289 | INFO    | Task run 'generate-image-embedding-43a' - Finished in state Completed()
+15:52:35.289 | INFO    | Task run 'generate-image-embedding-23e' - Finished in state Completed()
+15:52:35.289 | INFO    | Task run 'generate-image-embedding-b6c' - Finished in state Completed()
+15:52:35.289 | INFO    | Task run 'generate-image-embedding-1c2' - Finished in state Completed()
+15:52:35.290 | INFO    | Task run 'generate-image-embedding-3a6' - Finished in state Completed()
+15:52:35.291 | INFO    | Task run 'process_document_pipeline-083' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg
+15:52:35.296 | INFO    | Task run 'classify-document-33e' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg
+15:52:35.298 | INFO    | Task run 'generate-text-embedding-f3d' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg
+15:52:35.298 | INFO    | Task run 'process_document_pipeline-80b' - 📄 OCR completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg, success: True
+15:52:35.301 | INFO    | Task run 'generate-text-embedding-cba' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg
+15:52:35.301 | INFO    | Task run 'generate-text-embedding-235' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg
+15:52:35.303 | INFO    | Task run 'classify-document-3d6' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg
+15:52:35.303 | INFO    | Task run 'classify-document-dc5' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg
+15:52:35.304 | INFO    | Task run 'process_document_pipeline-083' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg
+15:52:35.305 | INFO    | Task run 'generate-text-embedding-a73' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg
+15:52:35.310 | INFO    | Task run 'process_document_pipeline-80b' - 🔍 Starting classification for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg
+15:52:35.315 | INFO    | Task run 'classify-document-234' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg
+15:52:35.317 | INFO    | Task run 'generate-text-embedding-cd7' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg
+15:52:35.319 | INFO    | Task run 'process_document_pipeline-80b' - ⏳ Waiting for classification result for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg
+15:52:35.320 | INFO    | Task run 'classify-document-6f1' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg
+15:52:35.326 | INFO    | Task run 'generate-text-embedding-d92' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg
+15:52:35.326 | INFO    | Task run 'generate-text-embedding-5b8' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg
+15:52:35.327 | INFO    | Task run 'generate-text-embedding-aa6' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg
+15:52:35.328 | INFO    | Task run 'classify-document-773' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg
+15:52:35.330 | INFO    | Task run 'classify-document-c9b' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg
+15:52:35.332 | INFO    | Task run 'classify-document-c0c' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg
+15:52:35.333 | INFO    | Task run 'classify-document-e8d' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg
+15:52:35.366 | INFO    | Task run 'generate-text-embedding-0bd' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg
+15:52:35.367 | INFO    | Task run 'generate-text-embedding-931' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg
+15:52:35.368 | INFO    | Task run 'generate-text-embedding-984' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg
+15:52:35.369 | INFO    | Task run 'generate-text-embedding-4d4' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg
+15:52:35.370 | INFO    | Task run 'classify-document-ef8' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg
+15:52:35.408 | INFO    | Task run 'classify-document-042' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg
+15:52:35.414 | INFO    | Task run 'classify-document-c62' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg
+15:52:35.421 | INFO    | Task run 'generate-text-embedding-cba' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg
+15:52:35.426 | INFO    | Task run 'classify-document-0ab' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg
+15:52:35.427 | INFO    | Task run 'generate-text-embedding-362' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg
+15:52:35.434 | INFO    | Task run 'generate-text-embedding-cba' - Finished in state Completed()
+15:52:35.436 | INFO    | Task run 'classify-document-5a1' - Classifying document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg
+15:52:35.438 | INFO    | Task run 'generate-text-embedding-6ba' - Generating text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg
+15:52:35.444 | INFO    | Task run 'generate-text-embedding-f3d' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg
+15:52:35.453 | INFO    | Task run 'generate-text-embedding-cd7' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg
+15:52:35.454 | INFO    | Task run 'generate-text-embedding-f3d' - Finished in state Completed()
+15:52:35.457 | INFO    | Task run 'generate-text-embedding-235' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg
+15:52:35.462 | INFO    | Task run 'generate-text-embedding-cd7' - Finished in state Completed()
+15:52:35.465 | INFO    | Task run 'generate-text-embedding-235' - Finished in state Completed()
+15:52:35.475 | INFO    | Task run 'generate-text-embedding-aa6' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg
+15:52:35.477 | INFO    | Task run 'generate-text-embedding-5b8' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg
+15:52:35.481 | INFO    | Task run 'generate-text-embedding-aa6' - Finished in state Completed()
+15:52:35.481 | INFO    | Task run 'generate-text-embedding-d92' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg
+15:52:35.483 | INFO    | Task run 'generate-text-embedding-5b8' - Finished in state Completed()
+15:52:35.483 | INFO    | Task run 'generate-text-embedding-a73' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg
+15:52:35.489 | INFO    | Task run 'generate-text-embedding-d92' - Finished in state Completed()
+15:52:35.492 | INFO    | Task run 'generate-text-embedding-a73' - Finished in state Completed()
+15:52:35.499 | INFO    | Task run 'generate-text-embedding-984' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg
+15:52:35.503 | INFO    | Task run 'generate-text-embedding-984' - Finished in state Completed()
+15:52:35.505 | INFO    | Task run 'generate-text-embedding-0bd' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg
+15:52:35.506 | INFO    | Task run 'generate-text-embedding-4d4' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg
+15:52:35.508 | INFO    | Task run 'generate-text-embedding-0bd' - Finished in state Completed()
+15:52:35.509 | INFO    | Task run 'generate-text-embedding-4d4' - Finished in state Completed()
+15:52:35.511 | INFO    | Task run 'generate-text-embedding-931' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg
+15:52:35.513 | INFO    | Task run 'generate-text-embedding-931' - Finished in state Completed()
+15:52:35.521 | INFO    | Task run 'generate-text-embedding-6ba' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg
+15:52:35.523 | INFO    | Task run 'generate-text-embedding-6ba' - Finished in state Completed()
+15:52:35.525 | INFO    | Task run 'generate-text-embedding-362' - ✅ Generated text embedding for /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg
+15:52:35.526 | INFO    | Task run 'generate-text-embedding-362' - Finished in state Completed()
+15:52:37.052 | INFO    | Task run 'classify-document-e8d' - Document classified as 'invoice' in 1.72s using default provider
+15:52:37.055 | INFO    | Task run 'classify-document-e8d' - Finished in state Completed()
+15:52:37.057 | INFO    | Task run 'process_document_pipeline-107' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg, success: True, category: invoice
+15:52:37.058 | INFO    | Task run 'process_document_pipeline-107' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg
+15:52:37.083 | INFO    | Task run 'extract-entities-8a9' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08217.60.jpg (type: invoice)
+15:52:38.689 | INFO    | Task run 'classify-document-042' - Document classified as 'invoice' in 3.28s using default provider
+15:52:38.692 | INFO    | Task run 'classify-document-042' - Finished in state Completed()
+15:52:38.694 | INFO    | Task run 'process_document_pipeline-456' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg, success: True, category: invoice
+15:52:38.695 | INFO    | Task run 'process_document_pipeline-456' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg
+15:52:38.721 | INFO    | Task run 'extract-entities-69f' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg (type: invoice)
+15:52:39.197 | INFO    | Task run 'classify-document-234' - Document classified as 'form' in 3.88s using default provider
+15:52:39.200 | INFO    | Task run 'classify-document-234' - Finished in state Completed()
+15:52:39.202 | INFO    | Task run 'process_document_pipeline-949' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg, success: True, category: form
+15:52:39.202 | INFO    | Task run 'process_document_pipeline-949' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg
+15:52:39.228 | INFO    | Task run 'extract-entities-995' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg (type: form)
+15:52:40.231 | INFO    | Task run 'classify-document-c62' - Document classified as 'budget' in 4.82s using default provider
+15:52:40.232 | INFO    | Task run 'classify-document-c9b' - Document classified as 'scientific_publication' in 4.90s using default provider
+15:52:40.233 | INFO    | Task run 'classify-document-c62' - Finished in state Completed()
+15:52:40.234 | INFO    | Task run 'classify-document-c9b' - Finished in state Completed()
+15:52:40.235 | INFO    | Task run 'process_document_pipeline-163' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg, success: True, category: budget
+15:52:40.235 | INFO    | Task run 'process_document_pipeline-163' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg
+15:52:40.236 | INFO    | Task run 'process_document_pipeline-097' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg, success: True, category: scientific_publication
+15:52:40.236 | INFO    | Task run 'process_document_pipeline-097' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg
+15:52:40.266 | INFO    | Task run 'extract-entities-e33' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg (type: budget)
+15:52:40.267 | INFO    | Task run 'extract-entities-b53' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg (type: scientific_publication)
+15:52:41.381 | INFO    | Task run 'classify-document-5a1' - Document classified as 'handwritten' in 5.94s using default provider
+15:52:41.384 | INFO    | Task run 'classify-document-5a1' - Finished in state Completed()
+15:52:41.385 | INFO    | Task run 'process_document_pipeline-80b' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg, success: True, category: handwritten
+15:52:41.386 | INFO    | Task run 'process_document_pipeline-80b' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg
+15:52:41.410 | INFO    | Task run 'extract-entities-bb2' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg (type: handwritten)
+15:52:42.779 | INFO    | Task run 'classify-document-33e' - Document classified as 'handwritten' in 7.47s using default provider
+15:52:42.781 | INFO    | Task run 'classify-document-33e' - Finished in state Completed()
+15:52:42.783 | INFO    | Task run 'process_document_pipeline-ef3' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg, success: True, category: handwritten
+15:52:42.784 | INFO    | Task run 'process_document_pipeline-ef3' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg
+15:52:42.810 | INFO    | Task run 'extract-entities-2d2' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg (type: handwritten)
+15:52:43.399 | INFO    | Task run 'classify-document-3d6' - Document classified as 'budget' in 8.08s using default provider
+15:52:43.403 | INFO    | Task run 'classify-document-3d6' - Finished in state Completed()
+15:52:43.405 | INFO    | Task run 'process_document_pipeline-8d0' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg, success: True, category: budget
+15:52:43.406 | INFO    | Task run 'process_document_pipeline-8d0' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg
+15:52:43.432 | INFO    | Task run 'extract-entities-d4c' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg (type: budget)
+15:52:43.438 | INFO    | Task run 'classify-document-6f1' - Document classified as 'budget' in 8.11s using default provider
+15:52:43.439 | INFO    | Task run 'classify-document-6f1' - Finished in state Completed()
+15:52:43.440 | INFO    | Task run 'process_document_pipeline-b0c' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg, success: True, category: budget
+15:52:43.440 | INFO    | Task run 'process_document_pipeline-b0c' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg
+15:52:43.458 | INFO    | Task run 'extract-entities-83b' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg (type: budget)
+15:52:44.550 | INFO    | Task run 'classify-document-0ab' - Document classified as 'budget' in 9.12s using default provider
+15:52:44.553 | INFO    | Task run 'classify-document-0ab' - Finished in state Completed()
+15:52:44.556 | INFO    | Task run 'process_document_pipeline-083' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg, success: True, category: budget
+15:52:44.557 | INFO    | Task run 'process_document_pipeline-083' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg
+15:52:44.584 | INFO    | Task run 'extract-entities-64d' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg (type: budget)
+15:52:45.656 | INFO    | Task run 'classify-document-dc5' - Document classified as 'file_folder' in 10.34s using default provider
+15:52:45.659 | INFO    | Task run 'classify-document-dc5' - Finished in state Completed()
+15:52:45.661 | INFO    | Task run 'process_document_pipeline-ba7' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg, success: True, category: file_folder
+15:52:45.661 | INFO    | Task run 'process_document_pipeline-ba7' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg
+15:52:45.686 | INFO    | Task run 'extract-entities-737' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg (type: file_folder)
+15:52:47.599 | INFO    | Task run 'classify-document-773' - Document classified as 'handwritten' in 12.27s using default provider
+15:52:47.602 | INFO    | Task run 'classify-document-773' - Finished in state Completed()
+15:52:47.603 | INFO    | Task run 'process_document_pipeline-29f' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg, success: True, category: handwritten
+15:52:47.604 | INFO    | Task run 'process_document_pipeline-29f' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg
+15:52:47.629 | INFO    | Task run 'extract-entities-fc6' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg (type: handwritten)
+15:52:50.157 | INFO    | Task run 'extract-entities-e33' - Extracted 11 entities from budget document in 9.89s using default provider
+15:52:50.160 | INFO    | Task run 'extract-entities-e33' - Finished in state Completed()
+15:52:50.164 | INFO    | Task run 'process_document_pipeline-163' - Finished in state Completed()
+15:52:50.696 | INFO    | Task run 'extract-entities-737' - Extracted 1 entities from file_folder document in 5.01s using default provider
+15:52:50.698 | INFO    | Task run 'extract-entities-737' - Finished in state Completed()
+15:52:50.702 | INFO    | Task run 'process_document_pipeline-ba7' - Finished in state Completed()
+15:52:55.583 | INFO    | Task run 'extract-entities-2d2' - Extracted 0 entities from handwritten document in 12.77s using default provider
+15:52:55.585 | INFO    | Task run 'extract-entities-2d2' - Finished in state Completed()
+15:52:55.589 | INFO    | Task run 'process_document_pipeline-ef3' - Finished in state Completed()
+15:52:56.201 | INFO    | Task run 'extract-entities-83b' - Extracted 16 entities from budget document in 12.74s using default provider
+15:52:56.205 | INFO    | Task run 'extract-entities-83b' - Finished in state Completed()
+15:52:56.209 | INFO    | Task run 'process_document_pipeline-b0c' - Finished in state Completed()
+15:52:57.839 | INFO    | Task run 'extract-entities-d4c' - Extracted 14 entities from budget document in 14.41s using default provider
+15:52:57.842 | INFO    | Task run 'extract-entities-d4c' - Finished in state Completed()
+15:52:57.846 | INFO    | Task run 'process_document_pipeline-8d0' - Finished in state Completed()
+15:52:59.053 | INFO    | Task run 'extract-entities-bb2' - Extracted 2 entities from handwritten document in 17.64s using default provider
+15:52:59.056 | INFO    | Task run 'extract-entities-bb2' - Finished in state Completed()
+15:52:59.060 | INFO    | Task run 'process_document_pipeline-80b' - Finished in state Completed()
+15:53:00.005 | INFO    | Task run 'classify-document-c0c' - Document classified as 'budget' in 24.67s using default provider
+15:53:00.007 | INFO    | Task run 'classify-document-c0c' - Finished in state Completed()
+15:53:00.008 | INFO    | Task run 'process_document_pipeline-30a' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg, success: True, category: budget
+15:53:00.008 | INFO    | Task run 'process_document_pipeline-30a' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg
+15:53:00.029 | INFO    | Task run 'extract-entities-dec' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg (type: budget)
+15:53:00.373 | INFO    | Task run 'extract-entities-8a9' - Extracted 21 entities from invoice document in 23.29s using default provider
+15:53:00.377 | INFO    | Task run 'extract-entities-8a9' - Finished in state Completed()
+15:53:00.381 | INFO    | Task run 'process_document_pipeline-107' - Finished in state Completed()
+15:53:00.383 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 1/14 in batch 53: True
+15:53:00.383 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 2/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/0000452892.jpg
+15:53:00.385 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 2/14 in batch 53: True
+15:53:00.385 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 3/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040798851.jpg
+15:53:00.386 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 3/14 in batch 53: True
+15:53:00.386 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 4/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2040957385.jpg
+15:53:02.493 | INFO    | Task run 'extract-entities-fc6' - Extracted 10 entities from handwritten document in 14.86s using default provider
+15:53:02.495 | INFO    | Task run 'extract-entities-fc6' - Finished in state Completed()
+15:53:02.499 | INFO    | Task run 'process_document_pipeline-29f' - Finished in state Completed()
+15:53:03.266 | INFO    | Task run 'extract-entities-995' - Extracted 10 entities from form document in 24.04s using default provider
+15:53:03.269 | INFO    | Task run 'extract-entities-995' - Finished in state Completed()
+15:53:03.273 | INFO    | Task run 'process_document_pipeline-949' - Finished in state Completed()
+15:53:03.286 | INFO    | Task run 'extract-entities-69f' - Extracted 17 entities from invoice document in 24.56s using default provider
+15:53:03.287 | INFO    | Task run 'extract-entities-69f' - Finished in state Completed()
+15:53:03.289 | INFO    | Task run 'process_document_pipeline-456' - Finished in state Completed()
+15:53:07.791 | INFO    | Task run 'classify-document-ef8' - Document classified as 'form' in 32.42s using default provider
+15:53:07.794 | INFO    | Task run 'classify-document-ef8' - Finished in state Completed()
+15:53:07.796 | INFO    | Task run 'process_document_pipeline-16f' - 🔍 Classification completed for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg, success: True, category: form
+15:53:07.797 | INFO    | Task run 'process_document_pipeline-16f' - 🏷️ Starting entity extraction for: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg
+15:53:07.824 | INFO    | Task run 'extract-entities-548' - Extracting entities from document: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg (type: form)
+15:53:10.590 | INFO    | Task run 'extract-entities-64d' - Extracted 20 entities from budget document in 26.01s using default provider
+15:53:10.593 | INFO    | Task run 'extract-entities-64d' - Finished in state Completed()
+15:53:10.599 | INFO    | Task run 'process_document_pipeline-083' - Finished in state Completed()
+15:53:19.120 | INFO    | Task run 'extract-entities-dec' - Extracted 9 entities from budget document in 19.09s using default provider
+15:53:19.124 | INFO    | Task run 'extract-entities-dec' - Finished in state Completed()
+15:53:19.128 | INFO    | Task run 'process_document_pipeline-30a' - Finished in state Completed()
+15:53:19.130 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 4/14 in batch 53: True
+15:53:19.130 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 5/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2063180418.jpg
+15:53:19.132 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 5/14 in batch 53: True
+15:53:19.132 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 6/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2045467766.jpg
+15:53:19.133 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 6/14 in batch 53: True
+15:53:19.134 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 7/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob07122.95.jpg
+15:53:19.135 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 7/14 in batch 53: True
+15:53:19.135 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 8/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/04003142.jpg
+15:53:19.136 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 8/14 in batch 53: True
+15:53:19.137 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 9/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2043214503.jpg
+15:53:19.138 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 9/14 in batch 53: True
+15:53:19.138 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 10/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2015013759.jpg
+15:53:19.139 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 10/14 in batch 53: True
+15:53:19.139 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 11/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tnwl0017788.jpg
+15:53:23.241 | INFO    | Task run 'extract-entities-548' - Extracted 9 entities from form document in 15.42s using default provider
+15:53:23.243 | INFO    | Task run 'extract-entities-548' - Finished in state Completed()
+15:53:23.245 | INFO    | Task run 'process_document_pipeline-16f' - Finished in state Completed()
+15:53:23.247 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 11/14 in batch 53: True
+15:53:23.247 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 12/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/2041953025.jpg
+15:53:23.248 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 12/14 in batch 53: True
+15:53:23.249 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 13/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/03749673.jpg
+15:53:23.250 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 13/14 in batch 53: True
+15:53:23.250 | INFO    | Flow run 'bold-anteater' - ⏳ Waiting for document 14/14 in batch 53: /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_test/budget/tob08102.79_tob08102.82.jpg
+15:53:46.789 | INFO    | Task run 'extract-entities-b53' - Extracted 26 entities from scientific_publication document in 66.52s using default provider
+15:53:46.792 | INFO    | Task run 'extract-entities-b53' - Finished in state Completed()
+15:53:46.796 | INFO    | Task run 'process_document_pipeline-097' - Finished in state Completed()
+15:53:46.798 | INFO    | Flow run 'bold-anteater' - ✅ Completed document 14/14 in batch 53: True
+15:53:46.798 | INFO    | Flow run 'bold-anteater' - ✅ Completed batch 53/53
+15:53:46.798 | INFO    | Flow run 'bold-anteater' - 🔄 Completed all 53 batches with 742 total documents
+15:53:46.800 | INFO    | Flow run 'bold-anteater' - ✅ Completed chained pipeline processing for 742 documents
+15:53:46.800 | INFO    | Flow run 'bold-anteater' -    - OCR results: 742
+15:53:46.800 | INFO    | Flow run 'bold-anteater' -    - Classification results: 742
+15:53:46.801 | INFO    | Flow run 'bold-anteater' -    - Entity extraction results: 716
+15:53:46.802 | INFO    | Flow run 'bold-anteater' -    - Text embedding results: 716
+15:53:46.802 | INFO    | Flow run 'bold-anteater' -    - Image embedding results: 742
+15:53:46.803 | INFO    | Flow run 'bold-anteater' - Step 4/4: Indexing documents...
+15:53:46.805 | INFO    | Flow run 'bold-anteater' - 📚 Indexing to main collection: smartdoc_documents
+15:53:46.968 | INFO    | Task run 'index-documents-fa3' - 🚀 Starting indexing of 742 documents
+15:53:46.968 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 1/30 (25 documents)
+15:53:52.758 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 1: 25 indexed, 0 failed
+15:53:52.759 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 2/30 (25 documents)
+15:53:59.418 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 2: 25 indexed, 0 failed
+15:53:59.419 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 3/30 (25 documents)
+15:54:04.825 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 3: 25 indexed, 0 failed
+15:54:04.825 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 4/30 (25 documents)
+15:54:10.365 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 4: 25 indexed, 0 failed
+15:54:10.366 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 5/30 (25 documents)
+15:54:17.670 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 5: 25 indexed, 0 failed
+15:54:17.671 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 6/30 (25 documents)
+15:54:23.892 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 6: 25 indexed, 0 failed
+15:54:23.892 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 7/30 (25 documents)
+15:54:28.381 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 7: 25 indexed, 0 failed
+15:54:28.382 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 8/30 (25 documents)
+15:54:33.985 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 8: 25 indexed, 0 failed
+15:54:33.985 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 9/30 (25 documents)
+15:54:38.210 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 9: 25 indexed, 0 failed
+15:54:38.210 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 10/30 (25 documents)
+15:54:42.317 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 10: 25 indexed, 0 failed
+15:54:42.318 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 11/30 (25 documents)
+15:54:46.073 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 11: 25 indexed, 0 failed
+15:54:46.073 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 12/30 (25 documents)
+15:54:52.269 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 12: 25 indexed, 0 failed
+15:54:52.269 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 13/30 (25 documents)
+15:54:57.367 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 13: 25 indexed, 0 failed
+15:54:57.367 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 14/30 (25 documents)
+15:55:02.321 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 14: 25 indexed, 0 failed
+15:55:02.321 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 15/30 (25 documents)
+15:55:07.850 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 15: 25 indexed, 0 failed
+15:55:07.850 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 16/30 (25 documents)
+15:55:14.216 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 16: 25 indexed, 0 failed
+15:55:14.216 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 17/30 (25 documents)
+15:55:19.187 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 17: 25 indexed, 0 failed
+15:55:19.188 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 18/30 (25 documents)
+15:55:22.952 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 18: 25 indexed, 0 failed
+15:55:22.953 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 19/30 (25 documents)
+15:55:29.878 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 19: 25 indexed, 0 failed
+15:55:29.878 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 20/30 (25 documents)
+15:55:38.308 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 20: 25 indexed, 0 failed
+15:55:38.308 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 21/30 (25 documents)
+15:55:44.452 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 21: 25 indexed, 0 failed
+15:55:44.452 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 22/30 (25 documents)
+15:55:50.898 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 22: 25 indexed, 0 failed
+15:55:50.899 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 23/30 (25 documents)
+15:55:58.704 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 23: 25 indexed, 0 failed
+15:55:58.704 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 24/30 (25 documents)
+15:56:07.252 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 24: 25 indexed, 0 failed
+15:56:07.253 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 25/30 (25 documents)
+15:56:13.284 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 25: 25 indexed, 0 failed
+15:56:13.284 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 26/30 (25 documents)
+15:56:19.145 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 26: 25 indexed, 0 failed
+15:56:19.146 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 27/30 (25 documents)
+15:56:25.816 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 27: 25 indexed, 0 failed
+15:56:25.816 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 28/30 (25 documents)
+15:56:31.076 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 28: 25 indexed, 0 failed
+15:56:31.077 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 29/30 (25 documents)
+15:56:37.651 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 29: 25 indexed, 0 failed
+15:56:37.652 | INFO    | Task run 'index-documents-fa3' - 📦 Processing batch 30/30 (17 documents)
+15:56:43.651 | INFO    | Task run 'index-documents-fa3' - ✅ Batch 30: 17 indexed, 0 failed
+15:56:43.651 | INFO    | Task run 'index-documents-fa3' - 🎯 Batch indexing completed:
+15:56:43.652 | INFO    | Task run 'index-documents-fa3' -    ✅ Indexed: 742
+15:56:43.652 | INFO    | Task run 'index-documents-fa3' -    ❌ Failed: 0
+15:56:43.652 | INFO    | Task run 'index-documents-fa3' -    📊 Success rate: 100.0%
+15:56:43.654 | INFO    | Task run 'index-documents-fa3' - Finished in state Completed()
+15:56:43.655 | INFO    | Flow run 'bold-anteater' - 🔍 Indexing to classifier collections...
+15:56:43.819 | INFO    | Task run 'index-documents-classifier-d4c' - 🚀 Starting classifier indexing of 742 documents
+15:56:43.819 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 1/30 (25 documents)
+15:57:01.693 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 1: 25 indexed, 0 failed
+15:57:01.693 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 2/30 (25 documents)
+15:57:19.777 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 2: 25 indexed, 0 failed
+15:57:19.777 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 3/30 (25 documents)
+15:57:37.799 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 3: 25 indexed, 0 failed
+15:57:37.800 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 4/30 (25 documents)
+15:57:56.080 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 4: 25 indexed, 0 failed
+15:57:56.080 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 5/30 (25 documents)
+15:58:09.809 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 5: 25 indexed, 0 failed
+15:58:09.809 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 6/30 (25 documents)
+15:58:26.692 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 6: 25 indexed, 0 failed
+15:58:26.692 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 7/30 (25 documents)
+15:58:43.581 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 7: 25 indexed, 0 failed
+15:58:43.581 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 8/30 (25 documents)
+15:59:01.069 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 8: 25 indexed, 0 failed
+15:59:01.070 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 9/30 (25 documents)
+15:59:18.648 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 9: 25 indexed, 0 failed
+15:59:18.649 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 10/30 (25 documents)
+15:59:36.484 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 10: 25 indexed, 0 failed
+15:59:36.484 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 11/30 (25 documents)
+15:59:54.077 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 11: 25 indexed, 0 failed
+15:59:54.077 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 12/30 (25 documents)
+16:00:10.838 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 12: 25 indexed, 0 failed
+16:00:10.839 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 13/30 (25 documents)
+16:00:28.503 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 13: 25 indexed, 0 failed
+16:00:28.503 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 14/30 (25 documents)
+16:00:46.094 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 14: 25 indexed, 0 failed
+16:00:46.094 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 15/30 (25 documents)
+16:01:03.005 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 15: 25 indexed, 0 failed
+16:01:03.005 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 16/30 (25 documents)
+16:01:20.618 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 16: 25 indexed, 0 failed
+16:01:20.618 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 17/30 (25 documents)
+16:01:38.227 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 17: 25 indexed, 0 failed
+16:01:38.228 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 18/30 (25 documents)
+16:01:56.439 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 18: 25 indexed, 0 failed
+16:01:56.439 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 19/30 (25 documents)
+16:02:12.182 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 19: 25 indexed, 0 failed
+16:02:12.182 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 20/30 (25 documents)
+16:02:27.622 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 20: 25 indexed, 0 failed
+16:02:27.622 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 21/30 (25 documents)
+16:02:43.069 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 21: 25 indexed, 0 failed
+16:02:43.070 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 22/30 (25 documents)
+16:03:00.895 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 22: 25 indexed, 0 failed
+16:03:00.896 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 23/30 (25 documents)
+16:03:19.098 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 23: 25 indexed, 0 failed
+16:03:19.099 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 24/30 (25 documents)
+16:03:37.406 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 24: 25 indexed, 0 failed
+16:03:37.406 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 25/30 (25 documents)
+16:03:55.783 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 25: 25 indexed, 0 failed
+16:03:55.783 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 26/30 (25 documents)
+16:04:14.017 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 26: 25 indexed, 0 failed
+16:04:14.017 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 27/30 (25 documents)
+16:04:31.607 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 27: 25 indexed, 0 failed
+16:04:31.607 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 28/30 (25 documents)
+16:04:49.983 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 28: 25 indexed, 0 failed
+16:04:49.983 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 29/30 (25 documents)
+16:05:07.735 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 29: 25 indexed, 0 failed
+16:05:07.736 | INFO    | Task run 'index-documents-classifier-d4c' - 📦 Processing classifier batch 30/30 (17 documents)
+16:05:19.843 | INFO    | Task run 'index-documents-classifier-d4c' - ✅ Classifier batch 30: 17 indexed, 0 failed
+16:05:19.844 | INFO    | Task run 'index-documents-classifier-d4c' - 🎯 Classifier batch indexing completed:
+16:05:19.844 | INFO    | Task run 'index-documents-classifier-d4c' -    ✅ Indexed: 742
+16:05:19.844 | INFO    | Task run 'index-documents-classifier-d4c' -    ❌ Failed: 0
+16:05:19.844 | INFO    | Task run 'index-documents-classifier-d4c' -    📊 Success rate: 100.0%
+16:05:19.847 | INFO    | Task run 'index-documents-classifier-d4c' - Finished in state Completed()
+16:05:19.847 | INFO    | Flow run 'bold-anteater' - ✅ Document processing pipeline completed successfully!
+16:05:19.847 | INFO    | Flow run 'bold-anteater' - Total time: 4009.08s
+16:05:19.848 | INFO    | Flow run 'bold-anteater' - Images processed: 742
+16:05:19.848 | INFO    | Flow run 'bold-anteater' - Documents classified: 742
+16:05:19.848 | INFO    | Flow run 'bold-anteater' - Entities extracted from: 716 documents
+16:05:19.848 | INFO    | Flow run 'bold-anteater' - Text embeddings generated: 716
+16:05:19.848 | INFO    | Flow run 'bold-anteater' - Image embeddings generated: 742
+16:05:19.993 | INFO    | Flow run 'bold-anteater' - Finished in state Completed()
+Document Processing Pipeline completed successfully!
+--------------------------------------------------
+--------------------------------------------------
+✅ Document Processing Pipeline completed!
+16:05:20.000 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8394
