@@ -241,6 +241,7 @@ smartdoc/
 ├── smartdoc/                  # Django project settings
 ├── tests/                    # Test suite for the application
 ├── notebooks/                # Development and testing notebooks
+├── logs/                     # Output log examples from processing and testing
 ├── chromadb/                # ChromaDB vector database storage
 ```
 
