@@ -4,6 +4,7 @@ db.sqlite3
 
 # Django stuff
 *.log
+!logs/*.log
 staticfiles/
 media/
 
