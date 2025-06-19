@@ -14,6 +14,7 @@ class DocumentClassificationResponse(BaseModel):
 
 
 class Entity(BaseModel):
+    name: str = Field(..., description="The name/type of the entity (e.g., 'total_amount', 'vendor_name')")
     value: str = Field(..., description="The actual value extracted")
     description: str = Field(..., description="The description of the entity extracted")
 
@@ -27,7 +28,7 @@ class OpenAIProvider(LLMProvider):
     OpenAI LLM provider implementation using GPT models.
     """
     
-    def __init__(self, model: str = "o3-2025-04-16", api_key: Optional[str] = None, timeout: float = None):
+    def __init__(self, model: str = "gpt-4.1-mini-2025-04-14", api_key: Optional[str] = None, timeout: float = None):
         self.model = model
         self.api_key = api_key or os.getenv("OPENAI_API_KEY")
         self.timeout = timeout or float(os.getenv("OPENAI_TIMEOUT", 120.0))  # Default 2 minutes
@@ -146,7 +147,10 @@ class OpenAIProvider(LLMProvider):
                 Instructions:
                 1. Examine the extracted text above
                 2. Extract all relevant entities for this document type
-                3. For each entity, provide the extracted value and a brief description
+                3. For each entity, provide:
+                   - name: The entity type/name (e.g., 'total_amount', 'vendor_name', 'invoice_date')
+                   - value: The actual extracted value from the text
+                   - description: A brief description of what this entity represents
                 
                 Extract all entities and provide structured output.
                 """
@@ -174,6 +178,7 @@ class OpenAIProvider(LLMProvider):
                 # Process the entity list from the response
                 for entity in entity_result.entities:
                     entities_list.append({
+                        "name": entity.name,
                         "value": entity.value,
                         "description": entity.description
                     })
