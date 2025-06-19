@@ -110,7 +110,7 @@ The testing strategy includes three types of tests:
 | **PT-001** | Pipeline Processing Performance | System processes 5000 documents through the pipeline in maximum 30 minutes (average <0.36 seconds per document) | NFR-001|
 | **PT-002** | API Endpoint Response Time | Single document analysis via `/analyze/` endpoint has average response time less than 5 seconds for standard document sizes | NFR-001|
 
-**Note**: Performance benchmarks are based on testing with MacBook Pro M4 with 14 cores. Results may vary on different hardware configurations.
+**Note**: Performance benchmarks are based on testing with MacBook Pro M4 with 14 cores. Results may vary depending on hardware and provider configurations.
 
 #### 📊 Evaluations
 
@@ -247,17 +247,161 @@ smartdoc/
 
 **Note:** This shows the key directories and files, additional files are not displayed for clarity.
 
+### 📝 Database Design
+
+**Collection Purposes:**
+- **`smartdoc_documents`**: Main storage for processed documents with full text and entity data
+- **`smartdoc_classifier_images`**: Image embeddings for visual similarity search during classification
+- **`smartdoc_classifier_text`**: Text embeddings for textual similarity search during classification  
+- **`smartdoc_document_types`**: Reference data storing document type definitions and expected entities
+
+The following diagram illustrates the database schema and structure of these collections:
+
+```mermaid
+graph LR
+    MAIN_DOCS["smartdoc_documents<br/><br/>id<br/>type<br/>ocr_text<br/>base64<br/>entities<br/>indexed_at"]
+    
+    CLASSIFIER_IMG["smartdoc_classifier_images<br/><br/>id<br/>uuid<br/>type"]
+    
+    CLASSIFIER_TEXT["smartdoc_classifier_text<br/><br/>id<br/>uuid<br/>type"]
+    
+    DOC_TYPES["smartdoc_document_types<br/><br/>id<br/>type<br/>entities<br/>saved_at"]
+    
+    MAIN_DOCS ~~~ CLASSIFIER_IMG ~~~ CLASSIFIER_TEXT ~~~ DOC_TYPES
+    
+    style MAIN_DOCS fill:#f5f5f5
+    style CLASSIFIER_IMG fill:#f5f5f5
+    style CLASSIFIER_TEXT fill:#f5f5f5
+    style DOC_TYPES fill:#f5f5f5
+```
+
+### 🧩 Pipeline Diagram
+
+The following diagram illustrates the complete document processing pipeline flow from start to finish:
+
+```mermaid
+graph LR
+    START[🚀 Start Pipeline] --> INIT_STAGE[📦 Initialization Stage]
+    
+    subgraph INIT_STAGE [🔧 Initialization - Parallel]
+        direction TB
+        SCAN[📁 Scan Directory<br/>for Images]
+        INIT_VDB[🗄️ Initialize<br/>Vector Database]
+        INIT_TEXT_EMB[📝 Initialize Text<br/>Embedding Provider]
+        INIT_IMG_EMB[🖼️ Initialize Image<br/>Embedding Provider]
+        
+        SCAN ~~~ INIT_VDB
+        INIT_VDB ~~~ INIT_TEXT_EMB
+        INIT_TEXT_EMB ~~~ INIT_IMG_EMB
+    end
+    
+    INIT_STAGE --> BATCH_PROC[📊 Batch Processing]
+    
+    subgraph BATCH_PROC [⚡ Document Processing]
+        direction TB
+        DOC_PIPELINE[🔄 Process Document Pipeline]
+        DOC_PIPELINE_N[📄 Document ...]
+        DOC_PIPELINE_N_PLUS_1[📄 Document N]
+        
+        DOC_PIPELINE ~~~ DOC_PIPELINE_N
+        DOC_PIPELINE_N ~~~ DOC_PIPELINE_N_PLUS_1
+    end
+    
+    subgraph DOC_PIPELINE [📄 Document 1]
+        direction LR
+        OCR[📖 OCR Text<br/>Extraction]
+        CLASSIFY[🏷️ Document<br/>Classification]
+        ENTITIES[🎯 Entity<br/>Extraction]
+        TEXT_EMB[📝 Generate Text<br/>Embedding]
+        IMG_EMB[🖼️ Generate Image<br/>Embedding]
+        
+        OCR --> CLASSIFY
+        OCR --> TEXT_EMB
+        OCR -.-> IMG_EMB
+        CLASSIFY --> ENTITIES
+    end
+    
+    BATCH_PROC --> INDEX_STAGE[💾 Indexing Stage]
+    
+    subgraph INDEX_STAGE [🗃️ Database Indexing]
+        INDEX_MAIN[📚 Index to Main<br/>Collection]
+        INDEX_CLASSIFIER[🔍 Index to Classifier<br/>Collections]
+        INDEX_DOC_TYPES[📋 Index to Document<br/>Types]
+    end
+    
+    INDEX_STAGE --> COMPLETE[✅ Pipeline Complete]
+    
+    style START fill:#e8f5e8
+    style INIT_STAGE fill:#e1f5fe
+    style BATCH_PROC fill:#f3e5f5
+    style DOC_PIPELINE fill:#fff3e0
+    style DOC_PIPELINE_N fill:#fff3e0
+    style DOC_PIPELINE_N_PLUS_1 fill:#fff3e0
+    style INDEX_STAGE fill:#e8f5e8
+    style COMPLETE fill:#c8e6c9
+```
+
 ---
 
-## 🧪 Testing
+## 🧪 Testing Results
+
+### Smoke Tests
+
+Based on the smoke-test plan, the tests were run successfully with no errors. See `logs/smoke_tests_run.log` for details.
+
+### Main Test
+
+The `process_documents` command was run on `docs-sm_samples` containing 3494 images (70% of the dataset) and evaluated using 790 test images (15% of the dataset).
+
+The processing of 4.6M completion tokens cost about $3.1 with GPT-4.1-mini.
+
+The run logs (partial) are available in `/logs/process_documents_run.log`.
+
+**Results:**
+
+The total time for running the `process_documents` command was 6373 seconds (1.8 seconds per document). A higher batch size and number of workers would reduce the total time.
+
+The random baseline accuracy for 16 document classes is 6.25% (1/16)
+
+The accuracy achieved when evaluating the `/analyze` endpoint with the test images was 50.54%, which is higher than the random baseline. **Important:** Preliminary tests in the `notebooks` folder show that running the same test while indexing with the true document types increases the overall accuracy to 70.7% without any other changes.
+
+**Accuracy by Document Type:**
+
+| Document Type | Accuracy |
+|---------------|----------|
+| advertisement | 32.7% |
+| budget | 22.6% |
+| **email** | **95.3%** |
+| file_folder | 23.9% |
+| form | 10.2% |
+| **handwritten** | **77.1%** |
+| **invoice** | **71.1%** |
+| letter | 46.8% |
+| memo | 43.5% |
+| news_article | 52.5% |
+| presentation | 2.1% |
+| questionnaire | 65.2% |
+| resume | 47.8% |
+| **scientific_publication** | **93.5%** |
+| scientific_report | 50.0% |
+| **specification** | **86.7%** |
+
+As shown in the previous table, the classifier achieves high accuracy for some categories but underperforms in others. The lower scores could result from limitations of the current OCR provider, extracting text in Markdown format might improve the detection of forms, budgets, and scientific reports. For advertisements, incorporating a multimodal LLM service and higher-quality image embeddings could increase accuracy, although this would increase processing time and cost.
+
+As mentioned before, when the true document type is used for indexing, the accuracy increases significantly to 70%. With better embeddings and OCR, it could increase even further.
+
+**Note:** Additional testing for entity extraction is still required.
 
 ---
 
 ## 🚀 Setup & Usage
 
 ### 📋 Prerequisites
-- **Python 3.8+**
-- **Tesseract OCR**
+- **Python 3.11+** (3.8 or newer works, but the project is tested on 3.11)
+- **Git** (to clone the repository)
+- **Tesseract OCR 5+** (command-line tool must be available on your PATH; e.g. `brew install tesseract` on macOS or `sudo apt-get install tesseract-ocr` on Ubuntu)
+- **OpenAI API key** (set the `OPENAI_API_KEY` environment variable – required for LLM-powered classification and entity extraction)
+- **PyTorch** (installed automatically with `open-clip-torch` from `requirements.txt`; having a GPU or Apple Silicon chip is optional but highly recommended for faster embeddings)
 
 ### 🔧 Quick Installation
 
@@ -379,3 +523,15 @@ SmartDoc's modular design allows you to easily swap out different service provid
 
 #### 🔄 Adding New Workflows
 The Prefect-based pipeline system lets you create custom document processing workflows for different use cases. You can build specialized workflows by adding new flow definitions in the `api/pipelines/flows/` folder, create custom processing tasks in the `api/pipelines/tasks/` folder, and configure workflow settings in `api/pipelines/config/`.
+
+---
+
+### Things to improve
+
+- Create a new service or unify the analysis service for both the endpoint and the pipeline.
+- Implement a vector database provider that allows parallel indexing to reduce indexing time.
+- Deploy pipeline on cloud to increase number of workers in order to reduce processing time.
+- Make model selection configurable.
+- Experiment with different model sizes, which might help reduce processing time.
+- Train smaller models to improve document classification accuracy and reduce processing time and costs.
+- Use the stored entities for specific document types to enable entity-based search. Also, this could be used to improve document classification.
