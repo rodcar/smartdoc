@@ -39,11 +39,15 @@ class TesseractProvider(OCRProvider):
         
         pil_image = self._prepare_image(image)
         
-        # Configure tesseract
-        config = f'--oem 3 --psm 6 -l {self.language}'
+        # Match notebook exactly: simple call with language only
+        text = pytesseract.image_to_string(pil_image, lang=self.language)
         
-        text = pytesseract.image_to_string(pil_image, config=config)
-        return text.strip()
+        # Clean up the text exactly like the notebook
+        text = text.strip()
+        # Remove excessive whitespace
+        text = ' '.join(text.split())
+        
+        return text
     
     def extract_text_with_confidence(self, image: Union[str, bytes, BinaryIO, Image.Image]) -> Dict[str, Any]:
         try:
@@ -53,7 +57,7 @@ class TesseractProvider(OCRProvider):
         
         pil_image = self._prepare_image(image)
         
-        # Get detailed data
+        # Get detailed data for confidence scoring
         data = pytesseract.image_to_data(pil_image, output_type=pytesseract.Output.DICT)
         
         # Extract text and calculate average confidence
@@ -65,11 +69,16 @@ class TesseractProvider(OCRProvider):
                 words.append(data['text'][i])
                 confidences.append(int(data['conf'][i]))
         
+        # Combine words and clean up exactly like the notebook
         text = ' '.join(words)
+        text = text.strip()
+        # Remove excessive whitespace
+        text = ' '.join(text.split())
+        
         avg_confidence = sum(confidences) / len(confidences) if confidences else 0
         
         return {
-            'text': text.strip(),
+            'text': text,
             'confidence': avg_confidence / 100,  # Convert to 0-1 scale
             'word_count': len(words),
             'provider': self.name,
