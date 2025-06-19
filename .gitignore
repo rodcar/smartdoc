@@ -69,3 +69,6 @@ query_chromadb.py
 
 # Celery runtime files
 control/
+
+# zips
+*.zip
