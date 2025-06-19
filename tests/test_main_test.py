@@ -37,8 +37,8 @@ except ImportError:
 # Configuration
 BASE_URL = "http://localhost:8000"
 ANALYZE_ENDPOINT = f"{BASE_URL}/api/analyze/"
-VALIDATION_DATASET_PATH = project_root / "output" / "docs-sm_validation"
-NUM_SAMPLES = 100
+VALIDATION_DATASET_PATH = project_root / "output" / "docs-sm_test"
+NUM_SAMPLES = None  # Set to None to use all images, or set to a number to sample
 RANDOM_SEED = 42
 
 # Document types (should match Django settings)
@@ -99,7 +99,8 @@ class EndpointAccuracyTester:
         if num_samples is None:
             num_samples = self.num_samples
             
-        if len(validation_images) <= num_samples:
+        # If num_samples is None (use all images) or if we have fewer images than requested
+        if num_samples is None or len(validation_images) <= num_samples:
             return validation_images
         
         # Use random seed for reproducible results
@@ -186,7 +187,10 @@ class EndpointAccuracyTester:
         sample_images = self.get_sample_images(validation_images)
         total_images = len(sample_images)
         
-        print(f"🎲 Sampling {total_images} images for testing")
+        if self.num_samples is None:
+            print(f"🎯 Using all {total_images} images for testing")
+        else:
+            print(f"🎲 Sampling {total_images} images for testing")
         print()
         
         # Track results

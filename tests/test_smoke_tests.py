@@ -28,11 +28,22 @@ class SmartDocTestCase(TestCase):
     
     def setUp(self):
         """Set up test dependencies and document paths from environment."""
-        # Get dataset path from environment variable
+        # Get dataset path from environment variable or fallback to the default
+        # local dataset bundled with the repository (``docs-sm`` folder).
         self.dataset_path = os.environ.get('SMARTDOC_DATASET_PATH')
-        if not self.dataset_path:
-            self.skipTest("SMARTDOC_DATASET_PATH environment variable not set")
-        
+
+        # Fallback to <BASE_DIR>/docs-sm if the env var is not set or invalid
+        if not self.dataset_path or not os.path.exists(self.dataset_path):
+            default_path = os.path.join(settings.BASE_DIR, 'docs-sm')
+            if os.path.exists(default_path):
+                self.dataset_path = default_path
+            else:
+                # Still skip if neither path is valid
+                self.skipTest(
+                    "SMARTDOC_DATASET_PATH environment variable not set and default dataset folder 'docs-sm' not found"
+                )
+
+        # Final validation to ensure tests don't proceed with an invalid path
         if not os.path.exists(self.dataset_path):
             self.skipTest(f"Dataset path does not exist: {self.dataset_path}")
         
