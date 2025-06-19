@@ -419,86 +419,140 @@ pip install -r requirements.txt
 # macOS: brew install tesseract
 # Ubuntu: sudo apt-get install tesseract-ocr
 
-# 4. Setup database
+# 4. Disable embedding preloading temporarily 
+export SMARTDOC_PRELOAD_EMBEDDINGS=false
+
+# 5. Setup database
 python manage.py migrate
 
-# 5. (Optional) Disable embedding preloading for development
-# export SMARTDOC_PRELOAD_EMBEDDINGS=false
 ```
+
+### ⚙️ Environment Variables
+
+6. Set the `OPENAI_API_KEY` environment variable to your own OpenAI API key.
+
+**Note**: Add the `.env` file to `.gitignore` before publishing.
+
+### 📊 The Dataset
+
+7. Place the `docs-sm` dataset folder in the root of the repository.
+
+### 📊 Split Dataset
+
+To replicate the tests, you can split the data or use the whole dataset (which will require more processing time).
+
+It is recommended to split the dataset. 
+
+8. Open `notebooks/01_dataset_split.ipynb`, search for the "Replace paths here" section, and replace `source_folder` and `output_folder` if desired. It's set to the default folder. This will create samples, test, and validation splits: `docs-sm_samples`, `docs-sm_test`, and `docs-sm_validation` in the `output` folder.
 
 ### 🎯 Usage
 
-#### API Endpoint
+#### process_documents Command
+
+The `process_documents` command processes multiple document images through the complete pipeline (OCR → LLM Classification → Entity Extraction → Vector Storage). It supports various configuration options to customize the processing behavior.
+
+**Basic Usage:**
 ```bash
-# Start server
+python manage.py process_documents /path/to/documents/
+```
+
+**9. Run the processing pipeline:**
+```bash
+# Disable embedding preloading 
+export SMARTDOC_PRELOAD_EMBEDDINGS=false
+
+# Delete previous chromadb folder
+rm -rf chromadb
+
+# Command
+python manage.py process_documents ./output/docs-sm_samples --max-workers 32
+```
+
+Or run all the above in a single line (run either the above commands or this one, but not both):
+
+```bash
+export SMARTDOC_PRELOAD_EMBEDDINGS=false && rm -rf chromadb && python manage.py process_documents /Users/ivan/Workspace/agentai-document-data-extractor/smartdoc/output/docs-sm_samples --max-workers 32
+```
+
+**Note:** The command processes documents in batches of 50 for optimal performance and memory usage. Processing time depends on the number of documents, hardware capabilities, and chosen providers.
+
+**Command Options:**
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `--list-providers` | List all available service providers for OCR, LLM, vector DB, and embedding services | - |
+| `--ocr PROVIDER` | OCR provider to use for text extraction (e.g., `tesseract`) | System default |
+| `--llm PROVIDER` | LLM provider to use for document classification and entity extraction (e.g., `openai`) | System default |
+| `--vectordb PROVIDER` | Vector database provider to use for document storage and retrieval (e.g., `chromadb`) | System default |
+| `--text-embedding PROVIDER` | Text embedding provider to use for text vectorization (e.g., `sentence_transformer`) | System default |
+| `--image-embedding PROVIDER` | Image embedding provider to use for image vectorization (e.g., `open_clip`) | System default |
+| `--max-workers N` | Maximum number of concurrent processing tasks | 4 |
+| `--json` | Output results in JSON format instead of human-readable text | False |
+
+**Note:** Currently, only the OCR provider can be customized. Other providers use system defaults, but the architecture supports adding custom providers for all services.
+
+#### API Endpoint
+
+Once the chromadb is in place, you can use the `analyze` endpoint.
+
+```bash
+# 10. Enable embedding preloading
+export SMARTDOC_PRELOAD_EMBEDDINGS=true
+
+# 11. Start server
 python manage.py runserver
 
-# Test API
+# In a new terminal on the repository folder
+# 12. Test API
 curl -X POST http://localhost:8000/api/analyze/ \
-  -F "file=@document.jpg"
+  -F "image=@docs-sm/email/2085697333c.jpg"
 ```
 
 **Response:**
 ```json
 {
-  "document_type": "invoice",
-  "entities": {
-    "total_amount": "150.00",
-    "date": "2024-01-15",
-    "vendor": "ABC Company"
-  },
-  "confidence": 0.85
+  "document_type": "email",
+  "entities": [
+    {
+      "name": "sender_name",
+      "value": "Daragan, Karen M.",
+      "description": "The person who sent the email."
+    },
+    {
+      "name": "recipient_name",
+      "value": "Te Chaikin, Karen",
+      "description": "The person who received the email."
+    },
+    {
+      "name": "email_sent_date",
+      "value": "Wednesday, February 21, 2001",
+      "description": "The date on which the email was sent."
+    },
+    {
+      "name": "email_sent_time",
+      "value": "3:12 PM",
+      "description": "The time at which the email was sent."
+    },
+    {
+      "name": "email_subject",
+      "value": "RE: NYU proposal-Admin charge",
+      "description": "The subject line of the email."
+    }
+  ]
 }
 ```
 
-#### Batch Processing
+#### Run tests
+
 ```bash
-# Process multiple documents
-python manage.py process_documents /path/to/documents/
-```
+# Activate venv
+source .venv/bin/activate 
 
-#### Running Tests
-```bash
-# Set dataset path for tests
-export SMARTDOC_DATASET_PATH=/path/to/docs-sm
+# Run smoke tests
+python manage.py test tests.test_smoke_tests
 
-# Run all tests
-python manage.py test tests
-```
-
----
-
-## 📊 Sample Outputs
-
-### 🧾 Invoice Processing
-**Input:** `invoice_sample.jpg`
-```json
-{
-  "document_type": "invoice",
-  "confidence": 0.92,
-  "entities": {
-    "vendor_name": "ABC Company",
-    "invoice_number": "INV-2024-001",
-    "invoice_date": "2024-01-15",
-    "total_amount": 132.00,
-    "currency": "USD"
-  }
-}
-```
-
-### 📋 Form Processing
-**Input:** `application_form.jpg`
-```json
-{
-  "document_type": "application_form",
-  "confidence": 0.88,
-  "entities": {
-    "applicant_name": "Sarah Johnson",
-    "phone_number": "(555) 123-4567",
-    "email": "sarah.johnson@email.com",
-    "address": "456 Oak Avenue, Springfield, IL 62701"
-  }
-}
+# Run main tests  
+python tests/test_main_test.py
 ```
 
 ---
@@ -519,10 +573,169 @@ def classify_document(self, text: str) -> str:
 ```
 
 #### 🔌 Adding New Service Providers
-SmartDoc's modular design allows you to easily swap out different service providers without changing the core logic. For example, you can replace Tesseract OCR with Google Vision API, or switch from OpenAI to local LLM models. Simply create a new service class that follows the same interface, then update the configuration settings to use your preferred provider.
+
+SmartDoc uses a provider-based architecture where all services implement abstract base classes, making it easy to add new providers:
+
+**1. OCR Providers** - Located in `api/services/ocr/ocr_providers/`
+```python
+# Example: Adding Google Vision OCR Provider
+from .base import OCRProvider
+
+class GoogleVisionProvider(OCRProvider):
+    def extract_text(self, image):
+        # Implement Google Vision API logic
+        pass
+    
+    def extract_text_with_confidence(self, image):
+        # Return text with confidence scores
+        pass
+    
+    @property
+    def name(self) -> str:
+        return "Google Vision OCR"
+    
+    def is_available(self) -> bool:
+        # Check API credentials
+        return True
+```
+
+**2. LLM Providers** - Located in `api/services/llm/llm_providers/`
+```python
+# Example: Adding Anthropic Claude Provider
+from .base import LLMProvider
+
+class ClaudeProvider(LLMProvider):
+    def classify_document(self, text: str, document_types: List[str]) -> str:
+        # Implement Claude API logic for classification
+        pass
+    
+    def extract_entities(self, text: str, document_type: str) -> List[Dict]:
+        # Implement Claude API logic for entity extraction
+        pass
+```
+
+**3. Embedding Providers** - Located in `api/services/embedding/embedding_providers/`
+- Text embeddings: Add new models by extending the base embedding provider
+- Image embeddings: Add custom vision models for better document classification
+
+**4. Vector Database Providers** - Located in `api/data/vectordb_providers/`
+```python
+# Example: Adding Pinecone Provider
+from .base_provider import VectorDBProvider
+
+class PineconeProvider(VectorDBProvider):
+    def create_collection(self, name: str) -> bool:
+        # Implement Pinecone collection creation
+        pass
+    
+    def add_documents(self, documents: List[Dict]) -> Dict:
+        # Implement Pinecone document indexing
+        pass
+```
+
+**Provider Registration:**
+Update the service initialization in `api/services/__init__.py` to register your new provider:
+```python
+# Register your new provider
+AVAILABLE_OCR_PROVIDERS['google_vision'] = GoogleVisionProvider
+```
 
 #### 🔄 Adding New Workflows
-The Prefect-based pipeline system lets you create custom document processing workflows for different use cases. You can build specialized workflows by adding new flow definitions in the `api/pipelines/flows/` folder, create custom processing tasks in the `api/pipelines/tasks/` folder, and configure workflow settings in `api/pipelines/config/`.
+
+SmartDoc uses Prefect for workflow orchestration. You can create custom workflows for specific document processing needs:
+
+**1. Create Custom Tasks** - Located in `api/pipelines/tasks/`
+```python
+# Example: api/pipelines/tasks/custom_analysis_tasks.py
+from prefect import task
+from typing import Dict, Any
+
+@task(retries=3, retry_delay_seconds=30)
+def detect_document_language(image_path: str) -> Dict[str, Any]:
+    """Detect the language of document text."""
+    # Your language detection logic
+    return {"language": "en", "confidence": 0.95}
+
+@task(retries=2)
+def extract_tables(image_path: str) -> Dict[str, Any]:
+    """Extract table data from documents."""
+    # Your table extraction logic
+    return {"tables": [], "success": True}
+```
+
+**2. Create Custom Flow** - Located in `api/pipelines/flows/`
+```python
+# Example: api/pipelines/flows/specialized_processing_flow.py
+from prefect import flow
+from ..tasks import process_document_pipeline
+from .custom_analysis_tasks import detect_document_language, extract_tables
+
+@flow(name="specialized-document-processing")
+def specialized_processing_flow(
+    folder_path: str,
+    enable_language_detection: bool = True,
+    enable_table_extraction: bool = False
+) -> Dict[str, Any]:
+    """
+    Specialized workflow with additional processing steps.
+    """
+    # Scan for documents
+    image_paths = scan_directory_for_images(folder_path)
+    
+    results = []
+    for image_path in image_paths:
+        # Standard processing
+        doc_result = process_document_pipeline(image_path)
+        
+        # Add specialized tasks
+        if enable_language_detection:
+            lang_result = detect_document_language(image_path)
+            doc_result['language_info'] = lang_result
+        
+        if enable_table_extraction:
+            table_result = extract_tables(image_path)
+            doc_result['table_data'] = table_result
+        
+        results.append(doc_result)
+    
+    return {"processed_documents": len(results), "results": results}
+```
+
+**3. Configure Flow Settings** - Update `api/pipelines/config/flow_settings.py`
+```python
+# Add your custom workflow settings
+LANGUAGE_DETECTION_ENABLED = True
+TABLE_EXTRACTION_TIMEOUT = 120
+SPECIALIZED_BATCH_SIZE = 10
+```
+
+**4. Create Management Command** - Add to `api/management/commands/`
+```python
+# Example: api/management/commands/specialized_process.py
+from django.core.management.base import BaseCommand
+from api.pipelines.flows.specialized_processing_flow import specialized_processing_flow
+
+class Command(BaseCommand):
+    help = 'Run specialized document processing workflow'
+    
+    def add_arguments(self, parser):
+        parser.add_argument('folder_path', type=str)
+        parser.add_argument('--language-detection', action='store_true')
+        parser.add_argument('--table-extraction', action='store_true')
+    
+    def handle(self, *args, **options):
+        result = specialized_processing_flow(
+            folder_path=options['folder_path'],
+            enable_language_detection=options['language_detection'],
+            enable_table_extraction=options['table_extraction']
+        )
+        self.stdout.write(f"Processed {result['processed_documents']} documents")
+```
+
+**Usage:**
+```bash
+python manage.py specialized_process ./documents/ --language-detection --table-extraction
+```
 
 ---
 
