@@ -1,0 +1,123 @@
+(.venv) (base) ivan@Ivans-MacBook-Pro smartdoc % python manage.py test tests.test_smartdoc
+✅ Loaded vectordb provider: chromadb
+✅ Loaded embedding provider: chromadb
+🚀 Initializing app-level embeddings...
+✅ Using MPS (Apple Silicon GPU) for optimal performance
+🎯 Selected device: mps
+✅ OpenCLIP embedding function initialized successfully
+✅ SentenceTransformer embedding function initialized successfully
+✅ Text: chromadb
+✅ Image: chromadb
+🎯 App embeddings ready
+📱 SmartDoc app ready
+Found 6 test(s).
+Creating test database for alias 'default'...
+System check identified no issues (0 silenced).
+
+🧪 Integration: Full Workflow
+Testing: ti10161552.jpg
+🔍 Extracting text using OCR service...
+🔎 Searching for similar documents in vector database...
+🔍 Debug - Raw text query result: {'success': True, 'results': {'ids': [['6fb5493b-20e8-4d35-ab2b-3b5adfaf5374_txt', '4fad098c-9d10-4d4d-ba42-dc3a94b82bf8_txt', 'd3baecfd-62d5-4f82-8126-0fe683b206a2_txt', '9efa0828-f5d3-4b29-9b6a-7d64f528a2ad_txt', '7704a6b2-ec4d-4dec-8a8e-cb77a0764c3e_txt', '9b416e22-9273-499e-97ee-d16fdb4efd84_txt', 'cedbfb0e-3749-4a45-bdd1-c5e7025802d7_txt']], 'embeddings': None, 'documents': None, 'uris': None, 'included': ['metadatas', 'distances'], 'data': None, 'metadatas': [[{'uuid': '6fb5493b-20e8-4d35-ab2b-3b5adfaf5374', 'type': 'invoice'}, {'type': 'invoice', 'uuid': '4fad098c-9d10-4d4d-ba42-dc3a94b82bf8'}, {'type': 'invoice', 'uuid': 'd3baecfd-62d5-4f82-8126-0fe683b206a2'}, {'type': 'invoice', 'uuid': '9efa0828-f5d3-4b29-9b6a-7d64f528a2ad'}, {'type': 'invoice', 'uuid': '7704a6b2-ec4d-4dec-8a8e-cb77a0764c3e'}, {'uuid': '9b416e22-9273-499e-97ee-d16fdb4efd84', 'type': 'letter'}, {'type': 'invoice', 'uuid': 'cedbfb0e-3749-4a45-bdd1-c5e7025802d7'}]], 'distances': [[0.0, 0.8120899200439453, 0.8154842257499695, 0.8180853128433228, 0.8256068229675293, 0.8406863808631897, 0.8458439111709595]]}, 'collection': 'smartdoc_classifier_text', 'modality': 'text'}
+🔍 Debug - Text metadatas length: 7, distances length: 7
+🔍 Debug - metadata sample: {'uuid': '6fb5493b-20e8-4d35-ab2b-3b5adfaf5374', 'type': 'invoice'}
+🔍 Debug - distances: [0.0, 0.8120899200439453, 0.8154842257499695]
+🔍 Debug - doc_type: invoice, distance: 0.0000
+🔍 Debug - doc_type: invoice, distance: 0.8121
+🔍 Debug - doc_type: invoice, distance: 0.8155
+🔍 Debug - doc_type: invoice, distance: 0.8181
+🔍 Debug - doc_type: invoice, distance: 0.8256
+🔍 Debug - doc_type: letter, distance: 0.8407
+🔍 Debug - doc_type: invoice, distance: 0.8458
+🔍 Debug - doc_type_scores: {'invoice': 1.8828898072242737, 'letter': 0.1593136191368103}, total_weight: 2.042203426361084
+📝 Text search: invoice (confidence: 0.922)
+🔍 Debug - About to call image search...
+🔍 Debug - Starting image search for: /var/folders/qc/_7ltyyj57vb90pr4hx744qy40000gn/T/tmpsr6ajoaz.jpg
+✅ Using MPS (Apple Silicon GPU) for optimal performance
+🎯 Selected device: mps
+✅ OpenCLIP embedding function initialized successfully
+✅ SentenceTransformer embedding function initialized successfully
+🔍 Debug - Image embedding result: True
+🔍 Debug - About to query image collection with embedding length: 512
+🔍 Debug - smartdoc_classifier_images exists: True
+🔍 Debug - smartdoc_classifier_images count: 3493
+🔍 Debug - Image query completed, success: True
+🔍 Debug - Raw image query result: {'success': True, 'results': {'ids': [['6fb5493b-20e8-4d35-ab2b-3b5adfaf5374_img', '1d525c59-9314-46c8-a12a-4acf748b18c7_img', '9efa0828-f5d3-4b29-9b6a-7d64f528a2ad_img']], 'embeddings': None, 'documents': None, 'uris': None, 'included': ['metadatas', 'distances'], 'data': None, 'metadatas': [[{'uuid': '6fb5493b-20e8-4d35-ab2b-3b5adfaf5374', 'type': 'invoice'}, {'uuid': '1d525c59-9314-46c8-a12a-4acf748b18c7', 'type': 'unknown'}, {'type': 'invoice', 'uuid': '9efa0828-f5d3-4b29-9b6a-7d64f528a2ad'}]], 'distances': [[0.0, 0.20430243015289307, 0.2557361423969269]]}, 'collection': 'smartdoc_classifier_images', 'modality': 'image'}
+🔍 Debug - Image metadatas length: 3, distances length: 3
+🔍 Debug - metadata sample: {'uuid': '6fb5493b-20e8-4d35-ab2b-3b5adfaf5374', 'type': 'invoice'}
+🔍 Debug - distances: [0.0, 0.20430243015289307, 0.2557361423969269]
+🔍 Debug - doc_type: invoice, distance: 0.0000
+🔍 Debug - doc_type: unknown, distance: 0.2043
+🔍 Debug - doc_type: invoice, distance: 0.2557
+🔍 Debug - doc_type_scores: {'invoice': 1.7442638576030731}, total_weight: 1.7442638576030731
+🖼️ Image search: invoice (confidence: 1.000)
+🔍 Debug - Image search returned: {'classification': 'invoice', 'confidence': 1.0}
+📊 Analyzing document type with dual confidence...
+🎯 Final: invoice (image wins, confidence: 1.000)
+🤖 Extracting entities using LLM service...
+✅ Analyzed as 'invoice' with 0 entities
+.
+🧪 PT-001: Classification Accuracy
+  ✓ ti10161552.jpg → invoice
+  ✓ 513595968.jpg → form
+  ✓ 0001239054.jpg → letter
+  ✓ 0013001762.jpg → memo
+✅ Accuracy: 100.0% (≥70% required)
+   Results: 4/4 correct
+.
+🧪 UT-001: OCR Text Extraction
+Testing: ti10161552.jpg
+✅ Extracted text (confidence: 0.77)
+.
+🧪 UT-002: Document Classification
+Testing: ti10161552.jpg
+✅ Classified as: invoice (confidence: 0)
+.
+🧪 UT-003: Entity Extraction
+Testing: ti10161552.jpg
+✅ Extracted 13 entities
+.
+🧪 UT-004: API Endpoint Functionality
+Testing: ti10161552.jpg
+🔍 Extracting text using OCR service...
+🔎 Searching for similar documents in vector database...
+🔍 Debug - Raw text query result: {'success': True, 'results': {'ids': [['6fb5493b-20e8-4d35-ab2b-3b5adfaf5374_txt', '4fad098c-9d10-4d4d-ba42-dc3a94b82bf8_txt', 'd3baecfd-62d5-4f82-8126-0fe683b206a2_txt', '9efa0828-f5d3-4b29-9b6a-7d64f528a2ad_txt', '7704a6b2-ec4d-4dec-8a8e-cb77a0764c3e_txt', '9b416e22-9273-499e-97ee-d16fdb4efd84_txt', 'cedbfb0e-3749-4a45-bdd1-c5e7025802d7_txt']], 'embeddings': None, 'documents': None, 'uris': None, 'included': ['metadatas', 'distances'], 'data': None, 'metadatas': [[{'uuid': '6fb5493b-20e8-4d35-ab2b-3b5adfaf5374', 'type': 'invoice'}, {'uuid': '4fad098c-9d10-4d4d-ba42-dc3a94b82bf8', 'type': 'invoice'}, {'uuid': 'd3baecfd-62d5-4f82-8126-0fe683b206a2', 'type': 'invoice'}, {'type': 'invoice', 'uuid': '9efa0828-f5d3-4b29-9b6a-7d64f528a2ad'}, {'uuid': '7704a6b2-ec4d-4dec-8a8e-cb77a0764c3e', 'type': 'invoice'}, {'type': 'letter', 'uuid': '9b416e22-9273-499e-97ee-d16fdb4efd84'}, {'uuid': 'cedbfb0e-3749-4a45-bdd1-c5e7025802d7', 'type': 'invoice'}]], 'distances': [[0.0, 0.8120899200439453, 0.8154842257499695, 0.8180853128433228, 0.8256068229675293, 0.8406863808631897, 0.8458439111709595]]}, 'collection': 'smartdoc_classifier_text', 'modality': 'text'}
+🔍 Debug - Text metadatas length: 7, distances length: 7
+🔍 Debug - metadata sample: {'uuid': '6fb5493b-20e8-4d35-ab2b-3b5adfaf5374', 'type': 'invoice'}
+🔍 Debug - distances: [0.0, 0.8120899200439453, 0.8154842257499695]
+🔍 Debug - doc_type: invoice, distance: 0.0000
+🔍 Debug - doc_type: invoice, distance: 0.8121
+🔍 Debug - doc_type: invoice, distance: 0.8155
+🔍 Debug - doc_type: invoice, distance: 0.8181
+🔍 Debug - doc_type: invoice, distance: 0.8256
+🔍 Debug - doc_type: letter, distance: 0.8407
+🔍 Debug - doc_type: invoice, distance: 0.8458
+🔍 Debug - doc_type_scores: {'invoice': 1.8828898072242737, 'letter': 0.1593136191368103}, total_weight: 2.042203426361084
+📝 Text search: invoice (confidence: 0.922)
+🔍 Debug - About to call image search...
+🔍 Debug - Starting image search for: /var/folders/qc/_7ltyyj57vb90pr4hx744qy40000gn/T/tmp2q5qiqu3.jpg
+🔍 Debug - Image embedding result: True
+🔍 Debug - About to query image collection with embedding length: 512
+🔍 Debug - smartdoc_classifier_images exists: True
+🔍 Debug - smartdoc_classifier_images count: 3493
+🔍 Debug - Image query completed, success: True
+🔍 Debug - Raw image query result: {'success': True, 'results': {'ids': [['6fb5493b-20e8-4d35-ab2b-3b5adfaf5374_img', '1d525c59-9314-46c8-a12a-4acf748b18c7_img', '9efa0828-f5d3-4b29-9b6a-7d64f528a2ad_img']], 'embeddings': None, 'documents': None, 'uris': None, 'included': ['metadatas', 'distances'], 'data': None, 'metadatas': [[{'type': 'invoice', 'uuid': '6fb5493b-20e8-4d35-ab2b-3b5adfaf5374'}, {'type': 'unknown', 'uuid': '1d525c59-9314-46c8-a12a-4acf748b18c7'}, {'uuid': '9efa0828-f5d3-4b29-9b6a-7d64f528a2ad', 'type': 'invoice'}]], 'distances': [[0.0, 0.20430243015289307, 0.2557361423969269]]}, 'collection': 'smartdoc_classifier_images', 'modality': 'image'}
+🔍 Debug - Image metadatas length: 3, distances length: 3
+🔍 Debug - metadata sample: {'type': 'invoice', 'uuid': '6fb5493b-20e8-4d35-ab2b-3b5adfaf5374'}
+🔍 Debug - distances: [0.0, 0.20430243015289307, 0.2557361423969269]
+🔍 Debug - doc_type: invoice, distance: 0.0000
+🔍 Debug - doc_type: unknown, distance: 0.2043
+🔍 Debug - doc_type: invoice, distance: 0.2557
+🔍 Debug - doc_type_scores: {'invoice': 1.7442638576030731}, total_weight: 1.7442638576030731
+🖼️ Image search: invoice (confidence: 1.000)
+🔍 Debug - Image search returned: {'classification': 'invoice', 'confidence': 1.0}
+📊 Analyzing document type with dual confidence...
+🎯 Final: invoice (image wins, confidence: 1.000)
+🤖 Extracting entities using LLM service...
+✅ API returned: invoice with 0 entities
+.
+----------------------------------------------------------------------
+Ran 6 tests in 17.017s
+
+OK
+Destroying test database for alias 'default'...

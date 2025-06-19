@@ -1,0 +1,524 @@
+22:06:56.757 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 31: 25 indexed, 0 failed
+22:06:56.757 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 32/140 (25 documents)
+22:07:02.249 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 32: 25 indexed, 0 failed
+22:07:02.249 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 33/140 (25 documents)
+22:07:08.395 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 33: 25 indexed, 0 failed
+22:07:08.395 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 34/140 (25 documents)
+22:07:13.904 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 34: 25 indexed, 0 failed
+22:07:13.904 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 35/140 (25 documents)
+22:07:22.905 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 35: 25 indexed, 0 failed
+22:07:22.905 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 36/140 (25 documents)
+22:07:28.998 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 36: 25 indexed, 0 failed
+22:07:28.999 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 37/140 (25 documents)
+22:07:35.858 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 37: 25 indexed, 0 failed
+22:07:35.859 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 38/140 (25 documents)
+22:07:41.436 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 38: 25 indexed, 0 failed
+22:07:41.436 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 39/140 (25 documents)
+22:07:47.653 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 39: 25 indexed, 0 failed
+22:07:47.653 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 40/140 (25 documents)
+22:07:53.750 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 40: 25 indexed, 0 failed
+22:07:53.751 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 41/140 (25 documents)
+22:07:58.829 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 41: 25 indexed, 0 failed
+22:07:58.829 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 42/140 (25 documents)
+22:08:03.896 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 42: 25 indexed, 0 failed
+22:08:03.896 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 43/140 (25 documents)
+22:08:07.616 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 43: 25 indexed, 0 failed
+22:08:07.616 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 44/140 (25 documents)
+22:08:14.758 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 44: 25 indexed, 0 failed
+22:08:14.759 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 45/140 (25 documents)
+22:08:20.403 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 45: 25 indexed, 0 failed
+22:08:20.403 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 46/140 (25 documents)
+22:08:25.682 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 46: 25 indexed, 0 failed
+22:08:25.683 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 47/140 (25 documents)
+22:08:32.164 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 47: 25 indexed, 0 failed
+22:08:32.165 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 48/140 (25 documents)
+22:08:36.629 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 48: 25 indexed, 0 failed
+22:08:36.630 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 49/140 (25 documents)
+22:08:41.154 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 49: 25 indexed, 0 failed
+22:08:41.155 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 50/140 (25 documents)
+22:08:45.598 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 50: 25 indexed, 0 failed
+22:08:45.598 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 51/140 (25 documents)
+22:08:52.102 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 51: 25 indexed, 0 failed
+22:08:52.102 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 52/140 (25 documents)
+22:08:58.588 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 52: 25 indexed, 0 failed
+22:08:58.589 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 53/140 (25 documents)
+22:09:03.774 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 53: 25 indexed, 0 failed
+22:09:03.775 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 54/140 (25 documents)
+22:09:09.688 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 54: 25 indexed, 0 failed
+22:09:09.688 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 55/140 (25 documents)
+22:09:16.195 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 55: 25 indexed, 0 failed
+22:09:16.196 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 56/140 (25 documents)
+22:09:21.431 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 56: 25 indexed, 0 failed
+22:09:21.432 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 57/140 (25 documents)
+22:09:25.960 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 57: 25 indexed, 0 failed
+22:09:25.960 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 58/140 (25 documents)
+22:09:31.921 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 58: 25 indexed, 0 failed
+22:09:31.922 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 59/140 (25 documents)
+22:09:40.536 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 59: 25 indexed, 0 failed
+22:09:40.536 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 60/140 (25 documents)
+22:09:46.426 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 60: 25 indexed, 0 failed
+22:09:46.427 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 61/140 (25 documents)
+22:09:52.325 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 61: 25 indexed, 0 failed
+22:09:52.325 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 62/140 (25 documents)
+22:09:58.302 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 62: 25 indexed, 0 failed
+22:09:58.302 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 63/140 (25 documents)
+22:10:05.018 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 63: 25 indexed, 0 failed
+22:10:05.018 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 64/140 (25 documents)
+22:10:11.708 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 64: 25 indexed, 0 failed
+22:10:11.708 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 65/140 (25 documents)
+22:10:17.037 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 65: 25 indexed, 0 failed
+22:10:17.037 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 66/140 (25 documents)
+22:10:23.804 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 66: 25 indexed, 0 failed
+22:10:23.805 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 67/140 (25 documents)
+22:10:31.155 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 67: 25 indexed, 0 failed
+22:10:31.155 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 68/140 (25 documents)
+22:10:37.846 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 68: 25 indexed, 0 failed
+22:10:37.846 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 69/140 (25 documents)
+22:10:45.256 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 69: 25 indexed, 0 failed
+22:10:45.256 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 70/140 (25 documents)
+22:10:51.445 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 70: 25 indexed, 0 failed
+22:10:51.446 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 71/140 (25 documents)
+22:10:59.106 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 71: 25 indexed, 0 failed
+22:10:59.106 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 72/140 (25 documents)
+22:11:06.592 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 72: 25 indexed, 0 failed
+22:11:06.592 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 73/140 (25 documents)
+22:11:13.411 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 73: 25 indexed, 0 failed
+22:11:13.411 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 74/140 (25 documents)
+22:11:20.329 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 74: 25 indexed, 0 failed
+22:11:20.329 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 75/140 (25 documents)
+22:11:25.105 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 75: 25 indexed, 0 failed
+22:11:25.105 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 76/140 (25 documents)
+22:11:31.279 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 76: 25 indexed, 0 failed
+22:11:31.279 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 77/140 (25 documents)
+22:11:37.376 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 77: 25 indexed, 0 failed
+22:11:37.377 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 78/140 (25 documents)
+22:11:42.798 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 78: 25 indexed, 0 failed
+22:11:42.799 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 79/140 (25 documents)
+22:11:47.735 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 79: 25 indexed, 0 failed
+22:11:47.735 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 80/140 (25 documents)
+22:11:52.634 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 80: 25 indexed, 0 failed
+22:11:52.634 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 81/140 (25 documents)
+22:11:57.063 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 81: 25 indexed, 0 failed
+22:11:57.064 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 82/140 (25 documents)
+22:12:01.600 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 82: 25 indexed, 0 failed
+22:12:01.600 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 83/140 (25 documents)
+22:12:07.426 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 83: 25 indexed, 0 failed
+22:12:07.427 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 84/140 (25 documents)
+22:12:12.635 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 84: 25 indexed, 0 failed
+22:12:12.635 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 85/140 (25 documents)
+22:12:18.535 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 85: 25 indexed, 0 failed
+22:12:18.536 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 86/140 (25 documents)
+22:12:24.435 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 86: 25 indexed, 0 failed
+22:12:24.436 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 87/140 (25 documents)
+22:12:31.592 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 87: 25 indexed, 0 failed
+22:12:31.592 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 88/140 (25 documents)
+22:12:38.792 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 88: 25 indexed, 0 failed
+22:12:38.792 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 89/140 (25 documents)
+22:12:44.599 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 89: 25 indexed, 0 failed
+22:12:44.600 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 90/140 (25 documents)
+22:12:52.978 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 90: 25 indexed, 0 failed
+22:12:52.978 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 91/140 (25 documents)
+22:13:00.219 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 91: 25 indexed, 0 failed
+22:13:00.219 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 92/140 (25 documents)
+22:13:06.780 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 92: 25 indexed, 0 failed
+22:13:06.781 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 93/140 (25 documents)
+22:13:14.001 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 93: 25 indexed, 0 failed
+22:13:14.001 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 94/140 (25 documents)
+22:13:21.219 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 94: 25 indexed, 0 failed
+22:13:21.219 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 95/140 (25 documents)
+22:13:28.448 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 95: 25 indexed, 0 failed
+22:13:28.449 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 96/140 (25 documents)
+22:13:33.619 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 96: 25 indexed, 0 failed
+22:13:33.620 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 97/140 (25 documents)
+22:13:38.865 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 97: 25 indexed, 0 failed
+22:13:38.866 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 98/140 (25 documents)
+22:13:44.825 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 98: 25 indexed, 0 failed
+22:13:44.825 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 99/140 (25 documents)
+22:13:52.105 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 99: 25 indexed, 0 failed
+22:13:52.106 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 100/140 (25 documents)
+22:13:58.752 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 100: 25 indexed, 0 failed
+22:13:58.753 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 101/140 (25 documents)
+22:14:04.756 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 101: 25 indexed, 0 failed
+22:14:04.756 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 102/140 (25 documents)
+22:14:11.361 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 102: 25 indexed, 0 failed
+22:14:11.362 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 103/140 (25 documents)
+22:14:17.281 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 103: 25 indexed, 0 failed
+22:14:17.281 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 104/140 (25 documents)
+22:14:23.280 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 104: 25 indexed, 0 failed
+22:14:23.281 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 105/140 (25 documents)
+22:14:31.974 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 105: 25 indexed, 0 failed
+22:14:31.975 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 106/140 (25 documents)
+22:14:38.608 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 106: 25 indexed, 0 failed
+22:14:38.609 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 107/140 (25 documents)
+22:14:47.365 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 107: 25 indexed, 0 failed
+22:14:47.366 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 108/140 (25 documents)
+22:14:55.523 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 108: 25 indexed, 0 failed
+22:14:55.524 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 109/140 (25 documents)
+22:15:02.961 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 109: 25 indexed, 0 failed
+22:15:02.961 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 110/140 (25 documents)
+22:15:12.506 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 110: 25 indexed, 0 failed
+22:15:12.507 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 111/140 (25 documents)
+22:15:20.640 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 111: 25 indexed, 0 failed
+22:15:20.640 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 112/140 (25 documents)
+22:15:28.706 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 112: 25 indexed, 0 failed
+22:15:28.707 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 113/140 (25 documents)
+22:15:36.093 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 113: 25 indexed, 0 failed
+22:15:36.093 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 114/140 (25 documents)
+22:15:43.545 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 114: 25 indexed, 0 failed
+22:15:43.545 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 115/140 (25 documents)
+22:15:46.887 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 115: 25 indexed, 0 failed
+22:15:46.888 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 116/140 (25 documents)
+22:15:51.660 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 116: 25 indexed, 0 failed
+22:15:51.660 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 117/140 (25 documents)
+22:15:57.142 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 117: 25 indexed, 0 failed
+22:15:57.143 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 118/140 (25 documents)
+22:16:01.918 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 118: 25 indexed, 0 failed
+22:16:01.918 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 119/140 (25 documents)
+22:16:07.977 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 119: 25 indexed, 0 failed
+22:16:07.977 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 120/140 (25 documents)
+22:16:14.157 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 120: 25 indexed, 0 failed
+22:16:14.158 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 121/140 (25 documents)
+22:16:17.875 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 121: 25 indexed, 0 failed
+22:16:17.875 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 122/140 (25 documents)
+22:16:22.966 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 122: 25 indexed, 0 failed
+22:16:22.966 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 123/140 (25 documents)
+22:16:29.400 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 123: 25 indexed, 0 failed
+22:16:29.401 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 124/140 (25 documents)
+22:16:36.514 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 124: 25 indexed, 0 failed
+22:16:36.514 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 125/140 (25 documents)
+22:16:42.339 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 125: 25 indexed, 0 failed
+22:16:42.339 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 126/140 (25 documents)
+22:16:48.195 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 126: 25 indexed, 0 failed
+22:16:48.196 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 127/140 (25 documents)
+22:16:53.363 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 127: 25 indexed, 0 failed
+22:16:53.364 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 128/140 (25 documents)
+22:16:58.509 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 128: 25 indexed, 0 failed
+22:16:58.509 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 129/140 (25 documents)
+22:17:04.986 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 129: 25 indexed, 0 failed
+22:17:04.987 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 130/140 (25 documents)
+22:17:12.246 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 130: 25 indexed, 0 failed
+22:17:12.247 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 131/140 (25 documents)
+22:17:19.557 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 131: 25 indexed, 0 failed
+22:17:19.558 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 132/140 (25 documents)
+22:17:25.463 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 132: 25 indexed, 0 failed
+22:17:25.463 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 133/140 (25 documents)
+22:17:33.405 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 133: 25 indexed, 0 failed
+22:17:33.406 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 134/140 (25 documents)
+22:17:40.732 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 134: 25 indexed, 0 failed
+22:17:40.733 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 135/140 (25 documents)
+22:17:47.293 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 135: 25 indexed, 0 failed
+22:17:47.293 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 136/140 (25 documents)
+22:17:54.542 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 136: 25 indexed, 0 failed
+22:17:54.543 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 137/140 (25 documents)
+22:18:00.473 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 137: 25 indexed, 0 failed
+22:18:00.474 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 138/140 (25 documents)
+22:18:07.779 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 138: 25 indexed, 0 failed
+22:18:07.779 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 139/140 (25 documents)
+22:18:15.091 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 139: 25 indexed, 0 failed
+22:18:15.092 | INFO    | Task run 'index-documents-f1a' - 📦 Processing batch 140/140 (18 documents)
+22:18:21.212 | INFO    | Task run 'index-documents-f1a' - ✅ Batch 140: 18 indexed, 0 failed
+22:18:21.212 | INFO    | Task run 'index-documents-f1a' - 🎯 Batch indexing completed:
+22:18:21.213 | INFO    | Task run 'index-documents-f1a' -    ✅ Indexed: 3493
+22:18:21.213 | INFO    | Task run 'index-documents-f1a' -    ❌ Failed: 0
+22:18:21.213 | INFO    | Task run 'index-documents-f1a' -    📊 Success rate: 100.0%
+22:18:21.220 | INFO    | Task run 'index-documents-f1a' - Finished in state Completed()
+22:18:21.221 | INFO    | Flow run 'able-mayfly' - 🔍 Indexing to classifier collections...
+22:18:22.072 | INFO    | Task run 'index-documents-classifier-066' - 🚀 Starting classifier indexing of 3493 documents
+22:18:22.073 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 1/140 (25 documents)
+22:18:41.503 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 1: 25 indexed, 0 failed
+22:18:41.503 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 2/140 (25 documents)
+22:19:00.394 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 2: 25 indexed, 0 failed
+22:19:00.395 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 3/140 (25 documents)
+22:19:19.810 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 3: 25 indexed, 0 failed
+22:19:19.811 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 4/140 (25 documents)
+22:19:39.331 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 4: 25 indexed, 0 failed
+22:19:39.331 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 5/140 (25 documents)
+22:19:59.286 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 5: 25 indexed, 0 failed
+22:19:59.286 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 6/140 (25 documents)
+22:20:19.147 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 6: 25 indexed, 0 failed
+22:20:19.147 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 7/140 (25 documents)
+22:20:38.724 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 7: 25 indexed, 0 failed
+22:20:38.724 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 8/140 (25 documents)
+22:20:58.091 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 8: 25 indexed, 0 failed
+22:20:58.092 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 9/140 (25 documents)
+22:21:16.893 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 9: 25 indexed, 0 failed
+22:21:16.893 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 10/140 (25 documents)
+22:21:36.085 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 10: 25 indexed, 0 failed
+22:21:36.086 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 11/140 (25 documents)
+22:21:54.460 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 11: 25 indexed, 0 failed
+22:21:54.460 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 12/140 (25 documents)
+22:22:14.329 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 12: 25 indexed, 0 failed
+22:22:14.330 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 13/140 (25 documents)
+22:22:34.452 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 13: 25 indexed, 0 failed
+22:22:34.453 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 14/140 (25 documents)
+22:22:54.668 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 14: 25 indexed, 0 failed
+22:22:54.668 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 15/140 (25 documents)
+22:23:14.489 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 15: 25 indexed, 0 failed
+22:23:14.490 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 16/140 (25 documents)
+22:23:33.559 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 16: 25 indexed, 0 failed
+22:23:33.559 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 17/140 (25 documents)
+22:23:51.751 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 17: 25 indexed, 0 failed
+22:23:51.752 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 18/140 (25 documents)
+22:24:08.797 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 18: 25 indexed, 0 failed
+22:24:08.798 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 19/140 (25 documents)
+22:24:27.985 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 19: 25 indexed, 0 failed
+22:24:27.986 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 20/140 (25 documents)
+22:24:45.187 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 20: 25 indexed, 0 failed
+22:24:45.187 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 21/140 (25 documents)
+22:25:03.410 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 21: 25 indexed, 0 failed
+22:25:03.410 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 22/140 (25 documents)
+22:25:20.448 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 22: 25 indexed, 0 failed
+22:25:20.449 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 23/140 (25 documents)
+22:25:39.511 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 23: 25 indexed, 0 failed
+22:25:39.511 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 24/140 (25 documents)
+22:25:58.707 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 24: 25 indexed, 0 failed
+22:25:58.707 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 25/140 (25 documents)
+22:26:17.042 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 25: 25 indexed, 0 failed
+22:26:17.042 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 26/140 (25 documents)
+22:26:35.403 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 26: 25 indexed, 0 failed
+22:26:35.404 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 27/140 (25 documents)
+22:26:55.501 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 27: 25 indexed, 0 failed
+22:26:55.502 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 28/140 (25 documents)
+22:27:15.458 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 28: 25 indexed, 0 failed
+22:27:15.458 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 29/140 (25 documents)
+22:27:36.121 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 29: 25 indexed, 0 failed
+22:27:36.121 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 30/140 (25 documents)
+22:27:56.838 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 30: 25 indexed, 0 failed
+22:27:56.838 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 31/140 (25 documents)
+22:28:17.120 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 31: 25 indexed, 0 failed
+22:28:17.121 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 32/140 (25 documents)
+22:28:37.612 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 32: 25 indexed, 0 failed
+22:28:37.613 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 33/140 (25 documents)
+22:28:58.124 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 33: 25 indexed, 0 failed
+22:28:58.124 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 34/140 (25 documents)
+22:29:18.803 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 34: 25 indexed, 0 failed
+22:29:18.804 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 35/140 (25 documents)
+22:29:38.938 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 35: 25 indexed, 0 failed
+22:29:38.939 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 36/140 (25 documents)
+22:29:58.157 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 36: 25 indexed, 0 failed
+22:29:58.157 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 37/140 (25 documents)
+22:30:17.332 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 37: 25 indexed, 0 failed
+22:30:17.332 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 38/140 (25 documents)
+22:30:36.516 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 38: 25 indexed, 0 failed
+22:30:36.516 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 39/140 (25 documents)
+22:30:56.456 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 39: 25 indexed, 0 failed
+22:30:56.456 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 40/140 (25 documents)
+22:31:15.825 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 40: 25 indexed, 0 failed
+22:31:15.826 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 41/140 (25 documents)
+22:31:35.581 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 41: 25 indexed, 0 failed
+22:31:35.581 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 42/140 (25 documents)
+22:31:54.942 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 42: 25 indexed, 0 failed
+22:31:54.943 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 43/140 (25 documents)
+22:32:14.550 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 43: 25 indexed, 0 failed
+22:32:14.550 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 44/140 (25 documents)
+22:32:33.495 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 44: 25 indexed, 0 failed
+22:32:33.495 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 45/140 (25 documents)
+22:32:53.235 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 45: 25 indexed, 0 failed
+22:32:53.235 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 46/140 (25 documents)
+22:33:12.714 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 46: 25 indexed, 0 failed
+22:33:12.714 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 47/140 (25 documents)
+22:33:31.994 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 47: 25 indexed, 0 failed
+22:33:31.994 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 48/140 (25 documents)
+22:33:51.513 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 48: 25 indexed, 0 failed
+22:33:51.514 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 49/140 (25 documents)
+22:34:10.831 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 49: 25 indexed, 0 failed
+22:34:10.832 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 50/140 (25 documents)
+22:34:30.024 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 50: 25 indexed, 0 failed
+22:34:30.024 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 51/140 (25 documents)
+22:34:48.573 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 51: 25 indexed, 0 failed
+22:34:48.574 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 52/140 (25 documents)
+22:35:07.749 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 52: 25 indexed, 0 failed
+22:35:07.749 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 53/140 (25 documents)
+22:35:27.027 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 53: 25 indexed, 0 failed
+22:35:27.028 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 54/140 (25 documents)
+22:35:46.553 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 54: 25 indexed, 0 failed
+22:35:46.554 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 55/140 (25 documents)
+22:36:06.372 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 55: 25 indexed, 0 failed
+22:36:06.372 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 56/140 (25 documents)
+22:36:26.070 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 56: 25 indexed, 0 failed
+22:36:26.071 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 57/140 (25 documents)
+22:36:46.008 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 57: 25 indexed, 0 failed
+22:36:46.009 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 58/140 (25 documents)
+22:37:06.097 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 58: 25 indexed, 0 failed
+22:37:06.097 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 59/140 (25 documents)
+22:37:25.812 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 59: 25 indexed, 0 failed
+22:37:25.813 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 60/140 (25 documents)
+22:37:45.443 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 60: 25 indexed, 0 failed
+22:37:45.443 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 61/140 (25 documents)
+22:38:05.531 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 61: 25 indexed, 0 failed
+22:38:05.531 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 62/140 (25 documents)
+22:38:25.367 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 62: 25 indexed, 0 failed
+22:38:25.367 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 63/140 (25 documents)
+22:38:44.453 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 63: 25 indexed, 0 failed
+22:38:44.454 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 64/140 (25 documents)
+22:39:04.125 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 64: 25 indexed, 0 failed
+22:39:04.125 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 65/140 (25 documents)
+22:39:23.931 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 65: 25 indexed, 0 failed
+22:39:23.932 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 66/140 (25 documents)
+22:39:43.675 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 66: 25 indexed, 0 failed
+22:39:43.675 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 67/140 (25 documents)
+22:40:02.820 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 67: 25 indexed, 0 failed
+22:40:02.820 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 68/140 (25 documents)
+22:40:21.949 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 68: 25 indexed, 0 failed
+22:40:21.949 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 69/140 (25 documents)
+22:40:41.877 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 69: 25 indexed, 0 failed
+22:40:41.878 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 70/140 (25 documents)
+22:41:01.497 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 70: 25 indexed, 0 failed
+22:41:01.498 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 71/140 (25 documents)
+22:41:21.012 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 71: 25 indexed, 0 failed
+22:41:21.013 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 72/140 (25 documents)
+22:41:41.158 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 72: 25 indexed, 0 failed
+22:41:41.159 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 73/140 (25 documents)
+22:42:00.094 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 73: 25 indexed, 0 failed
+22:42:00.095 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 74/140 (25 documents)
+22:42:19.638 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 74: 25 indexed, 0 failed
+22:42:19.639 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 75/140 (25 documents)
+22:42:39.298 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 75: 25 indexed, 0 failed
+22:42:39.298 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 76/140 (25 documents)
+22:42:59.191 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 76: 25 indexed, 0 failed
+22:42:59.192 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 77/140 (25 documents)
+22:43:18.995 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 77: 25 indexed, 0 failed
+22:43:18.995 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 78/140 (25 documents)
+22:43:38.634 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 78: 25 indexed, 0 failed
+22:43:38.635 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 79/140 (25 documents)
+22:43:58.271 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 79: 25 indexed, 0 failed
+22:43:58.271 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 80/140 (25 documents)
+22:44:17.931 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 80: 25 indexed, 0 failed
+22:44:17.931 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 81/140 (25 documents)
+22:44:36.874 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 81: 25 indexed, 0 failed
+22:44:36.874 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 82/140 (25 documents)
+22:44:56.735 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 82: 25 indexed, 0 failed
+22:44:56.736 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 83/140 (25 documents)
+22:45:16.762 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 83: 25 indexed, 0 failed
+22:45:16.763 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 84/140 (25 documents)
+22:45:36.830 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 84: 25 indexed, 0 failed
+22:45:36.831 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 85/140 (25 documents)
+22:45:56.717 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 85: 25 indexed, 0 failed
+22:45:56.718 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 86/140 (25 documents)
+22:46:17.116 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 86: 25 indexed, 0 failed
+22:46:17.116 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 87/140 (25 documents)
+22:46:35.435 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 87: 25 indexed, 0 failed
+22:46:35.436 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 88/140 (25 documents)
+22:46:51.324 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 88: 25 indexed, 0 failed
+22:46:51.324 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 89/140 (25 documents)
+22:47:04.456 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 89: 25 indexed, 0 failed
+22:47:04.456 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 90/140 (25 documents)
+22:47:20.376 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 90: 25 indexed, 0 failed
+22:47:20.376 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 91/140 (25 documents)
+22:47:32.743 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 91: 25 indexed, 0 failed
+22:47:32.743 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 92/140 (25 documents)
+22:47:47.530 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 92: 25 indexed, 0 failed
+22:47:47.531 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 93/140 (25 documents)
+22:48:02.750 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 93: 25 indexed, 0 failed
+22:48:02.750 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 94/140 (25 documents)
+22:48:19.107 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 94: 25 indexed, 0 failed
+22:48:19.107 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 95/140 (25 documents)
+22:48:35.345 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 95: 25 indexed, 0 failed
+22:48:35.346 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 96/140 (25 documents)
+22:48:50.969 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 96: 25 indexed, 0 failed
+22:48:50.969 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 97/140 (25 documents)
+22:49:06.622 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 97: 25 indexed, 0 failed
+22:49:06.622 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 98/140 (25 documents)
+22:49:24.016 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 98: 25 indexed, 0 failed
+22:49:24.016 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 99/140 (25 documents)
+22:49:42.854 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 99: 25 indexed, 0 failed
+22:49:42.855 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 100/140 (25 documents)
+22:50:00.682 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 100: 25 indexed, 0 failed
+22:50:00.682 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 101/140 (25 documents)
+22:50:17.564 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 101: 25 indexed, 0 failed
+22:50:17.564 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 102/140 (25 documents)
+22:50:35.001 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 102: 25 indexed, 0 failed
+22:50:35.002 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 103/140 (25 documents)
+22:50:53.096 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 103: 25 indexed, 0 failed
+22:50:53.097 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 104/140 (25 documents)
+22:51:10.672 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 104: 25 indexed, 0 failed
+22:51:10.672 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 105/140 (25 documents)
+22:51:28.383 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 105: 25 indexed, 0 failed
+22:51:28.383 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 106/140 (25 documents)
+22:51:47.132 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 106: 25 indexed, 0 failed
+22:51:47.133 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 107/140 (25 documents)
+22:52:05.874 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 107: 25 indexed, 0 failed
+22:52:05.874 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 108/140 (25 documents)
+22:52:24.662 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 108: 25 indexed, 0 failed
+22:52:24.663 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 109/140 (25 documents)
+22:52:43.374 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 109: 25 indexed, 0 failed
+22:52:43.374 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 110/140 (25 documents)
+22:53:02.164 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 110: 25 indexed, 0 failed
+22:53:02.165 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 111/140 (25 documents)
+22:53:20.858 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 111: 25 indexed, 0 failed
+22:53:20.858 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 112/140 (25 documents)
+22:53:39.788 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 112: 25 indexed, 0 failed
+22:53:39.789 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 113/140 (25 documents)
+22:53:58.556 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 113: 25 indexed, 0 failed
+22:53:58.557 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 114/140 (25 documents)
+22:54:17.544 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 114: 25 indexed, 0 failed
+22:54:17.544 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 115/140 (25 documents)
+22:54:36.795 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 115: 25 indexed, 0 failed
+22:54:36.796 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 116/140 (25 documents)
+22:54:55.744 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 116: 25 indexed, 0 failed
+22:54:55.744 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 117/140 (25 documents)
+22:55:14.609 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 117: 25 indexed, 0 failed
+22:55:14.609 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 118/140 (25 documents)
+22:55:33.648 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 118: 25 indexed, 0 failed
+22:55:33.649 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 119/140 (25 documents)
+22:55:52.989 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 119: 25 indexed, 0 failed
+22:55:52.990 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 120/140 (25 documents)
+22:56:12.781 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 120: 25 indexed, 0 failed
+22:56:12.782 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 121/140 (25 documents)
+22:56:32.035 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 121: 25 indexed, 0 failed
+22:56:32.035 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 122/140 (25 documents)
+22:56:51.397 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 122: 25 indexed, 0 failed
+22:56:51.398 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 123/140 (25 documents)
+22:57:10.623 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 123: 25 indexed, 0 failed
+22:57:10.623 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 124/140 (25 documents)
+22:57:29.837 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 124: 25 indexed, 0 failed
+22:57:29.837 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 125/140 (25 documents)
+22:57:49.359 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 125: 25 indexed, 0 failed
+22:57:49.359 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 126/140 (25 documents)
+22:58:08.429 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 126: 25 indexed, 0 failed
+22:58:08.430 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 127/140 (25 documents)
+22:58:26.794 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 127: 25 indexed, 0 failed
+22:58:26.795 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 128/140 (25 documents)
+22:58:44.712 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 128: 25 indexed, 0 failed
+22:58:44.713 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 129/140 (25 documents)
+22:59:02.412 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 129: 25 indexed, 0 failed
+22:59:02.412 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 130/140 (25 documents)
+22:59:20.816 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 130: 25 indexed, 0 failed
+22:59:20.817 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 131/140 (25 documents)
+22:59:38.644 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 131: 25 indexed, 0 failed
+22:59:38.644 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 132/140 (25 documents)
+22:59:57.042 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 132: 25 indexed, 0 failed
+22:59:57.042 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 133/140 (25 documents)
+23:00:15.664 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 133: 25 indexed, 0 failed
+23:00:15.665 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 134/140 (25 documents)
+23:00:32.966 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 134: 25 indexed, 0 failed
+23:00:32.967 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 135/140 (25 documents)
+23:00:51.544 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 135: 25 indexed, 0 failed
+23:00:51.544 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 136/140 (25 documents)
+23:01:09.739 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 136: 25 indexed, 0 failed
+23:01:09.740 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 137/140 (25 documents)
+23:01:28.392 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 137: 25 indexed, 0 failed
+23:01:28.392 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 138/140 (25 documents)
+23:01:47.039 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 138: 25 indexed, 0 failed
+23:01:47.040 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 139/140 (25 documents)
+23:02:07.698 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 139: 25 indexed, 0 failed
+23:02:07.699 | INFO    | Task run 'index-documents-classifier-066' - 📦 Processing classifier batch 140/140 (18 documents)
+23:02:20.599 | INFO    | Task run 'index-documents-classifier-066' - ✅ Classifier batch 140: 18 indexed, 0 failed
+23:02:20.600 | INFO    | Task run 'index-documents-classifier-066' - 🎯 Classifier batch indexing completed:
+23:02:20.600 | INFO    | Task run 'index-documents-classifier-066' -    ✅ Indexed: 3493
+23:02:20.600 | INFO    | Task run 'index-documents-classifier-066' -    ❌ Failed: 0
+23:02:20.600 | INFO    | Task run 'index-documents-classifier-066' -    📊 Success rate: 100.0%
+23:02:20.607 | INFO    | Task run 'index-documents-classifier-066' - Finished in state Completed()
+23:02:20.608 | INFO    | Flow run 'able-mayfly' - ✅ Document processing pipeline completed successfully!
+23:02:20.608 | INFO    | Flow run 'able-mayfly' - Total time: 6373.28s
+23:02:20.608 | INFO    | Flow run 'able-mayfly' - Images processed: 3494
+23:02:20.608 | INFO    | Flow run 'able-mayfly' - Documents classified: 3493
+23:02:20.609 | INFO    | Flow run 'able-mayfly' - Entities extracted from: 3350 documents
+23:02:20.609 | INFO    | Flow run 'able-mayfly' - Text embeddings generated: 3350
+23:02:20.609 | INFO    | Flow run 'able-mayfly' - Image embeddings generated: 3493
+23:02:21.321 | INFO    | Flow run 'able-mayfly' - Finished in state Completed()
+Document Processing Pipeline completed successfully!
+--------------------------------------------------
+--------------------------------------------------
+✅ Document Processing Pipeline completed!
+23:02:21.328 | INFO    | prefect - Stopping temporary server on http://127.0.0.1:8464
