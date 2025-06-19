@@ -163,7 +163,7 @@ class VectorDBService:
         try:
             # Prepare batch data
             valid_documents = []
-            document_types_to_save = set()
+            document_types_entities = {}
             
             for doc in documents:
                 image_path = doc.get('image_path')
@@ -183,7 +183,16 @@ class VectorDBService:
                         'image_base64': image_base64,
                         'extracted_entities': doc.get('extracted_entities')
                     })
-                    document_types_to_save.add(document_type)
+                    # Collect entities for document type (avoid duplicates by entity name)
+                    if document_type not in document_types_entities:
+                        document_types_entities[document_type] = {}
+                    entities = doc.get('extracted_entities', [])
+                    if isinstance(entities, list):
+                        for entity in entities:
+                            if isinstance(entity, dict) and 'name' in entity and 'value' in entity and 'description' in entity:
+                                entity_name = entity['name'].strip().lower()
+                                if entity_name not in document_types_entities[document_type]:
+                                    document_types_entities[document_type][entity_name] = entity['description'].strip()
             
             if not valid_documents:
                 return {
@@ -242,11 +251,13 @@ class VectorDBService:
             
             # Index document types to document types collection
             document_types_saved = 0
-            for doc_type in document_types_to_save:
+            for doc_type, entity_dict in document_types_entities.items():
                 try:
                     doc_type_id = f"doctype_{doc_type}"
+                    entities_list = [{"name": name, "description": desc} for name, desc in entity_dict.items()]
                     doc_type_metadata = {
                         "type": doc_type,
+                        "entities": entities_list,
                         "saved_at": datetime.now().isoformat()
                     }
                     
@@ -274,7 +285,7 @@ class VectorDBService:
                     'total_documents': len(documents),
                     'collection_name': collection_name,
                     'document_types_saved': document_types_saved,
-                    'document_types_failed': len(document_types_to_save) - document_types_saved
+                    'document_types_failed': len(document_types_entities) - document_types_saved
                 }
             else:
                 return {
