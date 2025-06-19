@@ -22,11 +22,12 @@
 - [🎯 Problem Definition](#-problem-definition)
 - [🔬 Methodology](#-methodology)
 - [📝 Requirements](#-requirements)
-- [🏗️ Architecture](#️-architecture-design)
+- [📋 Test Plan](#-test-plan)
+- [🏗️ Architecture Design](#️-architecture-design)
 - [⚙️ Implementation](#️-implementation)
-- [🧪 Testing](#-testing)
+- [🧪 Testing Results](#-testing-results)
 - [🚀 Setup & Usage](#-setup--usage)
-- [📊 Sample Outputs](#-sample-outputs)
+- [🔮 Future Development](#-future-development)
 
 ---
 
