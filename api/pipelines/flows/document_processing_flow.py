@@ -125,7 +125,7 @@ def document_processing_flow(
         _log_step(2, total_steps, "Processing documents through parallel streams (OCR→Classification→Entity + Text Embedding + Image Embedding) in batches of 10...", logger)
         
         # Process documents in batches of 14
-        batch_size = 14
+        batch_size = 50
         total_images = len(image_paths)
         pipeline_results = []
         
@@ -227,7 +227,7 @@ def document_processing_flow(
                 'image_path': ocr_result['image_path'],
                 'extracted_text': ocr_result['extracted_text'],
                 'document_type': classification_lookup.get(ocr_result['image_path'], 'unknown'),
-                'extracted_entities': entity_lookup.get(ocr_result['image_path'], {})
+                'extracted_entities': entity_lookup.get(ocr_result['image_path'], [])
             }
             for ocr_result in extraction_results
             if ocr_result['success']
