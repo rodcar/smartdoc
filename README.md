@@ -565,177 +565,22 @@ SmartDoc's modular architecture makes it easy to extend and customize:
 
 #### 📝 Adding New Document Types
 ```python
-# In api/services/analysis/document_classifier.py
-def classify_document(self, text: str) -> str:
-    # Add new document types to the classification logic
-    new_types = ["receipt", "tax_document", "legal_contract"]
-    # Update classification prompt or model
+# In smartdoc/settings.py
+DOCUMENT_TYPES = [
+    "advertisement", "budget", "email", "file_folder", "form", 
+    "handwritten", "invoice", "letter", "memo", "news_article", 
+    "presentation", "questionnaire", "resume", "scientific_publication", 
+    "scientific_report", "specification",
+    # Add new document types here
+    "receipt", "tax_document", "legal_contract"
+]
 ```
 
 #### 🔌 Adding New Service Providers
-
-SmartDoc uses a provider-based architecture where all services implement abstract base classes, making it easy to add new providers:
-
-**1. OCR Providers** - Located in `api/services/ocr/ocr_providers/`
-```python
-# Example: Adding Google Vision OCR Provider
-from .base import OCRProvider
-
-class GoogleVisionProvider(OCRProvider):
-    def extract_text(self, image):
-        # Implement Google Vision API logic
-        pass
-    
-    def extract_text_with_confidence(self, image):
-        # Return text with confidence scores
-        pass
-    
-    @property
-    def name(self) -> str:
-        return "Google Vision OCR"
-    
-    def is_available(self) -> bool:
-        # Check API credentials
-        return True
-```
-
-**2. LLM Providers** - Located in `api/services/llm/llm_providers/`
-```python
-# Example: Adding Anthropic Claude Provider
-from .base import LLMProvider
-
-class ClaudeProvider(LLMProvider):
-    def classify_document(self, text: str, document_types: List[str]) -> str:
-        # Implement Claude API logic for classification
-        pass
-    
-    def extract_entities(self, text: str, document_type: str) -> List[Dict]:
-        # Implement Claude API logic for entity extraction
-        pass
-```
-
-**3. Embedding Providers** - Located in `api/services/embedding/embedding_providers/`
-- Text embeddings: Add new models by extending the base embedding provider
-- Image embeddings: Add custom vision models for better document classification
-
-**4. Vector Database Providers** - Located in `api/data/vectordb_providers/`
-```python
-# Example: Adding Pinecone Provider
-from .base_provider import VectorDBProvider
-
-class PineconeProvider(VectorDBProvider):
-    def create_collection(self, name: str) -> bool:
-        # Implement Pinecone collection creation
-        pass
-    
-    def add_documents(self, documents: List[Dict]) -> Dict:
-        # Implement Pinecone document indexing
-        pass
-```
-
-**Provider Registration:**
-Update the service initialization in `api/services/__init__.py` to register your new provider:
-```python
-# Register your new provider
-AVAILABLE_OCR_PROVIDERS['google_vision'] = GoogleVisionProvider
-```
+SmartDoc uses abstract base classes for all service providers (OCR, LLM, Embedding, Vector DB). To add a new provider, simply inherit from the appropriate base class and implement the required methods. For example, to add Google Vision API for OCR, create a new class inheriting from `OCRProvider` and implement `extract_text()`. The service layer will automatically detect and use your new provider.
 
 #### 🔄 Adding New Workflows
-
-SmartDoc uses Prefect for workflow orchestration. You can create custom workflows for specific document processing needs:
-
-**1. Create Custom Tasks** - Located in `api/pipelines/tasks/`
-```python
-# Example: api/pipelines/tasks/custom_analysis_tasks.py
-from prefect import task
-from typing import Dict, Any
-
-@task(retries=3, retry_delay_seconds=30)
-def detect_document_language(image_path: str) -> Dict[str, Any]:
-    """Detect the language of document text."""
-    # Your language detection logic
-    return {"language": "en", "confidence": 0.95}
-
-@task(retries=2)
-def extract_tables(image_path: str) -> Dict[str, Any]:
-    """Extract table data from documents."""
-    # Your table extraction logic
-    return {"tables": [], "success": True}
-```
-
-**2. Create Custom Flow** - Located in `api/pipelines/flows/`
-```python
-# Example: api/pipelines/flows/specialized_processing_flow.py
-from prefect import flow
-from ..tasks import process_document_pipeline
-from .custom_analysis_tasks import detect_document_language, extract_tables
-
-@flow(name="specialized-document-processing")
-def specialized_processing_flow(
-    folder_path: str,
-    enable_language_detection: bool = True,
-    enable_table_extraction: bool = False
-) -> Dict[str, Any]:
-    """
-    Specialized workflow with additional processing steps.
-    """
-    # Scan for documents
-    image_paths = scan_directory_for_images(folder_path)
-    
-    results = []
-    for image_path in image_paths:
-        # Standard processing
-        doc_result = process_document_pipeline(image_path)
-        
-        # Add specialized tasks
-        if enable_language_detection:
-            lang_result = detect_document_language(image_path)
-            doc_result['language_info'] = lang_result
-        
-        if enable_table_extraction:
-            table_result = extract_tables(image_path)
-            doc_result['table_data'] = table_result
-        
-        results.append(doc_result)
-    
-    return {"processed_documents": len(results), "results": results}
-```
-
-**3. Configure Flow Settings** - Update `api/pipelines/config/flow_settings.py`
-```python
-# Add your custom workflow settings
-LANGUAGE_DETECTION_ENABLED = True
-TABLE_EXTRACTION_TIMEOUT = 120
-SPECIALIZED_BATCH_SIZE = 10
-```
-
-**4. Create Management Command** - Add to `api/management/commands/`
-```python
-# Example: api/management/commands/specialized_process.py
-from django.core.management.base import BaseCommand
-from api.pipelines.flows.specialized_processing_flow import specialized_processing_flow
-
-class Command(BaseCommand):
-    help = 'Run specialized document processing workflow'
-    
-    def add_arguments(self, parser):
-        parser.add_argument('folder_path', type=str)
-        parser.add_argument('--language-detection', action='store_true')
-        parser.add_argument('--table-extraction', action='store_true')
-    
-    def handle(self, *args, **options):
-        result = specialized_processing_flow(
-            folder_path=options['folder_path'],
-            enable_language_detection=options['language_detection'],
-            enable_table_extraction=options['table_extraction']
-        )
-        self.stdout.write(f"Processed {result['processed_documents']} documents")
-```
-
-**Usage:**
-```bash
-python manage.py specialized_process ./documents/ --language-detection --table-extraction
-```
+The Prefect-based pipeline system enables custom document processing workflows through modular task composition. Create new flows by defining task sequences in `api/pipelines/flows/`, add specialized processing tasks in `api/pipelines/tasks/`, and configure workflow parameters in `api/pipelines/config/`. Each task is independently configurable and can be combined to create specialized processing pipelines for different document types or use cases.
 
 ---
 
