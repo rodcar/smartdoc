@@ -535,3 +535,11 @@ The Prefect-based pipeline system lets you create custom document processing wor
 - Experiment with different model sizes, which might help reduce processing time.
 - Train smaller models to improve document classification accuracy and reduce processing time and costs.
 - Use the stored entities for specific document types to enable entity-based search. Also, this could be used to improve document classification.
+
+---
+
+## 📝 License
+
+SmartDoc is licensed under the [Apache License 2.0](LICENSE).
+
+© 2025 Ivan Yang Rodriguez Carranza.
