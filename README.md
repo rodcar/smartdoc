@@ -479,16 +479,16 @@ export SMARTDOC_PRELOAD_EMBEDDINGS=false && rm -rf chromadb && python manage.py 
 
 **Command Options:**
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `--list-providers` | List all available service providers for OCR, LLM, vector DB, and embedding services | - |
-| `--ocr PROVIDER` | OCR provider to use for text extraction (e.g., `tesseract`) | System default |
-| `--llm PROVIDER` | LLM provider to use for document classification and entity extraction (e.g., `openai`) | System default |
-| `--vectordb PROVIDER` | Vector database provider to use for document storage and retrieval (e.g., `chromadb`) | System default |
-| `--text-embedding PROVIDER` | Text embedding provider to use for text vectorization (e.g., `sentence_transformer`) | System default |
-| `--image-embedding PROVIDER` | Image embedding provider to use for image vectorization (e.g., `open_clip`) | System default |
-| `--max-workers N` | Maximum number of concurrent processing tasks | 4 |
-| `--json` | Output results in JSON format instead of human-readable text | False |
+| Option | Description |
+|--------|-------------|
+| `--list-providers` | List all available service providers for OCR, LLM, vector DB, and embedding services |
+| `--ocr PROVIDER` | OCR provider to use for text extraction (e.g., `tesseract`) |
+| `--llm PROVIDER` | LLM provider to use for document classification and entity extraction (e.g., `openai`) |
+| `--vectordb PROVIDER` | Vector database provider to use for document storage and retrieval (e.g., `chromadb`) |
+| `--text-embedding PROVIDER` | Text embedding provider to use for text vectorization |
+| `--image-embedding PROVIDER` | Image embedding provider to use for image vectorization |
+| `--max-workers N` | Maximum number of concurrent processing tasks |
+| `--json` | Output results in JSON format instead of human-readable text |
 
 **Note:** Currently, only the OCR provider can be customized. Other providers use system defaults, but the architecture supports adding custom providers for all services.
 
